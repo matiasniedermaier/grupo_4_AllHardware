@@ -7,7 +7,7 @@ Nos especializamos en entusiastas de PC Gamers y hardware de alta gama. De igual
 
 Integrantes del equipo:
 
-Matias Niedermaier
+Matias Niedermaier, 23 años, amante de la tecnología y futuro programador
 
 Licia
 
