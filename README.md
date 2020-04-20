@@ -11,7 +11,7 @@ Matias Niedermaier, 23 años, amante de la tecnología y futuro programador
 
 Licia
 
-Jose Luis
+Jose Luis Quispe Surculento, 28 años. que decir soy de River y estudiante de Informatica.
 
 
 Paginas de Referencia
