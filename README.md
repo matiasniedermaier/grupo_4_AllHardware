@@ -9,7 +9,7 @@ Integrantes del equipo:
 
 Matias Niedermaier, 23 años, amante de la tecnología y futuro programador
 
-Dora Licia Coronel Ojeda , 29 años, analista de sistemas, instructor en pedagogia, tecnico en armado y repacion de pc. sin ejercer, y soy docente.
+Dora Licia Coronel Ojeda , 29 años, analista de sistemas, instructor en pedagogia, tecnico en armado y reparacion de pc. "sin ejercer", y soy docente.
 
 Jose Luis Quispe Surculento, 28 años. que decir soy de River y estudiante de Informatica.
 
