@@ -22,3 +22,6 @@ https://www.armytech.com.ar/
 https://www.gameron.com.ar/
 https://www.dixitpc.com/
 https://www.logg.com.ar/
+
+
+Link de lataforma que usamos para organizar nuestro trabajo -> https://trello.com/b/aDIwlJd8/proyecto-integrador-dh
