@@ -102,6 +102,10 @@ h1 {
     justify-content: center;
 }
 
+.title-info {
+    color: #666;
+}
+
 .oferta-semana {
     font-size: x-large;
     text-align: center;
@@ -238,4 +242,50 @@ ul li {
 }
 
 
-@media
+@media (min-width: 768px) {
+    
+    .menu-desplegable {
+        padding-left: 20px;
+    }
+
+    .barra-busqueda {
+        display: block;
+    }
+
+    .iconos-header {
+        padding-right: 20px;
+    }
+
+    .fa-user {
+        padding-right: 10px;
+    }
+
+    #carousel-lowviewport {
+        display: none;
+    }
+
+    #carousel-highviewport {
+        display: block;
+    }
+
+    .info-varia {
+        display: flex;
+        align-content: space-around;
+        height: 150px;
+        align-items: center;
+    }
+
+    .item-infovaria {
+        width: 33%;
+    }
+
+    .icono-mapa {
+        padding-top: 25px;
+    }
+
+    #footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
