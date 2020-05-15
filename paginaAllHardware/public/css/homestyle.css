@@ -181,6 +181,12 @@ section a {
     padding: 20px;
 }
 
+.armapc {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
 .title-armapc {
     font-size: x-large;
     text-align: center;
@@ -199,7 +205,19 @@ section a {
     background-color:#f5f5f5;
 }
 
+.descripcion-armapc {
+    padding: 10px;
+    color: #666;
+    text-align: center;
+}
+
 #boton {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#boton-armapc {
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
@@ -317,6 +335,22 @@ ul li {
     
     #producto {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .tucombo {
+        display: flex;
+    }
+
+    #tucombo {
+        align-self: center;
+    }
+
+    .descripcion {
+        padding: 0;
+    }
+
+    #boton {
+        padding: 0;
     }
 
 }
