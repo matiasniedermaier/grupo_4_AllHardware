@@ -1,32 +1,38 @@
 body{
     font-family: sans-serif;
     background-color: #f5f5f5;
+    box-sizing: border-box;
 }
 
 
 .contenedor{
     position: relative;
     display: flex;
-    background-color: #b2bfc4;
     flex-direction: column;
     width: 450px;
-    margin: 0 auto;    
+    margin-top:40px ;
+    margin:auto;    
  
 }
 .formulario{
     display: flex;
-    margin-top: 60px;
+    margin:2px;
     flex-direction: column;
     padding: 10px;
+    background-color: rgb(16, 86, 148);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .titulo{
-    position: absolute;
-    height: 40px;
-    width: 450px;
+    margin-top: 10px;
+    position: relative;
+    padding: 15px;
     text-align: center;
-    padding-top: 15px;
-    background-color:#dee4e4;
+    background-color:#13d1d1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   
  
 }
 .input{
@@ -46,23 +52,16 @@ body{
     background-color: #dee4e4;
     border-style: double;
     width: 200px;
-    position: relative;
     margin: 12 auto;
-    height: 25px;
+    padding: 5pxpx;
     
 }
 
 #chk{
-    display: flex;
     width: 15px;
     height: 15px;
     
 
-}
-.pa{
-    display: flex;
-    flex-direction: row;
-    margin-top: 7px;
 }
 @media (max-width:570px){
     

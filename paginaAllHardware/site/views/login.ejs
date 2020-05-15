@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST" action="/login">
-        <label class="email">Email</label>
-        <input type="text" name="user">
-        <label class="pww">Contraseña</label>
-        <input type="password" name="pass">
-        <a href="/olvido" role="button" data-toggle="modal">¿Olvidó su contraseña?</a>
-        <input type="submit" class="btn" name="login" value="login">
-    </form>
-</body>
-</html>
+<%- include("partials/header") %>
+<link rel="stylesheet" href="/css/login.css">
+    <div class="contenedor">
+        <div class="titulo"><h4>Ingresar</h4></div>
+
+           <form class="login" method="POST" action="/login">
+
+            
+             <input class="input" type="email" name="user" value placeholder="Tu email" id="email" required>
+        
+         
+           
+             <input class="input" type="password" name="pww" value placeholder="Tu Contraseña" id="password" required>
+        
+             
+             <div> <a class="recuperar-contraseña" href="#"> Restaurar contraseña</a></div>
+
+             <button class="btn" type="submit" name="btn"> Ingresar</div></button>
+                                         
+             <div class="regis">¿Aún no tenés cuenta? <a class="" href ="registro.ejs"> Registrate </a> </div>
+      </form>
+    </div>
+    <%- include("partials/footer") %>
