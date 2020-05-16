@@ -8,7 +8,6 @@
     flex-direction: column;
     width: 500px;
     margin:auto;  
-    border: 1px solid #eaeaea; 
     margin-top: 10px; 
  
 }
@@ -26,7 +25,7 @@
     position: relative;
     padding: 15px;
     text-align: center;
-    background-color:#54a4ea54;
+    background-color: rgba(0, 174, 255, 0.5);;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
    
@@ -46,24 +45,27 @@
     padding: 5px;
     margin-top: 5px;  
 }
-#imagen {
-    display: flex;
-    flex-direction: row;
-}
 .label{
     padding: 2px;
     margin: 2px; 
     width: 100px;  
     text-align:start
 }
-.datos{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    margin: 2px;
-    text-align: center;
+
+  @media (max-width:1023px){
+    .contenedor{
+        width: 400px;
+    }
+
 }
-input:focus:valid{
-    border-color: #900;
-    background-color: #FDD;
-  }
+@media (max-width:767px){
+    .contenedor{
+        width:300px;
+    }
+    
+    
+    .btn{
+        width: 150px;
+        
+    }
+}
