@@ -6,6 +6,9 @@ let registroController = {
     'login': (req, res) =>{
         res.render('login')
         
+    },
+    'carga': (req,res) => {
+        res.render('carga')
     }
 }
  module.exports = registroController;
