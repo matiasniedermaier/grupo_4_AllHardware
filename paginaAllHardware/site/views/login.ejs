@@ -3,26 +3,28 @@
 <%- include("partials/header") %>
 
 <link rel="stylesheet" href="/css/login.css">
-    
-    <div class="contenedor">
 
-    <div class="titulo"><h4>Ingresar</h4></div>
+<div class="contenedor">
 
-      <form class="login" method="POST" action="/login">
+  <div class="titulo">
+    <h4>Ingresar</h4>
+  </div>
 
-            
-             <input class="input" type="email" name="user" value placeholder = "Tu email" id="email" required/>
-        
-         
-           
-             <input class="input" type="password" name="pww" value placeholder="Tu Contraseña" id="password" required/>
-        
-             
-             <div> <a class="recuperar-contraseña" href="#"> Restaurar contraseña</a></div>
+  <form class="login" method="POST" action="/login">
 
-             <button class="btn" type="submit" name="btn"> Ingresar</button>
-                                         
-             <div class="regis">¿Aún no tenés cuenta? <a class="" href ="/registro"> Registrate </a> </div>
-      </form>
-    </div>
-  <%- include("partials/footer") %>
+
+    <input class="input" type="email" name="user" value placeholder="Tu email" id="email" required />
+
+
+
+    <input class="input" type="password" name="pww" value placeholder="Tu Contraseña" id="password" required />
+
+
+    <div> <a class="recuperar-contraseña" href="#"> Restaurar contraseña</a></div>
+
+    <button class="btn" type="submit" name="btn"> Ingresar</button>
+
+    <div class="regis">¿Aún no tenés cuenta? <a class="" href="/registro"> Registrate </a> </div>
+  </form>
+</div>
+<%- include("partials/footer") %>

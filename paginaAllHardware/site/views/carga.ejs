@@ -5,29 +5,29 @@
 <link rel="stylesheet" href="/css/carga.css">
 <div class="contenedor container">
 
-  <div class="titulo">Carga De Productos</div>   
+  <div class="titulo">Carga De Productos</div>
   <form method="POST" action="/carga" class="formulario" enctype="multipart/form-data">
-      <label class="label" for="codigo">Codigo</label>
-      <input class="input" type="text" name="codigo" value="" id="codigo" placeholder="Codigo del producto" required/>
-      
-      <label class="label" for="nombre">Nombre</label>
-      <input class="input"type="text" name="nombre" value="" id="nombre" placeholder="Nombre" required/>
-      
-      <label class="label" for="cantidad">Cantidad</label>
-      <input class="input" type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad" required/>
-      
-      <label class="label" for="precio">Precio</label>
-      <input class="input" type="number" name="precio" value="" id="precio" placeholder="Precio" required/>
-      
-      
-      <label class="label" for="imagen">Imagen</label>
-      <input class="im" type="file" name="imagen" id="imagen">
+    <label class="label" for="codigo">Codigo</label>
+    <input class="input" type="text" name="codigo" value="" id="codigo" placeholder="Codigo del producto" required />
 
-      <label class="label" for="descripcion">Descripción</label>
-        <textarea name="descripcion" id="desc" cols="30" rows="3" required placeholder="Escriba una descripción"></textarea>
-    
-      
-      <button class="btn"  class="submit" name="boton" >Guardar</button>
- </form>
-</div>  
+    <label class="label" for="nombre">Nombre</label>
+    <input class="input" type="text" name="nombre" value="" id="nombre" placeholder="Nombre" required />
+
+    <label class="label" for="cantidad">Cantidad</label>
+    <input class="input" type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad" required />
+
+    <label class="label" for="precio">Precio</label>
+    <input class="input" type="number" name="precio" value="" id="precio" placeholder="Precio" required />
+
+
+    <label class="label" for="imagen">Imagen</label>
+    <input class="im" type="file" name="imagen" id="imagen">
+
+    <label class="label" for="descripcion">Descripción</label>
+    <textarea name="descripcion" id="desc" cols="30" rows="3" required placeholder="Escriba una descripción"></textarea>
+
+
+    <button class="btn" class="submit" name="boton">Guardar</button>
+  </form>
+</div>
 <%- include("partials/footer") %>
