@@ -9,7 +9,7 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 500px;
     margin-top:40px ;
     margin:auto;   
  
@@ -67,7 +67,7 @@ body{
 
 @media (max-width: 767px) {
    .contenedor{
-       width: 280px;
+       width: 250px;
        padding: 0;
    }
    .pa{
