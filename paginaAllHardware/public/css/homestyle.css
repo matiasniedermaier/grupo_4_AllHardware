@@ -300,7 +300,7 @@ ul li {
         display: flex;
         align-content: space-around;
         height: 150px;
-        align-items: center;
+        align-items: baseline;
     }
 
     .item-infovaria {
