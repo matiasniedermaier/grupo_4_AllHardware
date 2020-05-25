@@ -1,3 +1,10 @@
+Sprint 2
+
+Lo que hicimos bien fue empezar con las recomendaciones de Juan en ya empezar el armado de la pagina con Template Engine, empezando ya a trabajar con MVC. Lo que hicimos mal fue el administrar nuestro tiempo y organizarnos mal con nuestras tareas.
+Deberíamos empezar a hacer es organizarnos y trabajar sobre todo en equipo, como venimos haciendo pero no descuidar de ello. Lo que deberíamos dejar de hacer es dejar las cosas para ultimo momento sino que al principio es cuando más hay que hacer, para despues pulir detalles con más tiempo.
+
+Sprint 1
+
 Lo que pensamos que hicimos bien en el primer sprint, es empezar a comunicarnos bien como equipo y trabajar de forma cooperativa. 
 A pesar de no tener tiempo por responsabilidades, logramos unirnos como equipo para llevar a cabo nuestro objetivo. Logramos diseñar
 una pagina a gusto de los 3 y poder llevar un buen resultado a cabo. Lo que nos falto mejorar fue poder llevar a cabo el proyecto con mas
