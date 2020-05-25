@@ -1,0 +1,24 @@
+Cosas a preguntar
+
+Sobre registro/detalle la distribución
+
+Al menu que cosas cambiar que le sobra
+
+
+ver bien como se crea el JSON
+
+PRODUCTOS
+-nombre
+-precio
+-especificacion
+-img
+-stock
+-id
+-categoria
+-marca
+
+USUARIOS
+-nombre
+-email
+-contraseña
+-promociones
