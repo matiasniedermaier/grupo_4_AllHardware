@@ -10,7 +10,7 @@ const registroRouter = require('./routes/registro');
 const loginRouter = require('./routes/login');
 const cargaRouter = require('./routes/carga');
 const carritoRouter = require('./routes/carrito');
-const detalleRouter=require('./routes/detalle');
+const detalleRouter = require('./routes/detalle');
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname,'..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
@@ -30,15 +30,15 @@ app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use('/carga', cargaRouter);
 app.use('/carrito', carritoRouter);
-app.use('/detalle',detalleRouter);
+app.use('/detalle', detalleRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
- next(createError(404));
+app.use(function (req, res, next) {
+  next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
