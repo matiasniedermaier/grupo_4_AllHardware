@@ -7,8 +7,6 @@ let registroController = {
         res.render('login')
 
     },
-    'carga': (req, res) => {
-        res.render('carga')
-    }
+    
 }
 module.exports = registroController;
