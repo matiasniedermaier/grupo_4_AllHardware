@@ -2,11 +2,20 @@
 
 <%- include("partials/header") %>
 
+<<<<<<< HEAD
 <%  for ( let i=0 ; i<productos.length ; i++ ) { %>
+=======
+<% for(let productos of productosJson){ %>
+  <h2>El producto es <%= productos.name %></h2>
+<%}%>
+>>>>>>> 9d600dcd6c8fcd2ac785330aa77520cdca7e057a
 
     <h2>Nombre de producto: <%= productos.name %></h2>
 
+<<<<<<< HEAD
 <% } %>
  
 
+=======
+>>>>>>> 9d600dcd6c8fcd2ac785330aa77520cdca7e057a
 <%- include("partials/footer") %>
