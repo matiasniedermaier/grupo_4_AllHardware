@@ -2,7 +2,11 @@
 
 <%- include("partials/header") %>
 
+<%  for ( let i=0 ; i<productos.length ; i++ ) { %>
 
+    <h2>Nombre de producto: <%= productos.name %></h2>
 
+<% } %>
+ 
 
-<%- include("partials/footer") %></div>
+<%- include("partials/footer") %>
