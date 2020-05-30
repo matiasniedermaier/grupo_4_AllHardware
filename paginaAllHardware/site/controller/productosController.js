@@ -4,11 +4,11 @@ let productosController = {
 
     'productos': (req, res, next) => {
 
-        //let productos = fs.readFileSync ('/data/products.json', {encoding:'utf-8'});
+        let productos = fs.readFileSync ('../data/products.json', {encoding:'utf-8'});
 
-        //let productosJson = JSON.parse(productos);
+        let productosJson = JSON.parse(productos);
 
-        res.render(productosJson)
+        res.render('productos', {productosJson: productosJson});
     },
 
     'create': (req, res) => {

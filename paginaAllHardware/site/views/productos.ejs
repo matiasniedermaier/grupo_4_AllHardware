@@ -2,7 +2,9 @@
 
 <%- include("partials/header") %>
 
+<% for(let productos of productosJson){ %>
+  <h2>El producto es <%= productos.name %></h2>
+<%}%>
 
 
-
-<%- include("partials/footer") %></div>
+<%- include("partials/footer") %>
