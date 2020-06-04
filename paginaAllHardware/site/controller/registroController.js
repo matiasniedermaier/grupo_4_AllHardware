@@ -1,9 +1,9 @@
 
 let registroController = {
-    'registro': (req, res) => {
+    registro: (req, res) => {
         res.render('registro')
     },
-    'login': (req, res) => {
+    login: (req, res) => {
         res.render('login')
 
     },

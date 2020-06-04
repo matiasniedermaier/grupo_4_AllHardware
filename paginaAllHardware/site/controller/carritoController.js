@@ -1,10 +1,10 @@
 let carritoController = {
 
-    'carrito' : (req,res) => {
+    carrito: (req,res) => {
         res.render('carrito')
     },
 
-    'detalle': (req,res)=>{
+    detalle: (req,res)=>{
         res.render('detalle')
     }
 
