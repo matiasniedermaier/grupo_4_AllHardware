@@ -5,7 +5,7 @@ let productosController = {
 
     productos: (req, res, next) => {
        
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json'), { encoding: 'utf-8' }));
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), { encoding: 'utf-8' }));
       
         res.render('productos', { productos: productos })
     },
@@ -26,13 +26,13 @@ let productosController = {
             descripcion: req.body.descripcion
         };
 
-        let archivoProductos = fs.readFileSync (path.resolve(__dirname, '../data/products.json'), {encoding:'utf-8'});
+        let archivoProductos = fs.readFileSync (path.resolve(__dirname, '../data/productos.json'), {encoding:'utf-8'});
         var productos; 
         if(archivoProductos == ""){
             productos = [];
             productos.push(nuevoProducto);
             let productosJSON = JSON.stringify(productos);
-            fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), productosJSON);
+            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosJSON);
         }
         else{
             let resultado = false;
@@ -50,7 +50,7 @@ let productosController = {
             }else{
                 productos.push(nuevoProducto);
                 let productosJSON=JSON.stringify(productos);
-                fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), productosJSON);
+                fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosJSON);
             }
         }
 
