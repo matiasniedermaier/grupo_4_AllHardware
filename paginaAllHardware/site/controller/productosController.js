@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
 let productosController = {
 
     leerJSON:function(){
-
+    
         if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
             fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
         }
@@ -33,14 +33,24 @@ let productosController = {
 
     productos: (req, res, next) => {
        
-        let arraysProductos= this.leerJSON();
+        //let arraysProductos= leerJSON();
+        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
+            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
+        }
+        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
+        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
       
-        res.render('productos', { productos: arraysProductos })
+        res.render('productos', { productos: arraysProductoJS })
     },
 
-    detalle: (req,res)=>{
+    /*detalle: (req,res)=>{
+        // el id que viene del navegador
+        let productos= this.leerJSON();
+        productos.filter((productos)=>{
+            return productos.id == req.params.id;
+        })
         res.render('detalle')
-    },
+    },**/
 
     create: (req, res, next) => {
 
@@ -59,7 +69,7 @@ let productosController = {
         };
 
         let archivoProductos = this.productoJSON();
-        var productos; 
+
         if(archivoProductos == ""){
             productos = [];
             productos.push(nuevoProducto);
@@ -91,11 +101,17 @@ let productosController = {
 
     id: (req, res) => {
 
-        productos = this.leerJSON();
-        let productoAMostrar = productos.filter( function (productos) {
+        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
+            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
+        }
+        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
+        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
+
+
+        let productoAMostrar = arraysProductoJS.filter( function (productos) {
             return req.params.id == productos.id;
         });
-        res.send(productoAMostrar);
+        res.render('detalle',{productosMostrar:productoAMostrar});
 
     },
 
