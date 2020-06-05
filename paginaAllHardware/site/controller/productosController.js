@@ -38,6 +38,10 @@ let productosController = {
         res.render('productos', { productos: arraysProductos })
     },
 
+    detalle: (req,res)=>{
+        res.render('detalle')
+    },
+
     create: (req, res, next) => {
 
         res.render('create');

@@ -9,7 +9,6 @@ const usersRouter = require('./routes/users');
 const registroRouter = require('./routes/registro');
 const loginRouter = require('./routes/login');
 const carritoRouter = require('./routes/carrito');
-const detalleRouter = require('./routes/detalle');
 const productosRouter = require('./routes/productos');
 
 const app = express();
@@ -30,7 +29,6 @@ app.use('/users', usersRouter);
 app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use('/carrito', carritoRouter);
-app.use('/detalle', detalleRouter);
 app.use('/productos', productosRouter);
 
 
