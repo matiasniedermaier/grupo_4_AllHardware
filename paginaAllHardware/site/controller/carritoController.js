@@ -4,9 +4,6 @@ let carritoController = {
         res.render('carrito')
     },
 
-    detalle: (req,res)=>{
-        res.render('detalle')
-    }
 
 }
 
