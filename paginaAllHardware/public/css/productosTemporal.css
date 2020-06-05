@@ -1,0 +1,78 @@
+h3 {
+    font-size: x-large;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.lista {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+.producto-prec {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.name {
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+.precio {
+    font-size: 20px;
+}
+
+.botonesEdicion {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit {
+    border: 1px solid #ffc107;
+    border-radius: 10px;
+    background-color: #e9fd1e;
+    width: 100px;
+}
+
+.edit-p {
+    padding-left: 30px;
+    font-size: 13px;
+}
+
+.delete {
+    border: 1px solid #80000d;
+    border-radius: 10px;
+    background-color: red;
+    width: 100px;
+}
+
+.delete-p {
+    padding-left: 33px;
+    font-size: 13px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .lista-prod {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lista-prod {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

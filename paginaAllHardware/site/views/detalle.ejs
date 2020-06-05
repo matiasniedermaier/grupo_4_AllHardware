@@ -3,10 +3,22 @@
 <%- include("partials/header") %>
 
 <link rel="stylesheet" href="/css/detalle.css">
-<div id="main" class="container contenedor">
+
+<div class="container section">
+    <section>
+        <a href="/">Home</a>
+        <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
+        <a href="/">Procesadores</a>
+        <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
+        <a href = ""><%= productosMostrar.name %></a>
+        <a href="/">AMD PC GAMER ARMADA RYZEN MASTER RACE</a>
+    </section>
+</div>
+
+<div id="main" class="container contenedor" style="background-color: #fff;">
     <div class="div-izquierda">
         <div class="cont-img">
-            <img class="img" src="./images/imagenesProductos/pcGamerArmada/AMD PC GAMER ARMADA RYZEN MASTER RACE.webp"
+            <img class="img" src="/images/imagenesProductos/pcGamerArmada/AMD PC GAMER ARMADA RYZEN MASTER RACE.webp"
                 alt="img">
         </div>
     </div>
@@ -16,10 +28,13 @@
             <li class="costo">$65000</li>
             <li><mark> Envio con normalidad</mark></li>
             <li id="nuevo">Nuevo</li>
-            <li class="envio">Paga hasta 12 cuotas</li>
-            <li><i class="fab fa-cc-visa"> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-paypal"></i></i>
+            <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas</li>
+            <li>
+                <img src="/images/imagenesMediosDePago/visa.png" alt="">
+                <img src="/images/imagenesMediosDePago/amex.png" alt="">
+                <img src="/images/imagenesMediosDePago/master.png" alt="">
+                <img src="/images/imagenesMediosDePago/efectivo.png" alt="">
             </li>
-            <li></i></li>
             <li class="envio"> Envío gratis a todo el país</li>
             <li><i class="fas fa-truck"></i></li>
             <li id="buton"><a href=""><button class="butontwo">Comprar ahora</button></a><br><a href=""><br><button
