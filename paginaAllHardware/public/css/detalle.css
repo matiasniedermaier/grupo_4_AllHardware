@@ -190,6 +190,10 @@ p{
     height: 100px;
 }
 
+ul li {
+    list-style-type: none;
+}
+
 @media(max-width: 425px){
     .otrosProductos {
         grid-template-columns: 1fr 1fr;       

@@ -17,7 +17,7 @@
     <div id="main" class="container contenedor" style="background-color: #fff;">
         <div class="div-izquierda">
             <div class="cont-img">
-                <img class="img" src="<%= productosMostrar[0].img %>"alt="">
+                <img class="img" src="<%= productosMostrar[0].img %>" alt="">
             </div>
             <div>
                 <input type="file" id="img" name="img">
@@ -35,12 +35,14 @@
                 <li>
                     <div>
                         <label for="price">Precio</label>
-                        <input class="form-price" type="text" id="price" placeholder="Precio" name="price" value="<%= productosMostrar[0].price %>">
+                        <input class="form-price" type="text" id="price" placeholder="Precio" name="price"
+                            value="<%= productosMostrar[0].price %>">
                     </div>
                 </li>
                 <li><mark> Envio con normalidad</mark></li>
                 <li id="nuevo">Nuevo</li>
-                <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas</li>
+                <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas
+                </li>
                 <li>
                     <img src="/images/imagenesMediosDePago/visa.png" alt="">
                     <img src="/images/imagenesMediosDePago/amex.png" alt="">
@@ -60,7 +62,8 @@
             <p><%= productosMostrar[0].especification%></p>
             <div style="display: flex;">
                 <label style="align-items: center;" for="especification">Especificación</label>
-                <textarea class="form-especification" type="text" id="especification" placeholder="Especificación" name="especification" value="<%= productosMostrar[0].especification %>"></textarea>
+                <textarea class="form-especification" type="text" id="especification" placeholder="Especificación"
+                    name="especification" value="<%= productosMostrar[0].especification %>"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
@@ -72,8 +75,7 @@
         <a class="ancla" href="#">
             <img src="/images/imagenesProductos/gabinete/fullTower/AZZA GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER.webp"
                 alt="hdd">
-            <article class="descripcion"> GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER
-            </article>
+            <article class="descripcion"> GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER</article>
         </a>
     </section>
     <section class="contenedorProduct">
@@ -96,34 +98,24 @@
         <a class="ancla" href="">
             <img src="/images/imagenesProductos/placaDeVideo/nvidia/ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6.webp"
                 alt="">
-            <article class="descripcion">ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6
-            </article>
+            <article class="descripcion">ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6</article>
         </a>
-
     </section>
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
             <img src="/images/imagenesProductos/placaDeVideo/radeon/ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0.webp"
                 alt="">
-            <article class="descripcion">ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0
-            </article>
+            <article class="descripcion">ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0</article>
         </a>
-
     </section>
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
             <img src="/images/imagenesProductos/auricularesParlantesYAudio/microfonos/KINGSTON MICROFONO HYPERX QUADCAST.webp"
                 alt="">
-            <article class="descripcion">KINGSTON MICROFONO HYPERX QUADCAST
-            </article>
+            <article class="descripcion">KINGSTON MICROFONO HYPERX QUADCAST</article>
         </a>
-
     </section>
 </div>
-
-</div>
-
-
 <%- include("partials/footer") %>
