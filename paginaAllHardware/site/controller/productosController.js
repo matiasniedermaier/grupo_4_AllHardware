@@ -107,10 +107,10 @@ let productosController = {
         let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
         let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
 
-
-        let productoAMostrar = arraysProductoJS.filter( function (productos) {
+        let productoAMostrar = arraysProductoJS.filter(function (productos) {
             return req.params.id == productos.id;
         });
+
         res.render('detalle',{productosMostrar:productoAMostrar});
 
     },

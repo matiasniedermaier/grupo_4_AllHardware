@@ -10,22 +10,21 @@
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
         <a href="/">Procesadores</a>
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
-        <a href = ""><%= productosMostrar.name %></a>
-        <a href="/">AMD PC GAMER ARMADA RYZEN MASTER RACE</a>
+        <a href="/"><%= productosMostrar[0].name %></a>
+        <!--<a href="/">AMD PC GAMER ARMADA RYZEN MASTER RACE</a> -->
     </section>
 </div>
 
 <div id="main" class="container contenedor" style="background-color: #fff;">
     <div class="div-izquierda">
         <div class="cont-img">
-            <img class="img" src="/images/imagenesProductos/pcGamerArmada/AMD PC GAMER ARMADA RYZEN MASTER RACE.webp"
-                alt="img">
+            <img class="img" src="<%= productosMostrar[0].img %>"alt="">
         </div>
     </div>
     <section>
-        <article class="titulo">AMD PC GAMER ARMADA RYZEN MASTER RACE</article>
+        <article class="titulo"><%= productosMostrar[0].name %></article>
         <ul type="none" class="subtitulo">
-            <li class="costo">$65000</li>
+            <li class="costo">$<%= productosMostrar[0].price %></li>
             <li><mark> Envio con normalidad</mark></li>
             <li id="nuevo">Nuevo</li>
             <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas</li>
@@ -44,21 +43,14 @@
     </section>
     <div>
         <h3 class="tituloDes">Detalles del producto</h3>
-        <p>
-            JUGÁ SIN LIMITES CON EL MEJOR PROCESADOR!
-            AMD RYZEN 5 3600
-            ASUS MOTHER B450M-A PRIME
-            CRUCIAL 8GB 2666MHZ BALLISTIX SPORT LT RED DDR4
-            AEROCOOL FUENTE 600W KCAS 80 PLUS BRONZE
-            AEROCOOL CYLON - BLACK RGB
-            ASROCK RX 590 8GB PHANTOM GAMING X OC</p>
+        <p><%= productosMostrar[0].especification%></p>
     </div>
 </div>
 <div class="otrosProductos">
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
-            <img src="images/imagenesProductos/gabinete/fullTower/AZZA GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER.webp"
+            <img src="/images/imagenesProductos/gabinete/fullTower/AZZA GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER.webp"
                 alt="hdd">
             <article class="descripcion"> GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER
             </article>
@@ -67,7 +59,7 @@
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
-            <img src="images/imagenesProductos/motherboards/amd/ASUS MOTHER ROF CROSSHAIR VII HERO WIFI - X470.webp"
+            <img src="/images/imagenesProductos/motherboards/amd/ASUS MOTHER ROF CROSSHAIR VII HERO WIFI - X470.webp"
                 alt="">
             <article class="descripcion">ASUS MOTHER ROF CROSSHAIR VII HERO WIFI</article>
         </a>
@@ -75,14 +67,14 @@
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
-            <img src="images/imagenesProductos/motherboards/intel/ASROCK MOTHER H310CM-HDV-H310.webp" alt="">
+            <img src="/images/imagenesProductos/motherboards/intel/ASROCK MOTHER H310CM-HDV-H310.webp" alt="">
             <article class="descripcion">intel/ASROCK MOTHER H310CM-HDV-H310</article>
         </a>
     </section>
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="">
-            <img src="images/imagenesProductos/placaDeVideo/nvidia/ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6.webp"
+            <img src="/images/imagenesProductos/placaDeVideo/nvidia/ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6.webp"
                 alt="">
             <article class="descripcion">ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6
             </article>
@@ -92,7 +84,7 @@
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
-            <img src="images/imagenesProductos/placaDeVideo/radeon/ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0.webp"
+            <img src="/images/imagenesProductos/placaDeVideo/radeon/ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0.webp"
                 alt="">
             <article class="descripcion">ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0
             </article>
@@ -102,7 +94,7 @@
     <section class="contenedorProduct">
         <img class="cph" src="./images/sale.webp" alt="">
         <a class="ancla" href="#">
-            <img src="images/imagenesProductos/auricularesParlantesYAudio/microfonos/KINGSTON MICROFONO HYPERX QUADCAST.webp"
+            <img src="/images/imagenesProductos/auricularesParlantesYAudio/microfonos/KINGSTON MICROFONO HYPERX QUADCAST.webp"
                 alt="">
             <article class="descripcion">KINGSTON MICROFONO HYPERX QUADCAST
             </article>

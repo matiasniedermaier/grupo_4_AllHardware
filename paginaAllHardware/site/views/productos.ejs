@@ -11,10 +11,11 @@
     <div class="lista-prod">
 
         <div class="producto">
-
-            <a href="/productos/detalle/0">
+            <!--direccion a detalle del producto-->
+            <a href="/productos/<%=productos[0].id %>">
                 <div class="lista">
-                    <img src="<%= productos[0].img %>"" alt="">
+                    <!-- extraigo la imagen correspondiente-->
+                    <img src="<%= productos[0].img %>" alt="">
                 </div>
 
                 <div class="producto-prec">
@@ -38,9 +39,9 @@
 
         <div class="producto">
 
-            <a href="#">
+            <a href="/productos/<%=productos[1].id %>">
                 <div class="lista">
-                    <img src="<%= productos[1].img %>"" alt="">
+                    <img src="<%= productos[1].img %>" alt="img">
                 </div>
 
                 <div class="producto-prec">
@@ -64,9 +65,9 @@
 
         <div class="producto">
 
-            <a href="#">
+            <a href="/productos/<%=productos[2].id %>">
                 <div class="lista">
-                    <img src="<%= productos[2].img %>"" alt="">
+                    <img src="<%= productos[2].img %>" alt="">
                 </div>
 
                 <div class="producto-prec">
@@ -90,9 +91,9 @@
 
         <div class="producto">
 
-            <a href="#">
+            <a href="/productos/<%=productos[3].id %>">
                 <div class="lista">
-                    <img src="<%= productos[3].img %>"" alt="">
+                    <img src="<%= productos[3].img %>" alt="">
                 </div>
 
                 <div class="producto-prec">
