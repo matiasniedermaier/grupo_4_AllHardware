@@ -54,14 +54,19 @@ li img {
 
 .titulo{
     padding-top: 5px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 22px;
-    text-align: center;
+    font-family: "Open Sans",sans-serif;
+    font-weight: inherit;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 10px;
 }
 
 .subtitulo{
     padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    justify-content: space-evenly;
 }
 
 .costo{
@@ -91,6 +96,8 @@ li img {
     border-radius: 9px;
     width: 250px;
     height: 41px;   
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px;
 }
 
 .tituloDes{
@@ -177,5 +184,17 @@ p{
     .contenedor {
         grid-template-columns: 1fr;
         margin: 15px 0px;
+    }
+
+    .contenedor {
+        padding: 0;
+    }
+
+    p {
+        padding: 0 10px;
+    }
+
+    .otrosProductos {
+        margin: 0;
     }
 }

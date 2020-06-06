@@ -87,12 +87,17 @@ let productosController = {
 
     edit: (req, res) => {
 
-        productos = this.leerJSON();
+        /*productos = generateData.readJson();;
         let id = req.params.id;
         productoAMostrar = productos.filter( function (productos) {
             return req.params.id == productos.id;
+        });*/
+        archivoProductos= generateData.readJson();
+
+        let productoAMostrar = archivoProductos.filter(function (productos) {
+            return req.params.id == productos.id;
         });
-        res.render('productos/:id/edit', productoAMostrar);
+        res.render('edit', {productosMostrar:productoAMostrar});
 
     },
 
@@ -106,14 +111,14 @@ let productosController = {
             imagen: req.body.imagen,
             descripcion: req.body.descripcion
         };
-        archivoProductos = this.leerJSON();
+        archivoProductos = generateData.readJson();;
         let num = 0;
         for( i=0; i < archivoProductos.length; i++){
             if (archivoProductos[i].id == req.params.id)
                 num = i;
         }
         archivoProductos[num] = productoEditado;
-        this.escribirArchivo(archivoProductos);
+        generateData.writeJson(archivoProductos);
         res.redirect('/productos');
 
     },
