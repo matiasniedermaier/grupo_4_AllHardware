@@ -9,111 +9,33 @@
     <h3>Productos</h3>
 
     <div class="lista-prod">
-
-        <div class="producto">
-            <!--direccion a detalle del producto-->
-            <a href="/productos/<%=productos[0].id %>">
-                <div class="lista">
-                    <!-- extraigo la imagen correspondiente-->
-                    <img src="<%= productos[0].img %>" alt="">
+        
+        <% for(var i=0; i < productos.length; i++){ %>
+            <div class="producto">
+                <!--direccion a detalle del producto-->
+                <a href="/productos/<%=productos[i].id %>">
+                    <div class="lista">
+                        <!-- extraigo la imagen correspondiente-->
+                        <img src="<%= productos[i].img %>" alt="img">
+                    </div>
+                    <div class="producto-prec">
+                        <div class="name"><%= productos[i].name%></div>
+                        <div class="precio">$<%= productos[i].price%></div>
+                    </div>
+                </a>
+                <div class="botonesEdicion">
+                    <div>
+                        <a href=""><button class="edit"><i class="fas fa-file-signature"></i></button></a>
+                        <p class="edit-p">Editar</p>
+                    </div>
+                    <div>
+                        <a  href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
+                        <p class="delete-p">Borrar</p>
+                    </div>
                 </div>
 
-                <div class="producto-prec">
-                    <div class="name"><%= productos[0].name%></div>
-                    <div class="precio">$<%= productos[0].price%></div>
-                </div>
-            </a>
-
-            <div class="botonesEdicion">
-                <div>
-                    <a href=""><button class="edit"><i class="fas fa-file-signature"></i></button></a>
-                    <p class="edit-p">Editar</p>
-                </div>
-                <div>
-                    <a href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
-                     <p class="delete-p">Borrar</p>
-                </div>
             </div>
-
-        </div>
-
-        <div class="producto">
-
-            <a href="/productos/<%=productos[1].id %>">
-                <div class="lista">
-                    <img src="<%= productos[1].img %>" alt="img">
-                </div>
-
-                <div class="producto-prec">
-                    <div class="name"><%= productos[1].name%></div>
-                    <div class="precio">$<%= productos[1].price%>0</div>
-                </div>
-            </a>
-            
-            <div class="botonesEdicion">
-                <div>
-                    <a href=""><button class="edit"><i class="fas fa-file-signature"></i></button></a>
-                    <p class="edit-p">Editar</p>
-                </div>
-                <div>
-                    <a href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
-                     <p class="delete-p">Borrar</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="producto">
-
-            <a href="/productos/<%=productos[2].id %>">
-                <div class="lista">
-                    <img src="<%= productos[2].img %>" alt="">
-                </div>
-
-                <div class="producto-prec">
-                    <div class="name"><%= productos[2].name%></div>
-                    <div class="precio">$<%= productos[2].price%></div>
-                </div>
-            </a>
-            
-            <div class="botonesEdicion">
-                <div>
-                    <a href=""><button class="edit"><i class="fas fa-file-signature"></i></button></a>
-                    <p class="edit-p">Editar</p>
-                </div>
-                <div>
-                    <a href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
-                     <p class="delete-p">Borrar</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="producto">
-
-            <a href="/productos/<%=productos[3].id %>">
-                <div class="lista">
-                    <img src="<%= productos[3].img %>" alt="">
-                </div>
-
-                <div class="producto-prec">
-                    <div class="name"><%= productos[3].name%></div>
-                    <div class="precio">$<%= productos[3].price%></div>
-                </div>
-            </a>
-            
-            <div class="botonesEdicion">
-                <div>
-                    <a href=""><button class="edit"><i class="fas fa-file-signature"></i></button></a>
-                    <p class="edit-p">Editar</p>
-                </div>
-                <div>
-                    <a href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
-                     <p class="delete-p">Borrar</p>
-                </div>
-            </div>
-
-        </div>
+        <%}%>
 
     </div>
 

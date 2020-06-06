@@ -1,46 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-const multer=require('multer');
+const generateData = require('../models/generate');
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, __dirname + '/../../public/images/imagenesProducto');
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
-    }
-  })
-  
-   
-  var upload = multer({ storage: storage })
+
+
 
 let productosController = {
 
-    leerJSON:function(){
     
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
-        return arraysProductoJS;
-    },
-
-    escribirArchivo: function(arraysProductoJS){
-        let productosJSON= JSON.stringify(arraysProductoJS, null, ' ');
-        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosJSON);
-     },
-
     productos: (req, res, next) => {
        
-        //let arraysProductos= leerJSON();
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
-      
-        res.render('productos', { productos: arraysProductoJS })
+        let archivoProductos= generateData.readJson();
+        res.render('productos', { productos: archivoProductos })
     },
 
     /*detalle: (req,res)=>{
@@ -59,28 +30,31 @@ let productosController = {
     },
 
     createPost: (req, res, next)=>{
-
+         console.log(req);
         let nuevoProducto = {
-            codigo: req.body.codigo,
+            id: req.body.codigo,
             name: req.body.nombre,
-            cantidad: req.body.cantidad,
-            imagen: req.body.imagen,
-            descripcion: req.body.descripcion
+            price:req.body.precio,
+            especification: req.body.descripcion,
+            img: '/images/imagenesProductos/'+req.files[0].filename,
+            stock: req.body.cantidad,
+            category:'',
+            brand:'', 
         };
 
-        let archivoProductos = this.productoJSON();
+        archivoProductos = generateData.readJson();
 
-        if(archivoProductos == ""){
-            productos = [];
-            productos.push(nuevoProducto);
-            let productosJSON = JSON.stringify(productos);
-            
+        if(archivoProductos.length == 0){
+
+            archivoProductos.push(nuevoProducto);
+            generateData.writeJson(archivoProductos);
+        
         }
         else{
+            
             let resultado = false;
-            productos= JSON.parse(archivoProductos);
-            for(var i = 0; i< productos.length; i++){
-                 if(req.body.codigo == productos.id){
+            for(var i = 0; i< archivoProductos.length; i++){
+                 if(req.body.codigo == archivoProductos[i].id){
                       resultado = true;
                  }
             
@@ -90,8 +64,8 @@ let productosController = {
                 console.log('ya existe');
 
             }else{
-                productos.push(nuevoProducto);
-                this.escribirArchivo(productos);
+                archivoProductos.push(nuevoProducto);
+                generateData.writeJson(archivoProductos);
             }
         }
 
@@ -101,13 +75,9 @@ let productosController = {
 
     id: (req, res) => {
 
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
+        archivoProductos= generateData.readJson();
 
-        let productoAMostrar = arraysProductoJS.filter(function (productos) {
+        let productoAMostrar = archivoProductos.filter(function (productos) {
             return req.params.id == productos.id;
         });
 
@@ -150,13 +120,9 @@ let productosController = {
 
     borrar: (req,res) => {
 
-        archivoProductos = this.leerJSON();
-        let productoBorrado = productos.filter( function (productos) {
-            return req.params.id != productos.id;
-        });
-        this.escribirArchivo(productoBorrado);
+        archivoProductos = generateData.writeJson;
+        generateData.writeJson(generateData.deleteID(req,archivoProductos));
         res.redirect('/productos');
-
     }
 
 }
