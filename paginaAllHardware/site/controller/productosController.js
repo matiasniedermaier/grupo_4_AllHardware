@@ -97,7 +97,7 @@ let productosController = {
         let productoAMostrar = archivoProductos.filter(function (productos) {
             return req.params.id == productos.id;
         });
-        res.render('editTes', {productosMostrar:productoAMostrar});
+        res.render('edit', {productosMostrar:productoAMostrar});
 
     },
 
@@ -125,7 +125,7 @@ let productosController = {
 
     borrar: (req,res) => {
 
-        archivoProductos = generateData.writeJson;
+        archivoProductos = generateData.readJson();
         generateData.writeJson(generateData.deleteID(req,archivoProductos));
         res.redirect('/productos');
     }
