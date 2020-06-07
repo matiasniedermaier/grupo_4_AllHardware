@@ -97,7 +97,7 @@ let productosController = {
         let productoAMostrar = archivoProductos.filter(function (productos) {
             return req.params.id == productos.id;
         });
-        res.render('editTes', {productosMostrar:productoAMostrar});
+        res.render('edit', {productosMostrar:productoAMostrar});
 
     },
 
