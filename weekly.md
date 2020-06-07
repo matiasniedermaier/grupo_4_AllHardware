@@ -16,3 +16,15 @@ Realizar en nuestra reunion semanal los campos necesarios para el JSON de usuari
 
 Al tener ya la ventaja de haber adelantado en el sprint anterior algunas cosas, trabajamos en equipo en las reuniones que programamos 
 mediante zoom, Google Meet, compartiendo pantalla cada uno y participando los tres. 
+
+2° Weekly
+Licia
+¿Qué va a hacer?
+Realizar en nuestra reunion semanal Terminar alta, baja y edicion de productos
+
+Matias
+¿Qué va a hacer?
+Realizar en nuestra reunion semanal Terminar alta, baja y edicion de productos
+Luis
+¿Qué va a hacer?
+Realizar en nuestra reunion semanal Terminar alta, baja y edicion de productos
