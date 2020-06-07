@@ -29,9 +29,12 @@
                         <p class="edit-p">Editar</p>
                     </div>
                     <div>
-                        <a  href=""><button class="delete"><i class="fas fa-file-excel"></i></button></a>
-                        <p class="delete-p">Borrar</p>
+                        <form  method="POST" action="/productos/<%=productos[i].id%>?_method=DELETE">
+                            <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete"><button class="delete"><i class="fas fa-file-excel"></i></button></a>
+                            <p class="edit-p">Eliminar</p>
+                        </form>
                     </div>
+                    
                 </div>
 
             </div>

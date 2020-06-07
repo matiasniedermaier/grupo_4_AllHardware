@@ -125,7 +125,7 @@ let productosController = {
 
     borrar: (req,res) => {
 
-        archivoProductos = generateData.writeJson;
+        archivoProductos = generateData.readJson();
         generateData.writeJson(generateData.deleteID(req,archivoProductos));
         res.redirect('/productos');
     }

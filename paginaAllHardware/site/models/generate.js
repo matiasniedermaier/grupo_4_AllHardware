@@ -20,8 +20,8 @@ let generate={
      },  
 
     deleteID : function(req,archivoProductos){
-
-        let searchProducts = archivoProductos.filter( function (products) {
+        console.log(archivoProductos)
+        let searchProducts = archivoProductos.filter(function(products) {
             return req.params.id != products.id;
         });
         return  searchProducts;

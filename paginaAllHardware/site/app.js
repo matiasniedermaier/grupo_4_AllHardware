@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 
 const homeRouter = require('./routes/home');
 const usersRouter = require('./routes/users');
@@ -23,6 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+//use los method put y delete en las rutas y el formulario
+app.use(methodOverride('_method'));
 
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
