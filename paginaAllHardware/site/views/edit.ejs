@@ -27,22 +27,18 @@
         <section>
             <article class="titulo"><%= productosMostrar[0].name %></article>
             <div class="form-name">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" placeholder="Nombre" name="name" value="<%= productosMostrar[0].name %>">
+                <input class="form" type="text" id="name" placeholder="Nombre" name="name">
             </div>
             <ul type="none" class="subtitulo">
                 <li class="costo">$<%= productosMostrar[0].price %></li>
                 <li>
                     <div>
-                        <label for="price">Precio</label>
-                        <input class="form-price" type="number" id="price" placeholder="Precio" name="price"
-                            value="<%= productosMostrar[0].price %>">
+                        <input class="form-price form" type="number" id="price" placeholder="Precio" name="price">
                     </div>
                 </li>
                 <li>
                     <div>
-                      <label for="stock">Stock</label>
-                      <input class="form-price" type="text" id="stock" placeholder="Stock" name="stock">
+                      <input class="form-price form" type="text" id="stock" placeholder="Stock" name="stock">
                     </div>
                   </li>
                 <li><mark> Envio con normalidad</mark></li>
@@ -67,8 +63,7 @@
             <h3 class="tituloDes">Detalles del producto</h3>
             <p><%= productosMostrar[0].especification%></p>
             <div style="display: flex;">
-                <label style="align-items: center;" for="especification">Especificación</label>
-                <textarea class="form-especification" type="text" id="especification" placeholder="Especificación"
+                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación"
                     name="especification" value="<%= productosMostrar[0].especification %>"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>

@@ -182,7 +182,7 @@ p{
 }
 
 .form-price {
-    width: 80px;
+    width: 100px;
 }
 
 .form-especification {
@@ -192,6 +192,11 @@ p{
 
 ul li {
     list-style-type: none;
+}
+
+.form {
+    border: 2px solid #007bff;
+    border-radius: 9px;
 }
 
 @media(max-width: 425px){
