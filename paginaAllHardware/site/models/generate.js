@@ -25,7 +25,18 @@ let generate={
             return req.params.id != products.id;
         });
         return  searchProducts;
+    },
+
+    lastID: function() {
+        let array = this.readJson();
+        let lastID = 0;
+        for( let i=0; i < array.length; i++) {
+            if (lastID < array[i].id)
+                lastID = array[i].id;
+        }
+        return lastID +1;
     }
+    
 }
 
 module.exports= generate;

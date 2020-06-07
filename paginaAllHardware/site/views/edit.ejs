@@ -35,10 +35,16 @@
                 <li>
                     <div>
                         <label for="price">Precio</label>
-                        <input class="form-price" type="text" id="price" placeholder="Precio" name="price"
+                        <input class="form-price" type="number" id="price" placeholder="Precio" name="price"
                             value="<%= productosMostrar[0].price %>">
                     </div>
                 </li>
+                <li>
+                    <div>
+                      <label for="stock">Stock</label>
+                      <input class="form-price" type="text" id="stock" placeholder="Stock" name="stock">
+                    </div>
+                  </li>
                 <li><mark> Envio con normalidad</mark></li>
                 <li id="nuevo">Nuevo</li>
                 <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas

@@ -30,14 +30,15 @@ let productosController = {
     },
 
     createPost: (req, res, next)=>{
-         console.log(req);
+        
+        let id = generateData.lastID();
         let nuevoProducto = {
-            id: req.body.codigo,
-            name: req.body.nombre,
-            price:req.body.precio,
-            especification: req.body.descripcion,
+            id: id,
+            name: req.body.name,
+            price:req.body.price,
+            especification: req.body.especification,
             img: '/images/imagenesProductos/'+req.files[0].filename,
-            stock: req.body.cantidad,
+            stock: req.body.stock,
             category:'',
             brand:'', 
         };
@@ -102,23 +103,28 @@ let productosController = {
     },
 
     editPut: (req, res) => {
+        
+        archivoProductos= generateData.readJson();
 
-        let productoEditado = {
-            id: req.params.id,
-            codigo: req.body.codigo,
-            name: req.body.nombre,
-            cantidad: req.body.cantidad,
-            imagen: req.body.imagen,
-            descripcion: req.body.descripcion
-        };
-        archivoProductos = generateData.readJson();;
-        let num = 0;
-        for( i=0; i < archivoProductos.length; i++){
-            if (archivoProductos[i].id == req.params.id)
-                num = i;
-        }
-        archivoProductos[num] = productoEditado;
-        generateData.writeJson(archivoProductos);
+        let productosAMostrar = archivoProductos.find(function (productos) {
+            return req.params.id == productos.id;
+        });
+        productosAMostrar.name = req.body.name;
+        productosAMostrar.stock = req.body.stock;
+        productosAMostrar.price = req.body.price;
+        productosAMostrar.stock = req.body.stock;
+        productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
+        /*if (req.file) {
+            //le saco la palabra public para que sea a partir de /img/...
+            productosMostrar.img = req.file[0].filename;
+        }*/
+        productosAMostrar.especification = req.body.especification;
+        let productosASubir = archivoProductos.filter(function (productos) {
+            return req.params.id != productos.id;
+        });
+        productosASubir.push(productosAMostrar);
+        generateData.writeJson(productosASubir);    
+
         res.redirect('/productos');
 
     },

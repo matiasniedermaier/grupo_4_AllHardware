@@ -29,7 +29,7 @@ router.get('/create', productos.create);
 router.post('/', upload.any(), productos.createPost);
 router.get('/:id', productos.id);
 router.get('/:id/edit', productos.edit);
-router.put('/:id', productos.editPut);
+router.put('/:id', upload.any(), productos.editPut);
 //trabajando con la parte de delite......
 router.delete('/:id', productos.borrar);
 
