@@ -6,10 +6,6 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 
 const homeRouter = require('./routes/home');
-const usersRouter = require('./routes/users');
-const registroRouter = require('./routes/registro');
-const loginRouter = require('./routes/login');
-const carritoRouter = require('./routes/carrito');
 const productosRouter = require('./routes/productos');
 
 const app = express();
@@ -29,10 +25,6 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(methodOverride('_method'));
 
 app.use('/', homeRouter);
-app.use('/users', usersRouter);
-app.use('/registro', registroRouter);
-app.use('/login', loginRouter);
-app.use('/carrito', carritoRouter);
 app.use('/productos', productosRouter);
 
 

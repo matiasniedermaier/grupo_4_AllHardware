@@ -38,15 +38,5 @@
   "stock": 15,
   "category": "procesadores",
   "brand": "intel"
- },
- {
-  "id": 5,
-  "name": "holi",
-  "price": "10000",
-  "especification": "como va",
-  "img": "/images/imagenesProductos/img-1591569876781.jpg",
-  "category": "",
-  "brand": "",
-  "stock": "20"
  }
 ]
