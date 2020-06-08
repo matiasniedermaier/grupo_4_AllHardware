@@ -1,6 +1,8 @@
-{
-  "name": "",
-  "email": "",
-  "password": "",
-  "prom": ""
-}
+[
+ {
+  "id": 1,
+  "email": "matiasnieder@gmail.com",
+  "password": "123",
+  "promotion": "on"
+ }
+]

@@ -14,15 +14,6 @@ let productosController = {
         res.render('productos', { productos: archivoProductos })
     },
 
-    /*detalle: (req,res)=>{
-        // el id que viene del navegador
-        let productos= this.leerJSON();
-        productos.filter((productos)=>{
-            return productos.id == req.params.id;
-        })
-        res.render('detalle')
-    },**/
-
     create: (req, res, next) => {
 
         res.render('create');
@@ -52,22 +43,8 @@ let productosController = {
         
         }
         else{
-            
-            let resultado = false;
-            for(var i = 0; i< archivoProductos.length; i++){
-                 if(req.body.codigo == archivoProductos[i].id){
-                      resultado = true;
-                 }
-            
-            }
-
-            if(resultado){
-                console.log('ya existe');
-
-            }else{
-                archivoProductos.push(nuevoProducto);
-                generateData.writeJson(archivoProductos);
-            }
+            archivoProductos.push(nuevoProducto);
+            generateData.writeJson(archivoProductos);
         }
 
         res.redirect('/productos');
@@ -88,11 +65,6 @@ let productosController = {
 
     edit: (req, res) => {
 
-        /*productos = generateData.readJson();;
-        let id = req.params.id;
-        productoAMostrar = productos.filter( function (productos) {
-            return req.params.id == productos.id;
-        });*/
         archivoProductos= generateData.readJson();
 
         let productoAMostrar = archivoProductos.filter(function (productos) {
@@ -114,10 +86,7 @@ let productosController = {
         productosAMostrar.price = req.body.price;
         productosAMostrar.stock = req.body.stock;
         productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
-        /*if (req.file) {
-            //le saco la palabra public para que sea a partir de /img/...
-            productosMostrar.img = req.file[0].filename;
-        }*/
+
         productosAMostrar.especification = req.body.especification;
         let productosASubir = archivoProductos.filter(function (productos) {
             return req.params.id != productos.id;

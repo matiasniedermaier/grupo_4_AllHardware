@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const fileData= path.resolve(__dirname, '../data/productos.json');
-//const fileData = path.join(__dirname, '../data/productos.json');
+const fileDataUser = path.resolve(__dirname, '../data/usuarios.json');
+
 let generate={
     
     readJson:function(){
@@ -35,7 +36,32 @@ let generate={
                 lastID = array[i].id;
         }
         return lastID +1;
-    }
+    },
+
+    readJsonUser:function(){
+    
+        if(!fs.existsSync(fileDataUser)){
+            fs.writeFileSync(fileDataUser, '');
+        }
+        let userJSON=fs.readFileSync(fileDataUser, {encoding :'utf-8'});
+        let arraysUserJS= userJSON.length == 0 ? []: JSON.parse(userJSON);
+        return arraysUserJS;
+    },
+    
+    writeJsonUser: function(arraysUserJS){
+        let userJSON= JSON.stringify(arraysUserJS, null, ' ');
+        fs.writeFileSync(fileDataUser, userJSON);
+     },
+
+    lastIDUser: function() {
+        let array = this.readJsonUser();
+        let lastID = 0;
+        for( let i=0; i < array.length; i++) {
+            if (lastID < array[i].id)
+                lastID = array[i].id;
+        }
+        return lastID +1;
+    },
     
 }
 
