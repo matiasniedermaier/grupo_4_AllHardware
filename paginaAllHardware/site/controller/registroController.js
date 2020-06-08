@@ -17,7 +17,7 @@ let registroController = {
             promotion: req.body.chk
         };
 
-        archivoUsers = generateData.readJsonUser();
+        let archivoUsers = generateData.readJsonUser();
 
         if(archivoUsers.length == 0){
 
@@ -43,8 +43,22 @@ let registroController = {
 
     loginPost: (req, res) => {
 
-
-        res.redirect('/');
+        archivoUsers = generateData.readJsonUser();
+        let resultado = false;
+        for (let i=0; i < archivoUsers.length; i++){
+            if (req.body.email == archivoUsers[i].email && req.body.password == archivoUsers[i].password)
+                resultado = true;
+        }
+        if (req.body.mantenerme) {
+            //aqui si creo la cookie y que expire en 90 dias
+            res.cookie('mantenerUsuario', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
+        }
+        if (resultado){
+            res.redirect('/');
+        }
+        else{
+            res.send('No coincide')
+        }
 
     }
     
