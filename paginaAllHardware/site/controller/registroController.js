@@ -3,12 +3,15 @@ const generateData = require('../models/generate');
 let registroController = {
 
     registro: (req, res) => {
+
         res.render('registro')
+
     },
 
     registroPost: (req, res) => {
 
         let id = generateData.lastIDUser();
+
         let nuevoUsuario = {
             id: id,
             name: req.body.name,
@@ -37,6 +40,7 @@ let registroController = {
     },
 
     login: (req, res) => {
+
         res.render('login')
 
     },
@@ -44,23 +48,28 @@ let registroController = {
     loginPost: (req, res) => {
 
         archivoUsers = generateData.readJsonUser();
+
         let resultado = false;
+
         for (let i=0; i < archivoUsers.length; i++){
+
             if (req.body.email == archivoUsers[i].email && req.body.password == archivoUsers[i].password)
                 resultado = true;
+
         }
-        if (req.body.mantenerme) {
-            //aqui si creo la cookie y que expire en 90 dias
-            res.cookie('mantenerUsuario', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
-        }
+
         if (resultado){
+
             res.redirect('/');
-        }
-        else{
-            res.send('No coincide')
+
+        }else{
+
+            res.send('No coincide');
+
         }
 
     }
     
 }
+
 module.exports = registroController;

@@ -11,33 +11,58 @@
     <div class="lista-prod">
         
         <% for(var i=0; i < productos.length; i++){ %>
+
             <div class="producto">
+
                 <!--direccion a detalle del producto-->
                 <a href="/productos/<%=productos[i].id %>">
+
                     <div class="lista">
+
                         <!-- extraigo la imagen correspondiente-->
                         <img src="<%= productos[i].img %>" alt="img">
+
                     </div>
+
                     <div class="producto-prec">
+
                         <div class="name"><%= productos[i].name%></div>
+
                         <div class="precio">$<%= productos[i].price%></div>
+
                     </div>
+
                 </a>
+
                 <div class="botonesEdicion">
+
                     <div>
                         <a href="/productos/<%=productos[i].id%>/edit"><button class="edit"><i class="fas fa-file-signature"></i></button></a>
+
                         <p class="edit-p">Editar</p>
+
                     </div>
+
                     <div>
+
                         <form  method="POST" action="/productos/<%=productos[i].id%>?_method=DELETE">
-                            <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete"><button class="delete"><i class="fas fa-file-excel"></i></button></a>
+
+                            <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete">
+
+                                <button class="delete"><i class="fas fa-file-excel"></i></button>
+
+                            </a>
+
                             <p class="edit-p">Eliminar</p>
+
                         </form>
+
                     </div>
-                    
+                        
                 </div>
 
             </div>
+
         <%}%>
 
     </div>

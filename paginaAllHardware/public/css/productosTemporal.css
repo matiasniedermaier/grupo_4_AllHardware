@@ -64,15 +64,21 @@ a:hover {
     text-decoration: none;
 }
 
+
 @media (min-width: 768px) {
+
     .lista-prod {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
 }
 
+
 @media (min-width: 1024px) {
+
     .lista-prod {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+    
 }

@@ -5,105 +5,169 @@
 <link rel="stylesheet" href="/css/detalle.css">
 
 <div class="container section">
+
     <section>
+
         <a href="/">Home</a>
+
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
+
         <a href="/productos">Productos</a>
+
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
+
         <%= productosMostrar[0].name %>
+
     </section>
+
 </div>
 
 <div id="main" class="container contenedor" style="background-color: #fff;">
+
     <div class="div-izquierda">
+
         <div class="cont-img">
+
             <img class="img" src="<%= productosMostrar[0].img %>"alt="">
+
         </div>
+
     </div>
+
     <section>
+
         <article class="titulo"><%= productosMostrar[0].name %></article>
+
         <ul type="none" class="subtitulo">
+
             <li class="costo">$<%= productosMostrar[0].price %></li>
+
             <li><mark> Envio con normalidad</mark></li>
+
             <li id="nuevo">Nuevo</li>
+
             <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas</li>
+
             <li>
+
                 <img src="/images/imagenesMediosDePago/visa.png" alt="">
                 <img src="/images/imagenesMediosDePago/amex.png" alt="">
                 <img src="/images/imagenesMediosDePago/master.png" alt="">
                 <img src="/images/imagenesMediosDePago/efectivo.png" alt="">
+
             </li>
+
             <li class="envio"> Envío gratis a todo el país</li>
+
             <li><i class="fas fa-truck"></i></li>
+
             <li id="buton">
+
                 <a href=""><button class="butontwo">Agregar al carrito</button></a>
+
             </li>
 
         </ul>
+
     </section>
+
     <div>
+
         <h3 class="tituloDes">Detalles del producto</h3>
+
         <p><%= productosMostrar[0].especification%></p>
+
     </div>
+
 </div>
+
 <div class="otrosProductos">
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="#">
+
             <img src="/images/imagenesProductos/gabinete/fullTower/AZZA GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER.webp"
                 alt="hdd">
-            <article class="descripcion"> GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER
-            </article>
+
+            <article class="descripcion"> GABINETE STORM 6000B BLACK GLASS RGB LED FULL TOWER</article>
+
         </a>
+
     </section>
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="#">
-            <img src="/images/imagenesProductos/motherboards/amd/ASUS MOTHER ROF CROSSHAIR VII HERO WIFI - X470.webp"
-                alt="">
+
+            <img src="/images/imagenesProductos/motherboards/amd/ASUS MOTHER ROF CROSSHAIR VII HERO WIFI - X470.webp" alt="">
+
             <article class="descripcion">ASUS MOTHER ROF CROSSHAIR VII HERO WIFI</article>
+
         </a>
+
     </section>
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="#">
+
             <img src="/images/imagenesProductos/motherboards/intel/ASROCK MOTHER H310CM-HDV-H310.webp" alt="">
+
             <article class="descripcion">intel/ASROCK MOTHER H310CM-HDV-H310</article>
+
         </a>
+
     </section>
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="">
-            <img src="/images/imagenesProductos/placaDeVideo/nvidia/ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6.webp"
-                alt="">
-            <article class="descripcion">ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6
-            </article>
+
+            <img src="/images/imagenesProductos/placaDeVideo/nvidia/ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6.webp"alt="">
+
+            <article class="descripcion">ASUS NVIDIA GTX 1650 SUPER PHOENIX OC O4G 4GB DDR6</article>
+
         </a>
 
     </section>
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="#">
-            <img src="/images/imagenesProductos/placaDeVideo/radeon/ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0.webp"
-                alt="">
-            <article class="descripcion">ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0
-            </article>
+
+            <img src="/images/imagenesProductos/placaDeVideo/radeon/ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0.webp"alt="">
+
+            <article class="descripcion">ASUS RADEON RX 5500 XT 8GB DDR6 DUAL OC EVO PCIE 4.0</article>
+
         </a>
 
     </section>
+
     <section class="contenedorProduct">
+
         <img class="cph" src="./images/sale.webp" alt="">
+
         <a class="ancla" href="#">
-            <img src="/images/imagenesProductos/auricularesParlantesYAudio/microfonos/KINGSTON MICROFONO HYPERX QUADCAST.webp"
-                alt="">
-            <article class="descripcion">KINGSTON MICROFONO HYPERX QUADCAST
-            </article>
+
+            <img src="/images/imagenesProductos/auricularesParlantesYAudio/microfonos/KINGSTON MICROFONO HYPERX QUADCAST.webp"alt="">
+
+            <article class="descripcion">KINGSTON MICROFONO HYPERX QUADCAST</article>
+
         </a>
 
     </section>
-</div>
 
 </div>
-
 
 <%- include("partials/footer") %>
