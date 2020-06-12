@@ -1,3 +1,8 @@
+Sprint 3
+
+Lo que hicimos bien fue trabajar y debatir en equipo, poder cumplir la meta de entregar el sprint a la fecha puesta y reunirnos cuando dijimos que lo ibamos hacer. Lo que hicimos mal fue el querer hacer todo en conjunto como equipo.
+Deberíamos empezar a hacer es ser más eficiente en avanzar cada uno por su parte y también en equipo. Deberíamos dejar de hacer es todo en equipo sino una parte cada uno y otra en conjuto.
+
 Sprint 2
 
 Lo que hicimos bien fue empezar con las recomendaciones de Juan en ya empezar el armado de la pagina con Template Engine, empezando ya a trabajar con MVC. Lo que hicimos mal fue el administrar nuestro tiempo y organizarnos mal con nuestras tareas.
