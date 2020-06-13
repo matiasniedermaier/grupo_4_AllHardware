@@ -49,7 +49,7 @@
 
             <div class="form-name">
 
-                <input class="form" type="text" id="name" placeholder="Nombre" name="name">
+                <input class="form" type="text" id="name" placeholder="Nombre" name="name" value="<%= productosMostrar[0].name %>">
 
             </div>
 
@@ -57,9 +57,15 @@
 
                 <li class="costo">$<%= productosMostrar[0].price %></li>
 
-                <li><input class="form-price form" type="number" id="price" placeholder="Precio" name="price"></li>
+                <li>
+                    <label for="">Precio</label>
+                    <input class="form-price form" type="number" id="price" placeholder="Precio" name="price" value="<%= productosMostrar[0].price %>">
+                </li>
 
-                <li><input class="form-price form" type="text" id="stock" placeholder="Stock" name="stock"></li>
+                <li>
+                    <label for="">Stock</label>
+                    <input class="form-price form" type="number" id="stock" placeholder="Stock" name="stock" value="<%= productosMostrar[0].stock %>">
+                </li>
 
                 <li><mark> Envio con normalidad</mark></li>
 
@@ -98,7 +104,7 @@
 
             <div style="display: flex;">
 
-                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification" value="<%= productosMostrar[0].especification %>"></textarea>
+                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"><%= productosMostrar[0].especification %></textarea>
 
             </div>
 

@@ -1,7 +1,12 @@
+const generateData = require ('../models/generate');
+
 let homeController = {
 
     home: (req, res) => {
-        res.render('home')
+
+        let archivoProductos = generateData.readJson();
+        res.render('home', { productos: archivoProductos});
+
     }
 
 }
