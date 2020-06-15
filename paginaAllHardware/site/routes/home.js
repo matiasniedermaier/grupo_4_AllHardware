@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 const home = require ('../controller/homeController');
 const {check, validationResult, body} =  require('express-validator');
 const formulario = require('../controller/registroController');
