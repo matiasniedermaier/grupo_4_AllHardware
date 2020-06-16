@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const fileData= path.resolve(__dirname, '../data/productos.json');
 const fileDataUser = path.resolve(__dirname, '../data/usuarios.json');
+const bcrypt = require('bcrypt');
 
 let generate={
     
@@ -97,9 +98,8 @@ let generate={
 
         return lastID +1;
         
-    },
-    
-}
+    }
+};
 
 module.exports= generate;
 

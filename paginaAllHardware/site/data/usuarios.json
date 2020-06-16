@@ -4,5 +4,10 @@
   "email": "matiasnieder@gmail.com",
   "password": "123",
   "promotion": "on"
+ },
+ {
+  "id": 2,
+  "email": "matinieder@gmail.com",
+  "password": "$2b$10$1IIYwxiHy5fkJkx3sEppPeHuD0m1hUowrxm.Y0CNPeTLFD.j4ZSW6"
  }
 ]

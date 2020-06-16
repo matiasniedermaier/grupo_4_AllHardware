@@ -1,4 +1,5 @@
 const generateData = require('../models/generate');
+const bcrypt = require('bcrypt');
 
 let registroController = {
 
@@ -16,7 +17,7 @@ let registroController = {
             id: id,
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             promotion: req.body.chk
         };
 
@@ -53,9 +54,9 @@ let registroController = {
 
         for (let i=0; i < archivoUsers.length; i++){
 
-            if (req.body.email == archivoUsers[i].email && req.body.password == archivoUsers[i].password)
-                resultado = true;
-
+            if (req.body.email == archivoUsers[i].email)
+                if(bcrypt.compareSync(req.body.password, archivoUsers[i].password))
+                    resultado = true;
         }
 
         if (resultado){
