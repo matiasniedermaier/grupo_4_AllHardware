@@ -2,32 +2,85 @@
 
 <%- include("partials/header") %>
 
-<link rel="stylesheet" href="/css/carga.css">
-<div class="contenedor container">
+<link rel="stylesheet" href="/css/detalle.css">
 
-  <div class="titulo">Carga De Productos</div>
-  <form method="POST" action="/productos" class="formulario" enctype="multipart/form-data" > 
-    <label class="label" for="codigo">Codigo</label>
-    <input class="input" type="text" name="codigo" value="" id="codigo" placeholder="Codigo del producto" />
+<form method="POST" action="/productos" enctype="multipart/form-data">
 
-    <label class="label" for="nombre">Nombre</label>
-    <input class="input" type="text" name="nombre" value="" id="nombre" placeholder="Nombre" />
+  <h2 class="container" style="padding-top: 10px;">Nuevo Producto</h2>
 
-    <label class="label" for="cantidad">Cantidad</label>
-    <input class="input" type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad" />
+  <div id="main" class="container contenedor" style="background-color: #fff;">
 
-    <label class="label" for="precio">Precio</label>
-    <input class="input" type="number" name="precio" value="" id="precio" placeholder="Precio" />
+    <div class="div-izquierda" style="height: 500px;">
 
+      <div>
 
-    <label class="label" for="imagen">Imagen</label>
-    <input class="im" type="file" name="imagen" id="imagen"> 
+        <input type="file" id="img" name="img">
+        <label>Selecciona una imagen</label>
 
-    <label class="label" for="descripcion">Descripción</label>
-    <textarea name="descripcion" id="desc" cols="30" rows="3" placeholder="Escriba una descripción"></textarea>
+      </div>
 
+    </div>
 
-    <button class="btn" class="submit" name="boton">Guardar</button>
-  </form>
-</div>
+    <section>
+
+      <div class="form-name">
+
+        <input class="form" type="text" id="name" placeholder="Nombre" name="name" >
+
+      </div>
+
+      <ul type=" none" class="subtitulo">
+
+        <li><input class="form-price form" type="number" id="price" placeholder="Precio" name="price"></li>
+
+        <li><input class="form-price form" type="text" id="stock" placeholder="Stock" name="stock"></li>
+
+        <li><mark> Envio con normalidad</mark></li>
+
+        <li id="nuevo">Nuevo</li>
+
+        <li class="envio"><i class="far fa-credit-card" style="padding-right: 5px;"></i>Paga hasta 12 cuotas</li>
+
+        <li>
+
+          <img src="/images/imagenesMediosDePago/visa.png" alt="">
+          <img src="/images/imagenesMediosDePago/amex.png" alt="">
+          <img src="/images/imagenesMediosDePago/master.png" alt="">
+          <img src="/images/imagenesMediosDePago/efectivo.png" alt="">
+
+        </li>
+
+        <li class="envio"> Envío gratis a todo el país</li>
+
+        <li><i class="fas fa-truck"></i></li>
+
+        <li id="buton">
+
+          <a href=""><button class="butontwo">Agregar al carrito</button></a>
+
+        </li>
+
+      </ul>
+
+    </section>
+
+    <div>
+
+      <h3 class="tituloDes">Detalles del producto</h3>
+
+      <div style="display: flex;">
+
+        <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación"
+          name="especification"></textarea>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </div>
+
+  </div>
+  
+</form>
+
 <%- include("partials/footer") %>

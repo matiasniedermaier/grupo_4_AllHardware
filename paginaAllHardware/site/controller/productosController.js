@@ -1,56 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const multer=require('multer');
-
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, __dirname + '/../../public/images/imagenesProducto');
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
-    }
-  })
-  
-   
-  var upload = multer({ storage: storage })
+const generateData = require('../models/generate');
 
 let productosController = {
-
-    leerJSON:function(){
     
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
-        return arraysProductoJS;
-    },
-
-    escribirArchivo: function(arraysProductoJS){
-        let productosJSON= JSON.stringify(arraysProductoJS, null, ' ');
-        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosJSON);
-     },
-
     productos: (req, res, next) => {
        
-        //let arraysProductos= leerJSON();
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
-      
-        res.render('productos', { productos: arraysProductoJS })
-    },
+        let archivoProductos= generateData.readJson();
+        res.render('productos', { productos: archivoProductos });
 
-    /*detalle: (req,res)=>{
-        // el id que viene del navegador
-        let productos= this.leerJSON();
-        productos.filter((productos)=>{
-            return productos.id == req.params.id;
-        })
-        res.render('detalle')
-    },**/
+    },
 
     create: (req, res, next) => {
 
@@ -59,40 +18,33 @@ let productosController = {
     },
 
     createPost: (req, res, next)=>{
+        
+        let id = generateData.lastID();
 
         let nuevoProducto = {
-            codigo: req.body.codigo,
-            name: req.body.nombre,
-            cantidad: req.body.cantidad,
-            imagen: req.body.imagen,
-            descripcion: req.body.descripcion
+            id: id,
+            name: req.body.name,
+            price:req.body.price,
+            especification: req.body.especification,
+            img: '/images/imagenesProductos/'+req.files[0].filename,
+            stock: req.body.stock,
+            category:'',
+            brand:'', 
         };
 
-        let archivoProductos = this.productoJSON();
+        archivoProductos = generateData.readJson();
 
-        if(archivoProductos == ""){
-            productos = [];
-            productos.push(nuevoProducto);
-            let productosJSON = JSON.stringify(productos);
-            
+        if(archivoProductos.length == 0){
+
+            archivoProductos.push(nuevoProducto);
+            generateData.writeJson(archivoProductos);
+        
         }
         else{
-            let resultado = false;
-            productos= JSON.parse(archivoProductos);
-            for(var i = 0; i< productos.length; i++){
-                 if(req.body.codigo == productos.id){
-                      resultado = true;
-                 }
-            
-            }
 
-            if(resultado){
-                console.log('ya existe');
+            archivoProductos.push(nuevoProducto);
+            generateData.writeJson(archivoProductos);
 
-            }else{
-                productos.push(nuevoProducto);
-                this.escribirArchivo(productos);
-            }
         }
 
         res.redirect('/productos');
@@ -101,62 +53,73 @@ let productosController = {
 
     id: (req, res) => {
 
-        if(!fs.existsSync(path.resolve(__dirname, '../data/productos.json'))){
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), '');
-        }
-        let productosJSON=fs.readFileSync(path.resolve(__dirname, '../data/productos.json'), {encoding :'utf-8'});
-        let arraysProductoJS= productosJSON.length == 0 ? []: JSON.parse(productosJSON);
+        archivoProductos= generateData.readJson();
 
+        let productoAMostrar = archivoProductos.filter(function (productos) {
 
-        let productoAMostrar = arraysProductoJS.filter( function (productos) {
             return req.params.id == productos.id;
+
         });
+
         res.render('detalle',{productosMostrar:productoAMostrar});
 
     },
 
     edit: (req, res) => {
 
-        productos = this.leerJSON();
-        let id = req.params.id;
-        productoAMostrar = productos.filter( function (productos) {
+        archivoProductos= generateData.readJson();
+
+        let productoAMostrar = archivoProductos.filter(function (productos) {
+
             return req.params.id == productos.id;
+
         });
-        res.render('productos/:id/edit', productoAMostrar);
+
+        res.render('edit', {productosMostrar:productoAMostrar});
 
     },
 
     editPut: (req, res) => {
+        
+        archivoProductos= generateData.readJson();
 
-        let productoEditado = {
-            id: req.params.id,
-            codigo: req.body.codigo,
-            name: req.body.nombre,
-            cantidad: req.body.cantidad,
-            imagen: req.body.imagen,
-            descripcion: req.body.descripcion
-        };
-        archivoProductos = this.leerJSON();
-        let num = 0;
-        for( i=0; i < archivoProductos.length; i++){
-            if (archivoProductos[i].id == req.params.id)
-                num = i;
-        }
-        archivoProductos[num] = productoEditado;
-        this.escribirArchivo(archivoProductos);
+        let productosAMostrar = archivoProductos.find(function (productos) {
+
+            return req.params.id == productos.id;
+
+        });
+
+        productosAMostrar.name = req.body.name;
+        productosAMostrar.stock = req.body.stock;
+        productosAMostrar.price = req.body.price;
+        productosAMostrar.stock = req.body.stock;
+
+        productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
+
+        productosAMostrar.especification = req.body.especification;
+
+        let productosASubir = archivoProductos.filter(function (productos) {
+
+            return req.params.id != productos.id;
+
+        });
+
+        productosASubir.push(productosAMostrar);
+
+        generateData.writeJson(productosASubir);    
+
         res.redirect('/productos');
 
     },
 
     borrar: (req,res) => {
 
-        archivoProductos = this.leerJSON();
-        let productoBorrado = productos.filter( function (productos) {
-            return req.params.id != productos.id;
-        });
-        this.escribirArchivo(productoBorrado);
-        res.redirect('/productos');
+        archivoProductos = generateData.readJson();
 
+        generateData.writeJson(generateData.deleteID(req,archivoProductos));
+
+        res.redirect('/productos');
+        
     }
 
 }
