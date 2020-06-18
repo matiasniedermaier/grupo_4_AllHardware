@@ -38,5 +38,35 @@
   "stock": 15,
   "category": "procesadores",
   "brand": "intel"
+ },
+ {
+  "id": 5,
+  "name": "cualquier cosa",
+  "price": "100",
+  "especification": "nada",
+  "img": "/images/imagenesProductos/img-1592435650194.png",
+  "stock": "10",
+  "category": "",
+  "brand": ""
+ },
+ {
+  "id": 6,
+  "name": "diagramas",
+  "price": "200",
+  "especification": "cualquier cosa",
+  "img": "/images/imagenesProductos/img-1592435802173.png",
+  "stock": "5",
+  "category": "",
+  "brand": ""
+ },
+ {
+  "id": 7,
+  "name": "diagrama",
+  "price": "105",
+  "especification": "nada",
+  "img": "/images/imagenesProductos/img-1592436105211.png",
+  "stock": "2",
+  "category": "",
+  "brand": ""
  }
 ]

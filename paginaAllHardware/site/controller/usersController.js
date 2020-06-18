@@ -1,11 +1,11 @@
 const generateData = require('../models/generate');
 const bcrypt = require('bcrypt');
 
-let registroController = {
+let userController = {
 
     registro: (req, res) => {
 
-        res.render('registro')
+        res.render('users/registro')
 
     },
 
@@ -42,7 +42,7 @@ let registroController = {
 
     login: (req, res) => {
 
-        res.render('login')
+        res.render('users/login')
 
     },
 
@@ -73,4 +73,4 @@ let registroController = {
     
 }
 
-module.exports = registroController;
+module.exports = userController;

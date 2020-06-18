@@ -1,6 +1,6 @@
-<%- include("partials/head") %>
+<%- include("../partials/head") %>
 
-<%- include("partials/header") %>
+<%- include("../partials/header") %>
 
 <link rel="stylesheet" href="/css/registro.css">
 
@@ -8,7 +8,7 @@
 
     <div class="titulo">Completá tu datos</div>
 
-    <form method="POST" action="/registro" class="formulario">
+    <form method="POST" action="/users/registro" class="formulario">
 
         <label class="label" for="nombre">Nombre</label>
         <input class="input" type="text" name="nombre" value="" id="nombre" placeholder="Nombre">
@@ -35,4 +35,4 @@
 
 </div>
 
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>

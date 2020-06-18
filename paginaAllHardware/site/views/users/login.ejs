@@ -1,6 +1,6 @@
-<%- include("partials/head") %>
+<%- include("../partials/head") %>
 
-<%- include("partials/header") %>
+<%- include("../partials/header") %>
 
 <link rel="stylesheet" href="/css/login.css">
 
@@ -12,7 +12,7 @@
 
   </div>
 
-  <form class="login" method="POST" action="/login">
+  <form class="login" method="POST" action="/users/login">
 
     <input class="input" type="email" name="email" value placeholder="Tu email" id="email" required />
 
@@ -22,11 +22,11 @@
 
     <button class="btn" type="submit" name="btn"> Ingresar</button>
 
-    <div class="regis">¿Aún no tenés cuenta? <a class="" href="/registro"> Registrate </a> </div>
+    <div class="regis">¿Aún no tenés cuenta? <a class="" href="/users/registro"> Registrate </a> </div>
 
   </form>
 
 </div>
 
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>
 

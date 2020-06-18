@@ -9,5 +9,11 @@
   "id": 2,
   "email": "matinieder@gmail.com",
   "password": "$2b$10$1IIYwxiHy5fkJkx3sEppPeHuD0m1hUowrxm.Y0CNPeTLFD.j4ZSW6"
+ },
+ {
+  "id": 3,
+  "email": "liciacoronel06@gmail.com",
+  "password": "$2b$10$PxkaXmhOoh6rUFcX7AOc6eLTlqMtVNumZNiVpkeu.WM0xF6HvZnq2",
+  "promotion": "on"
  }
 ]

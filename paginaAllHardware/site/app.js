@@ -4,9 +4,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 const homeRouter = require('./routes/home');
 const productosRouter = require('./routes/productos');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -20,12 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(session({secret: 'secreto!!'}));
 
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));
 
 app.use('/', homeRouter);
 app.use('/productos', productosRouter);
+app.use('/users', usersRouter);
 
 
 // catch 404 and forward to error handler
