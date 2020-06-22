@@ -1,5 +1,6 @@
 const generateData = require('../models/generate');
 const bcrypt = require('bcrypt');
+const {check, validationResult, body} =  require('express-validator');
 
 let userController = {
 
@@ -12,31 +13,42 @@ let userController = {
     registroPost: (req, res) => {
 
         let id = generateData.lastIDUser();
-
-        let nuevoUsuario = {
-            id: id,
-            name: req.body.name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            promotion: req.body.chk
-        };
-
-        let archivoUsers = generateData.readJsonUser();
-
-        if(archivoUsers.length == 0){
-
-            archivoUsers.push(nuevoUsers);
-            generateData.writeJsonUser(archivoUsers);
+        let errors = validationResult(req);
+        console.log(errors);
         
+
+        if (errors.isEmpty()) {
+
+            let nuevoUsuario = {
+                id: id,
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                promotion: req.body.chk
+            };
+
+            let archivoUsers = generateData.readJsonUser();
+
+            if(archivoUsers.length == 0){
+
+                archivoUsers.push(nuevoUsers);
+                generateData.writeJsonUser(archivoUsers);
+            
+            }
+            else{
+
+                archivoUsers.push(nuevoUsuario);
+                generateData.writeJsonUser(archivoUsers);
+
+            }
+
+            return res.redirect('/'); 
+
+        } else {
+
+            return res.render('users/registro', {errors : errors.mapped(), body : req.body});
+
         }
-        else{
-
-            archivoUsers.push(nuevoUsuario);
-            generateData.writeJsonUser(archivoUsers);
-
-        }
-
-        res.redirect('/');
 
     },
 
@@ -61,11 +73,11 @@ let userController = {
 
         if (resultado){
 
-            res.redirect('/');
+            return res.redirect('/');
 
         }else{
 
-            res.send('No coincide');
+            return res.send('No coincide');
 
         }
 

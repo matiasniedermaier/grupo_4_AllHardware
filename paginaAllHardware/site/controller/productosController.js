@@ -31,7 +31,7 @@ let productosController = {
             category:'',
             brand:'', 
         };
-     console.log(req.files[0]);
+
         archivoProductos = generateData.readJson();
 
         if(archivoProductos.length == 0){

@@ -11,16 +11,28 @@
     <form method="POST" action="/users/registro" class="formulario">
 
         <label class="label" for="nombre">Nombre</label>
-        <input class="input" type="text" name="nombre" value="" id="nombre" placeholder="Nombre">
-
-        <label class="label" for="email">Email</label>
-        <input class="input" type="email" name="email" value="" id="email" placeholder="Email">
+        <input class="input" type="text" name="name" value="" id="nombre" placeholder="Nombre">
+        <% if (typeof errors != 'undefined') { %>
+            <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
+        <% } %> 
         
-        <label class="label" for="password">Contraseña</label>
+        <label class="label" for="email">Email</label>
+        <input class="input" type="text" name="email" value="" id="email" placeholder="Email">
+        <% if (typeof errors != 'undefined') { %>
+            <div class="errors"><%= errors.email ? errors.email.msg : '' %> </div>
+        <% } %>
+        
+        <label class="lanodemonbel" for="password">Contraseña</label>
         <input class="input" type="password" name="password" value="" id="password" placeholder="Contraseña">
+        <% if (typeof errors != 'undefined') { %>
+            <div class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
+        <% } %>
 
         <label class="label" for="confirm_password">Confirmar Contraseña</label>
         <input class="input" type="password" name="confirm_password" value="" id="confirm_password" placeholder="Contraseña">
+        <% if (typeof errors != 'undefined') { %> 
+            <div class="errors"><%= errors.confirm_password ? errors.confirm_password.msg : '' %> </div>
+        <% } %>
 
         <div class="pa">
             

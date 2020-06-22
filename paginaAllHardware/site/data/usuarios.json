@@ -15,5 +15,10 @@
   "email": "liciacoronel06@gmail.com",
   "password": "$2b$10$PxkaXmhOoh6rUFcX7AOc6eLTlqMtVNumZNiVpkeu.WM0xF6HvZnq2",
   "promotion": "on"
+ },
+ {
+  "id": 4,
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$SXJvXgkxyOad91Og5g8D.OMRsQz9iHz4HUCYSDJL7.W.Zq5b9Ta/S"
  }
 ]

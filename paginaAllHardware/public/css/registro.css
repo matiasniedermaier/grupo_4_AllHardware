@@ -23,6 +23,11 @@ body{
     border-bottom-right-radius: 10px;
 }
 
+.errors {
+    color: red;
+    font-size: unset;
+}
+
 .titulo{
     background-color: rgba(0, 174, 255, 0.5);
     margin-top: 10px;
