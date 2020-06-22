@@ -20,5 +20,11 @@
   "id": 4,
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$SXJvXgkxyOad91Og5g8D.OMRsQz9iHz4HUCYSDJL7.W.Zq5b9Ta/S"
+ },
+ {
+  "id": 5,
+  "name": "Matias",
+  "email": "matis@gmail.com",
+  "password": "$2b$10$sXMaREQZVtMME/6h7YbNz.dF5dudoijD24Oy3LrE59Tpo2sSD4d/m"
  }
 ]
