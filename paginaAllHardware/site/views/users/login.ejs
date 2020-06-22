@@ -15,8 +15,14 @@
   <form class="login" method="POST" action="/users/login">
 
     <input class="input" type="email" name="email" value placeholder="Tu email" id="email" required />
+    <% if (typeof errors != 'undefined') { %>
+      <div class="errors"><%= errors.email ? errors.email.msg : '' %> </div>
+    <% } %> 
 
     <input class="input" type="password" name="password" value placeholder="Tu Contraseña" id="password" required />
+    <% if (typeof errors != 'undefined') { %>
+      <div class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
+    <% } %> 
 
     <div> <a class="recuperar-contraseña" href="#"> Restaurar contraseña</a></div>
 

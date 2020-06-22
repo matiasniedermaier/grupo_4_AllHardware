@@ -13,9 +13,7 @@ let userController = {
     registroPost: (req, res) => {
 
         let id = generateData.lastIDUser();
-        let errors = validationResult(req);
-        console.log(errors);
-        
+        let errors = validationResult(req);        
 
         if (errors.isEmpty()) {
 
@@ -24,6 +22,7 @@ let userController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
+                img: '/images/users/'+req.files,
                 promotion: req.body.chk
             };
 
@@ -61,17 +60,30 @@ let userController = {
     loginPost: (req, res) => {
 
         archivoUsers = generateData.readJsonUser();
+        errors = validationResult(req);
+        console.log(errors);
 
-        let resultado = false;
+
+        /*let resultado = false;
 
         for (let i=0; i < archivoUsers.length; i++){
 
             if (req.body.email == archivoUsers[i].email)
                 if(bcrypt.compareSync(req.body.password, archivoUsers[i].password))
                     resultado = true;
+        }*/
+
+        if( errors.isEmpty() ){
+
+            return res.redirect('/');
+
+        } else {
+
+            return res.render('users/login', {errors : errors.mapped(), body : req.body});
+
         }
 
-        if (resultado){
+        /*if (resultado){
 
             return res.redirect('/');
 
@@ -79,7 +91,7 @@ let userController = {
 
             return res.send('No coincide');
 
-        }
+        }*/
 
     }
     

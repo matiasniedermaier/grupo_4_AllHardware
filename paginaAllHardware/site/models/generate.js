@@ -81,7 +81,7 @@ let generate={
 
         fs.writeFileSync(fileDataUser, userJSON);
 
-     },
+    },
 
     lastIDUser: function() {
 
@@ -98,6 +98,26 @@ let generate={
 
         return lastID +1;
         
+    },
+
+    findUserEmail: function (value) {
+        let users = this.readJsonUser();
+        for( let i = 0; i < users.length; i++) {
+            if (users[i].email == value) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    findUserPassword: function (value) {
+        let users = this.readJsonUser();
+        for( let i = 0; i < users.length; i++) {
+            if(bcrypt.compareSync(value, users[i].password)){
+                return true;
+            }
+        }
+        return false;
     }
 };
 

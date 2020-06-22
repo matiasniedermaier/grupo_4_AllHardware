@@ -26,5 +26,31 @@
   "name": "Matias",
   "email": "matis@gmail.com",
   "password": "$2b$10$sXMaREQZVtMME/6h7YbNz.dF5dudoijD24Oy3LrE59Tpo2sSD4d/m"
+ },
+ {
+  "id": 6,
+  "name": "Matias",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$8gDM9130R9/snIfeXnFYPunFqwFmCCQgHzGLX5d.DYdgfxT1qAEQC"
+ },
+ {
+  "id": 7,
+  "name": "matias",
+  "email": "hola@gmail.com",
+  "password": "$2b$10$VoNCEjB2ifBk5F2QiHq77.S.7DFNEpgi7No0BZKMorUQmC8Wz8GA2"
+ },
+ {
+  "id": 8,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$GSkJw/W5nZ.q1Nr5nY1bpOeYh2q/NrgvTUF2bYI.tkYaGVicdFeue",
+  "img": "/images/users/undefined"
+ },
+ {
+  "id": 9,
+  "name": "angelgsanchez",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$rS8bfh4a.0k9bL8r5vX6zO79gcMX2kuZSAKShg/dfg9rNGGfdIhBu",
+  "img": "/images/users/undefined"
  }
 ]

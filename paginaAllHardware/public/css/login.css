@@ -13,6 +13,11 @@ body{
     border: 1px solid #eaeaea;
 }
 
+.errors {
+    color: red;
+    font-size: unset;
+}
+
 .login {
     position: relative;
     display: flex;

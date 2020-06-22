@@ -10,26 +10,6 @@
   "brand": "intel"
  },
  {
-  "id": 2,
-  "name": "INTEL COFFEE LAKE CORE I5 9400",
-  "price": 35.265,
-  "especification": "Cantidad de núcleos: 6, Cantidad de subprocesos: 6, Frecuencia básica del procesador: 2,90 GHz, Frecuencia turbo máxima: 4,10 GHz, Caché: 9 MB Intel® Smart Cache, Velocidad del bus: 8 GT/s, TDP: 65 W",
-  "img": "/images/imagenesProductos/procesadores/intel/INTEL COFFEE LAKE CORE I5 9400.webp",
-  "stock": 10,
-  "category": "procesadores",
-  "brand": "intel"
- },
- {
-  "id": 3,
-  "name": "INTEL COFFEE LAKE CORE I5 9600K",
-  "price": 43.065,
-  "especification": "6 of Cores, 6 of Threads, Processor Base Frequency 3.70 GHz, Max Turbo Frequency 4.60 GHz, Cache 9 MB SmartCache, Bus Speed 8 GT/s DMI3, TDP 95 W",
-  "img": "/images/imagenesProductos/procesadores/intel/INTEL COFFEE LAKE CORE I5 9600K.webp",
-  "stock": 20,
-  "category": "procesadores",
-  "brand": "intel"
- },
- {
   "id": 4,
   "name": "INTEL COFFEE LAKE CORE I7 8700",
   "price": 58.775,
@@ -40,33 +20,23 @@
   "brand": "intel"
  },
  {
-  "id": 5,
-  "name": "cualquier cosa",
-  "price": "100",
-  "especification": "nada",
-  "img": "/images/imagenesProductos/img-1592435650194.png",
-  "stock": "10",
-  "category": "",
-  "brand": ""
+  "id": 3,
+  "name": "INTEL COFFEE LAKE CORE I5 9600K",
+  "price": "43.065",
+  "especification": "6 of Cores, 6 of Threads, Processor Base Frequency 3.70 GHz, Max Turbo Frequency 4.60 GHz, Cache 9 MB SmartCache, Bus Speed 8 GT/s DMI3, TDP 95 W",
+  "img": "/images/imagenesProductos/procesadores/intel/INTEL COFFEE LAKE CORE I5 9600K.webp",
+  "stock": "50",
+  "category": "procesadores",
+  "brand": "intel"
  },
  {
-  "id": 6,
-  "name": "diagramas",
-  "price": "200",
-  "especification": "cualquier cosa",
-  "img": "/images/imagenesProductos/img-1592435802173.png",
-  "stock": "5",
-  "category": "",
-  "brand": ""
- },
- {
-  "id": 7,
-  "name": "diagrama",
-  "price": "105",
-  "especification": "nada",
-  "img": "/images/imagenesProductos/img-1592436105211.png",
-  "stock": "2",
-  "category": "",
-  "brand": ""
+  "id": 2,
+  "name": "INTEL COFFEE LAKE CORE I5 9400",
+  "price": "35.265",
+  "especification": "Cantidad de núcleos: 6, Cantidad de subprocesos: 6, Frecuencia básica del procesador: 2,90 GHz, Frecuencia turbo máxima: 4,10 GHz, Caché: 9 MB Intel® Smart Cache, Velocidad del bus: 8 GT/s, TDP: 65 W",
+  "img": "/images/imagenesProductos/procesadores/intel/INTEL COFFEE LAKE CORE I5 9400.webp",
+  "stock": "50",
+  "category": "procesadores",
+  "brand": "intel"
  }
 ]

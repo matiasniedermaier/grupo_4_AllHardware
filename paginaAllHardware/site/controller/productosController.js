@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const generateData = require('../models/generate');
 
 let productosController = {
@@ -94,7 +92,8 @@ let productosController = {
         productosAMostrar.price = req.body.price;
         productosAMostrar.stock = req.body.stock;
 
-        productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
+        if (req.files[0] == 'undefined')
+            productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
 
         productosAMostrar.especification = req.body.especification;
 
