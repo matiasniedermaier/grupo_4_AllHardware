@@ -40,7 +40,7 @@ router.post('/login', [
 
 router.get('/registro', formulario.registro);
 
-router.post('/registro', upload.any(),[
+router.post('/registro', upload.any(), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
     check('password').isLength({min: 8}).withMessage('La contraseña debe tener un minimo de 8 caracteres'),
