@@ -10,11 +10,11 @@ let userController = {
 
     },
 
-    registroPost: (req, res) => {
+    registroPost: (req, res, next) => {
 
         let id = generateData.lastIDUser();
         let errors = validationResult(req);        
-
+        console.log(errors)
         if (errors.isEmpty()) {
 
             let nuevoUsuario = {
@@ -22,7 +22,7 @@ let userController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                img: '/images/users/'+req.files,
+                img: '/images/users/'+req.files[0].filename,
                 promotion: req.body.chk
             };
 

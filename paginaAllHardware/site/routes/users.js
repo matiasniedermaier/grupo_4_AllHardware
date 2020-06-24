@@ -5,6 +5,7 @@ const formulario = require('../controller/usersController');
 const generateData = require('../models/generate');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
+const path = require('path');
 
 var storage = multer.diskStorage({
 
@@ -18,17 +19,17 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
         //console.log(file);
 
-       return cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 
     }
 
 });
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 
 router.get('/login', formulario.login);
 
-router.post('/login', upload.any(), [
+router.post('/login', [
     check('email').custom( value => {
         return generateData.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
@@ -39,7 +40,7 @@ router.post('/login', upload.any(), [
 
 router.get('/registro', formulario.registro);
 
-router.post('/registro', [
+router.post('/registro', upload.any(),[
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
     check('password').isLength({min: 8}).withMessage('La contraseña debe tener un minimo de 8 caracteres'),

@@ -52,5 +52,19 @@
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$rS8bfh4a.0k9bL8r5vX6zO79gcMX2kuZSAKShg/dfg9rNGGfdIhBu",
   "img": "/images/users/undefined"
+ },
+ {
+  "id": 10,
+  "name": "Juanma",
+  "email": "jcolomboblanco@gmail.com",
+  "password": "$2b$10$sXR1s1tvhe2pPNwq3F10jeiGsozfkrzAuPm9YZjm3Sg.b39EZC.Me",
+  "img": "/images/users/undefined"
+ },
+ {
+  "id": 11,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$v9cBMJb.t1ER.Ys1mHMVJebq4Wpiffi1i/eVLQLn5JeK4nCKA0W.W",
+  "img": "/images/users/img-1593038206258.png"
  }
 ]
