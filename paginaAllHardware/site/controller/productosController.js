@@ -95,20 +95,19 @@ let productosController = {
         productosAMostrar.stock = req.body.stock;
         productosAMostrar.price = req.body.price;
         productosAMostrar.stock = req.body.stock;
-
-        if (req.files[0] == 'undefined')
-            productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
-
         productosAMostrar.especification = req.body.especification;
 
+        if (req.files[0] != 'undefined')
+            productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
+            
         let productosASubir = archivoProductos.filter(function (productos) {
-
+                
             return req.params.id != productos.id;
-
+                
         });
-
+            
         productosASubir.push(productosAMostrar);
-
+            
         generateData.writeJson(productosASubir);    
 
         res.redirect('/productos');

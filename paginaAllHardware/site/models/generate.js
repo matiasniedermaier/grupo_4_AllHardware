@@ -3,6 +3,7 @@ const path = require('path');
 const fileData= path.resolve(__dirname, '../data/productos.json');
 const fileDataUser = path.resolve(__dirname, '../data/usuarios.json');
 const bcrypt = require('bcrypt');
+const { use } = require('../routes/users');
 
 let generate={
     
@@ -100,7 +101,7 @@ let generate={
         
     },
 
-    findUserEmail: function (value) {
+    findUserEmail: function(value) {
         let users = this.readJsonUser();
         for( let i = 0; i < users.length; i++) {
             if (users[i].email == value) {
@@ -110,7 +111,7 @@ let generate={
         return false;
     },
 
-    findUserPassword: function (value) {
+    findUserPassword: function(value) {
         let users = this.readJsonUser();
         for( let i = 0; i < users.length; i++) {
             if(bcrypt.compareSync(value, users[i].password)){

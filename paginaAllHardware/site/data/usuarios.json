@@ -87,5 +87,12 @@
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$snkTVDiq/QboGtUUg0WU/eGgSBn5Gf6zBJySqxz5P.0btrV5TVkjS",
   "img": "/images/imagenesProductos/undefined"
+ },
+ {
+  "id": 15,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$BAov5QXWDA0bI0mV8GHgG.YKQcGXnVlZ3rQ61fupQWoVVVenN1Tqa",
+  "img": "/images/imagenesProductos/undefined"
  }
 ]

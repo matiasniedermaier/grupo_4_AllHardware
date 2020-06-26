@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const {check, validationResult, body} =  require('express-validator');
 const formulario = require('../controller/usersController');
-const generateData = require('../models/generate');
-const bcrypt = require('bcrypt');
+const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
 const { extname } = require('path');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const userMiddleware = require('../middlewares/userMiddleware');
 
 var storage = multer.diskStorage({
 
@@ -44,10 +45,10 @@ router.get('/login', formulario.login);
 
 router.post('/login', [
     check('email').custom( value => {
-        return generateData.findUserEmail(value);
+        return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
     check('password').custom( value => {
-        return generateData.findUserPassword(value);
+        return generate.findUserPassword(value);
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 

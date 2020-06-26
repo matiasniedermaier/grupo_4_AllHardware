@@ -60,19 +60,8 @@ let userController = {
 
     loginPost: (req, res) => {
 
-        archivoUsers = generateData.readJsonUser();
         errors = validationResult(req);
         console.log(errors);
-
-
-        /*let resultado = false;
-
-        for (let i=0; i < archivoUsers.length; i++){
-
-            if (req.body.email == archivoUsers[i].email)
-                if(bcrypt.compareSync(req.body.password, archivoUsers[i].password))
-                    resultado = true;
-        }*/
 
         if( errors.isEmpty() ){
 
@@ -83,16 +72,6 @@ let userController = {
             return res.render('users/login', {errors : errors.mapped(), body : req.body});
 
         }
-
-        /*if (resultado){
-
-            return res.redirect('/');
-
-        }else{
-
-            return res.send('No coincide');
-
-        }*/
 
     }
     
