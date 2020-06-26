@@ -66,5 +66,26 @@
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$v9cBMJb.t1ER.Ys1mHMVJebq4Wpiffi1i/eVLQLn5JeK4nCKA0W.W",
   "img": "/images/users/img-1593038206258.png"
+ },
+ {
+  "id": 12,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$kvmFum4V65EvhVRLfu10NeJNMOJaiWT2/yv.Q8MWbMVp4tAj.OQ1G",
+  "img": "/images/users/img-1593124853415.png"
+ },
+ {
+  "id": 13,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$HD3MWg5HzpgVQDfTF/2/T.pg./qIDzTu5CW/9ROc7N.OBYfk.7.fO",
+  "img": "/images/users/undefined"
+ },
+ {
+  "id": 14,
+  "name": "Matias Niedermaier",
+  "email": "matiasnieder@gmail.com",
+  "password": "$2b$10$snkTVDiq/QboGtUUg0WU/eGgSBn5Gf6zBJySqxz5P.0btrV5TVkjS",
+  "img": "/images/imagenesProductos/undefined"
  }
 ]

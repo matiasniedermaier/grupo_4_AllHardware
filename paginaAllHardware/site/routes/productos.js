@@ -5,7 +5,6 @@ const productos = require('../controller/productosController');
 //librerias que necesito para trabajar con multer.
 const multer=require('multer');
 const path = require('path');
-const validacionImg = require('../middlewares/validacionImg');
 
 
 //definimos donde vamos a guardar las imagenes que se suban.
@@ -27,7 +26,18 @@ var storage = multer.diskStorage({
 
 });
   
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage,
+    fileFilter: (req, file, cb) => {
+        const fileTypes = ['jepg', 'jpg', 'png'];
+        const extname = path.extname(file.originalname);
+        if(fileTypes.includes(extname)) {
+            cb(null, true);
+        } else {
+            req.file = file;
+            cb(null, false);
+        }
+    } 
+});
 
 
 router.get('/', productos.productos);
@@ -36,15 +46,15 @@ router.get ('/carrito', carrito.carrito);
 
 router.get('/create', productos.create);
 
-//implementamos upload.any()(middleware)
-router.post('/', upload.any(),/*validacionImg*/ productos.createPost);
+//implementamos upload.single()(middleware)
+router.post('/', upload.single('img'), productos.createPost);
 
 
 router.get('/:id', productos.id);
 
 router.get('/:id/edit', productos.edit);
 
-router.put('/:id', upload.any(), productos.editPut);
+router.put('/:id', upload.single('img'), productos.editPut);
 
 //trabajando con la parte de delite......
 router.delete('/:id', productos.borrar);

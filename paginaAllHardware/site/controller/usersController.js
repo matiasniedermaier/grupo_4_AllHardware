@@ -14,15 +14,16 @@ let userController = {
 
         let id = generateData.lastIDUser();
         let errors = validationResult(req);        
-        console.log(errors)
-        if (errors.isEmpty()) {
+        console.log(errors.mapped())
 
+        if (errors.isEmpty()) {
+            console.log(req.file)
             let nuevoUsuario = {
                 id: id,
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                img: '/images/users/'+req.files[0].filename,
+                img: '/images/imagenesProductos/'+req.file.filename,
                 promotion: req.body.chk
             };
 

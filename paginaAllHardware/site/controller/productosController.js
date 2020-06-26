@@ -19,12 +19,16 @@ let productosController = {
         
         let id = generateData.lastID();
 
+        if(req.file) {
+            let avatar = '/images/imagenesProductos/'+req.file.filename
+        }
+
         let nuevoProducto = {
             id: id,
             name: req.body.name,
             price:req.body.price,
             especification: req.body.especification,
-            img: '/images/imagenesProductos/'+req.files[0].filename,
+            img: avatar,
             stock: req.body.stock,
             category:'',
             brand:'', 
