@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {check, validationResult, body} =  require('express-validator');
 const formulario = require('../controller/usersController');
-const generateData = require('../models/generate');
-const bcrypt = require('bcrypt');
+const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
+const { extname } = require('path');
 
 var storage = multer.diskStorage({
 
@@ -19,28 +19,40 @@ var storage = multer.diskStorage({
     filename: function (req, file, cb) {
         //console.log(file);
 
-       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+       return cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 
-    }
+    },
 
 });
 
-var upload = multer({ storage: storage });
+var upload = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const fileTypes = ['jepg', 'jpg', 'png'];
+        const extname = path.extname(file.originalname);
+        if(fileTypes.includes(extname)) {
+            cb(null, true);
+        } else {
+            req.file = file;
+            cb(null, false);
+        }
+    }
+});
 
 router.get('/login', formulario.login);
 
 router.post('/login', [
     check('email').custom( value => {
-        return generateData.findUserEmail(value);
+        return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
-    check('password').custom( value => {
-        return generateData.findUserPassword(value);
+    check('password').custom( ( value, { req } ) => {
+        return generate.findUserPassword(value, { req });
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 
 router.get('/registro', formulario.registro);
 
-router.post('/registro', upload.any(), [
+router.post('/registro', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
     check('password').isLength({min: 8}).withMessage('La contraseña debe tener un minimo de 8 caracteres'),
@@ -49,7 +61,15 @@ router.post('/registro', upload.any(), [
             return false;
         }
         return true;
-    }).withMessage('No coinciden las contraseñas') ],
+    }).withMessage('No coinciden las contraseñas'),
+    check('img').custom(( value, { req }) => {
+        if( req.file != undefined) {
+            const fileTypes = ['.jepg', '.jpg', '.png'];
+            const extname = path.extname(req.file.originalname);
+            return fileTypes.includes(extname);
+        }
+        return false;
+    }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     formulario.registroPost);
 
 module.exports = router;
