@@ -6,8 +6,6 @@ const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
 const { extname } = require('path');
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const userMiddleware = require('../middlewares/userMiddleware');
 
 var storage = multer.diskStorage({
 
@@ -47,8 +45,8 @@ router.post('/login', [
     check('email').custom( value => {
         return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
-    check('password').custom( value => {
-        return generate.findUserPassword(value);
+    check('password').custom( ( value, { req } ) => {
+        return generate.findUserPassword(value, { req });
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 
