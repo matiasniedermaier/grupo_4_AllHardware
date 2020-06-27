@@ -66,5 +66,13 @@
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$v9cBMJb.t1ER.Ys1mHMVJebq4Wpiffi1i/eVLQLn5JeK4nCKA0W.W",
   "img": "/images/users/img-1593038206258.png"
+ },
+ {
+  "id": 12,
+  "name": "licia",
+  "email": "licia.coronelojeda@gmail.com",
+  "password": "$2b$10$6aFAqFr9RAd1XsLwmqdEaeja.MVUsoOH0iq6WqhdgXD5w0tGvfcR.",
+  "img": "/images/users/img-1593282160718.png",
+  "promotion": "on"
  }
 ]
