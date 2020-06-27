@@ -2,7 +2,7 @@ const generate = require('../models/generate');
 
 let guestMiddleware = (req, res, next) => {
     console.log(req.session.id)
-    if (req.session.id === undefined) {
+    if (req.session.id == undefined) {
         
         next();
     } else {

@@ -43,7 +43,11 @@ body{
 a{
     text-decoration: none;
 }
-
+.recordar{
+    margin-top: 4px;
+    margin-right: 10px;
+    margin-left: 12px;
+}
 .btn{
     position: relative;
     margin: auto;

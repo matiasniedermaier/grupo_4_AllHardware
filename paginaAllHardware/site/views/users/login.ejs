@@ -23,6 +23,10 @@
     <% if (typeof errors != 'undefined') { %>
       <div class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
     <% } %> 
+    <div style="display: flex;">
+    <input type="checkbox" class="recordar" name="recordame"> 
+    <label for="recordame">No cerrar sesion</label>
+    </div>
 
     <div> <a class="recuperar-contraseña" href="#"> Restaurar contraseña</a></div>
 
