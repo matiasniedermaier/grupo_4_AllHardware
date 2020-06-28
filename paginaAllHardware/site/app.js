@@ -22,7 +22,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use(session({secret: 'secreto!!'}));
+app.use(session({
+  secret : 'All Hardware',
+  resave : false,
+  saveUninitialized : false
+}));
 
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));

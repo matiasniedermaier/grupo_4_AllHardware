@@ -3,9 +3,8 @@ const path = require('path');
 const fileData= path.resolve(__dirname, '../data/productos.json');
 const fileDataUser = path.resolve(__dirname, '../data/usuarios.json');
 const bcrypt = require('bcrypt');
-const { use } = require('../routes/users');
 
-module.exports = {
+let generate = {
     
     readJson:function(){
     
@@ -116,14 +115,12 @@ module.exports = {
         for( let i = 0; i < users.length; i++) {
             if(bcrypt.compareSync(value, users[i].password) && users[i].email == req.body.email){
                 req.session.id = users[i].id;
-               
-               if (req.body.recordar != undefined){
-                   req.session.recordar = users[i].id;
-               }
                 return true;
             }
-        }   
+        }
         return false;
     }
+
 };
 
+module.exports = generate;

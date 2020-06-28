@@ -5,7 +5,8 @@ const formulario = require('../controller/usersController');
 const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
-const { extname } = require('path');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const userMiddleware = require('../middlewares/userMiddleware');
 
 var storage = multer.diskStorage({
 
@@ -39,18 +40,18 @@ var upload = multer({
     }
 });
 
-router.get('/login', formulario.login);
+router.get('/login', guestMiddleware, formulario.login);
 
 router.post('/login', [
     check('email').custom( value => {
         return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
     check('password').custom( ( value, { req } ) => {
-        return generate.findUserPassword(value, { req });
+        return generate.findUserPassword(value, { req } );
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 
-router.get('/registro', formulario.registro);
+router.get('/registro', guestMiddleware ,formulario.registro);
 
 router.post('/registro', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
@@ -71,5 +72,7 @@ router.post('/registro', upload.single('img'), [
         return false;
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     formulario.registroPost);
+
+    router.get('/profile', userMiddleware, formulario.profile);
 
 module.exports = router;

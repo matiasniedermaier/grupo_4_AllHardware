@@ -5,7 +5,7 @@ let homeController = {
     home: (req, res) => {
 
         let archivoProductos = generateData.readJson();
-        res.render('home', { productos: archivoProductos});
+        res.render('home', { productos: archivoProductos });
 
     }
 

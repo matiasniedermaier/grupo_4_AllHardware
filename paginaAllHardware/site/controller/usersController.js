@@ -61,10 +61,13 @@ let userController = {
     loginPost: (req, res) => {
 
         errors = validationResult(req);
-        console.log(errors);
+        console.log(errors.mapped());
 
         if( errors.isEmpty() ){
 
+            if( req.body.check ) {
+                req.cookies.recordar = true;
+            }
             return res.redirect('/');
 
         } else {
@@ -72,7 +75,12 @@ let userController = {
             return res.render('users/login', {errors : errors.mapped(), body : req.body});
 
         }
+        
 
+    },
+
+    profile: (req, res) => {
+        res.render('users/profile');
     }
     
 }
