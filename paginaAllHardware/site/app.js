@@ -10,6 +10,8 @@ const homeRouter = require('./routes/home');
 const productosRouter = require('./routes/productos');
 const usersRouter = require('./routes/users');
 
+const cookiesRecordame = require('./middlewares/cookiesRecordar');
+
 const app = express();
 
 // view engine setup
@@ -25,8 +27,10 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(session({
   secret : 'All Hardware',
   resave : false,
-  saveUninitialized : false
+  saveUninitialized : true 
 }));
+
+app.use(cookiesRecordame);
 
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));

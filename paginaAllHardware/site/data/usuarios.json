@@ -94,5 +94,12 @@
   "email": "matiasnieder@gmail.com",
   "password": "$2b$10$BAov5QXWDA0bI0mV8GHgG.YKQcGXnVlZ3rQ61fupQWoVVVenN1Tqa",
   "img": "/images/imagenesProductos/undefined"
+ },
+ {
+  "id": 16,
+  "name": "Jose Luis  ",
+  "email": "joseluis.9108@hotmail.com",
+  "password": "$2b$10$Ni2z4A8vXYaZrR71heiG1uyzHPPFtBczLXzzQa5isg1i17u2wok1K",
+  "img": "/images/imagenesProductos/undefined"
  }
 ]

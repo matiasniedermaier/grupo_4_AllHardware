@@ -61,18 +61,22 @@ let userController = {
     loginPost: (req, res) => {
 
         errors = validationResult(req);
-        console.log(errors.mapped());
+        
 
-        if( errors.isEmpty() ){
+        if(errors.isEmpty() ){
+            
+            if(req.body.recordame) {
 
-            if( req.body.check ) {
-                req.cookies.recordar = true;
+//por 300 segundos
+                res.cookie('timeLogin', req.body.email, { expires: new Date(Date.now() + 300000)});
+               
             }
+            
             return res.redirect('/');
 
         } else {
-
-            return res.render('users/login', {errors : errors.mapped(), body : req.body});
+            
+            return res.render('users/login', {errors : errors.mapped()});
 
         }
         

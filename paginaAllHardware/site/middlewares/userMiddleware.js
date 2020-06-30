@@ -1,9 +1,12 @@
 const generate = require('../models/generate');
 
 let userMiddleware = (req, res, next) => {
-    if(!req.session.id) {
-        res.redirect('/login');
+    
+    if(!req.session.logueado) {
+
+         res.redirect('/login');
     }
+    
     next();
 };
 

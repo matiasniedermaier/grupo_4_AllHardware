@@ -44,10 +44,15 @@
         </div>
 
         <div class="iconos-header">
-
-            <a href="/users/login"><i class="fas fa-user"></i></a>
-            <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
-            
+            <% if(locals.logeado){ %>
+                <div style="display: flex"><li><%=locals.logeado.id %></li>
+                    <li><%=locals.logeado.name %></li>
+                    <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            <% }else{ %>
+                <a href="/users/login"><i class="fas fa-user"></i></a>
+                <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
+            <% } %>
         </div>
 
     </header>

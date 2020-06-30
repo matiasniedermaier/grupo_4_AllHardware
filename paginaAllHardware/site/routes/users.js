@@ -51,7 +51,7 @@ router.post('/login', [
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 
-router.get('/registro', guestMiddleware ,formulario.registro);
+router.get('/registro',guestMiddleware,formulario.registro);
 
 router.post('/registro', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
@@ -73,6 +73,6 @@ router.post('/registro', upload.single('img'), [
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     formulario.registroPost);
 
-    router.get('/profile', userMiddleware, formulario.profile);
+   /*  router.get('/profile', userMiddleware, formulario.profile); */
 
 module.exports = router;
