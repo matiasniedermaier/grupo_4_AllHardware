@@ -23,7 +23,10 @@
                 <a href="arma-tu-pc" class="dropdown-item">ARMA TU PC</a>
                 <div class="dropdown-divider"></div>
                 <a href="/equipos-armados" class="dropdown-item">EQUIPOS ARMADOS</a>-->
-
+                <% if(locals.logueado) { %>
+                <div class="dropdown-divider"></div>
+                <a href="https:/www.google.com/" class="dropdown-item">SALIR DEL SISTEMA</a>
+                <% } %>
             </div>
 
         </div>
@@ -44,9 +47,9 @@
         </div>
 
         <div class="iconos-header">
-            <% if(locals.logeado){ %>
-                <div style="display: flex"><li><%=locals.logeado.id %></li>
-                    <li><%=locals.logeado.name %></li>
+            <% if(locals.logueado){ %>
+                <div style="display: flex"><li><%=locals.logueado.id %></li>
+                    <li><%=locals.logueado.name %></li>
                     <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             <% }else{ %>

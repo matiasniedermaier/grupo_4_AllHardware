@@ -4,7 +4,7 @@ let userMiddleware = (req, res, next) => {
     
     if(!req.session.logueado) {
 
-         res.redirect('/login');
+         res.redirect('/users/login');
     }
     
     next();

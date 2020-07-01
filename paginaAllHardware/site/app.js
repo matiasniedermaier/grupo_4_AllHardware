@@ -11,6 +11,7 @@ const productosRouter = require('./routes/productos');
 const usersRouter = require('./routes/users');
 
 const cookiesRecordame = require('./middlewares/cookiesRecordar');
+const sessiones= require('./middlewares/sessionMiddlewares')
 
 const app = express();
 
@@ -30,7 +31,9 @@ app.use(session({
   saveUninitialized : true 
 }));
 
+app.use(sessiones);
 app.use(cookiesRecordame);
+
 
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));

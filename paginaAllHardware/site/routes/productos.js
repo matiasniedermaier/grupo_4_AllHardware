@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const carrito = require ('../controller/carritoController');
 const productos = require('../controller/productosController');
+const userMiddleware = require('../middlewares/userMiddleware');
 //librerias que necesito para trabajar con multer.
 const multer=require('multer');
 const path = require('path');
@@ -44,7 +45,7 @@ router.get('/', productos.productos);
 
 router.get ('/carrito', carrito.carrito);
 
-router.get('/create', productos.create);
+router.get('/create',userMiddleware, productos.create);
 
 //implementamos upload.single()(middleware)
 router.post('/', upload.single('img'), productos.createPost);
@@ -52,11 +53,11 @@ router.post('/', upload.single('img'), productos.createPost);
 
 router.get('/:id', productos.id);
 
-router.get('/:id/edit', productos.edit);
+router.get('/:id/edit', userMiddleware,productos.edit);
 
 router.put('/:id', upload.single('img'), productos.editPut);
 
 //trabajando con la parte de delite......
-router.delete('/:id', productos.borrar);
+router.delete('/:id',userMiddleware, productos.borrar);
 
 module.exports = router;

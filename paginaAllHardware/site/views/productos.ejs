@@ -35,16 +35,16 @@
                 </a>
 
                 <div class="botonesEdicion">
-
+                    <% if(locals.logueado) { %>
                     <div>
                         <a href="/productos/<%=productos[i].id%>/edit"><button class="edit"><i class="fas fa-file-signature"></i></button></a>
 
                         <p class="edit-p">Editar</p>
 
                     </div>
-
+                    
                     <div>
-
+                       
                         <form  method="POST" action="/productos/<%=productos[i].id%>?_method=DELETE">
 
                             <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete">
@@ -58,6 +58,7 @@
                         </form>
 
                     </div>
+                    <% } %> 
                         
                 </div>
 

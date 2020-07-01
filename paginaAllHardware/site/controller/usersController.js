@@ -1,6 +1,8 @@
 const generateData = require('../models/generate');
 const bcrypt = require('bcrypt');
 const {check, validationResult, body} =  require('express-validator');
+const generate = require('../models/generate');
+const { read } = require('fs');
 
 let userController = {
 
@@ -64,14 +66,24 @@ let userController = {
         
 
         if(errors.isEmpty() ){
-            
+
+            let logueado = null;
+            let users = generate.readJsonUser();
+            console.log(users);
+            for( let i = 0; i < users.length; i++) {
+                if (users[i].email == req.body.email) {
+                     logueado = users[i];
+                }
+            }
             if(req.body.recordame) {
 
 //por 300 segundos
-                res.cookie('timeLogin', req.body.email, { expires: new Date(Date.now() + 300000)});
+                res.cookie('timeLogin', logueado.email, { expires: new Date(Date.now() + 300000)});
                
             }
-            
+
+            req.session.logueado = logueado;
+
             return res.redirect('/');
 
         } else {
@@ -83,9 +95,9 @@ let userController = {
 
     },
 
-    profile: (req, res) => {
+/*     profile: (req, res) => {
         res.render('users/profile');
-    }
+    } */
     
 }
 

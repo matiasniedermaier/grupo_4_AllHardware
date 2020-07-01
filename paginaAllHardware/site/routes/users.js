@@ -6,7 +6,7 @@ const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const userMiddleware = require('../middlewares/userMiddleware');
+
 
 var storage = multer.diskStorage({
 

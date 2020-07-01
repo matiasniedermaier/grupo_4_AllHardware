@@ -1,13 +1,19 @@
+const users = require('../models/generate');
+
 function recordar (req, res, next){
 
- res.locals.logueado = false;
-
  if(req.cookies.timeLogin != undefined && req.session.logueado == undefined) {
-  
-    req.session.logueado = req.cookies.timeLogin;
-    res.locals.logueado = req.session.logueado;
+
+   for( let i = 0; i < users.length; i++) {
+
+      if (users[i].email == req.cookies.timeLogin) {
+           req.session.logueado = users[i];
+      }
+   }
+    
  }
 
  next();
+ 
 }
 module.exports = recordar;
