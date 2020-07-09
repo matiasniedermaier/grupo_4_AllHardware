@@ -77,8 +77,9 @@ let userController = {
             }
             if(req.body.recordame) {
 
-//por 300 segundos
-                res.cookie('timeLogin', logueado.email, { expires: new Date(Date.now() + 300000)});
+//por 15 minutos
+                res.cookie('timeLogin', logueado.email, { expires: new Date(Date.now() + 900000)});
+               
                
             }
 

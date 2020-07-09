@@ -4,10 +4,12 @@ function recordar (req, res, next){
 
  if(req.cookies.timeLogin != undefined && req.session.logueado == undefined) {
 
-   for( let i = 0; i < users.length; i++) {
+  let usuarios = users.readJsonUser();
 
-      if (users[i].email == req.cookies.timeLogin) {
-           req.session.logueado = users[i];
+   for( let i = 0; i < usuarios.length; i++) {
+
+      if (usuarios[i].email == req.cookies.timeLogin) {
+           req.session.logueado = usuarios[i];
       }
    }
     
