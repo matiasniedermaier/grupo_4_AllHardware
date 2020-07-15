@@ -1,3 +1,8 @@
+Sprint 4
+
+Lo que hicimos bien poder planificar nuestro trabajo con tiempo. Lo que hicimos mal fue no poder no poder cumplir con el objetivo del sprint.
+Deberíamos empezar a hacer ser mas constantes y poder lograr terminar con mucho mas tiempo a favor. Deberíamos dejar de hacer el subestimar el sprint y dar esa milla extra
+
 Sprint 3
 
 Lo que hicimos bien fue trabajar y debatir en equipo, poder cumplir la meta de entregar el sprint a la fecha puesta y reunirnos cuando dijimos que lo ibamos hacer. Lo que hicimos mal fue el querer hacer todo en conjunto como equipo.
