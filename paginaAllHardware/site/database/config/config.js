@@ -5,7 +5,7 @@ module.exports = {
     "database": "allhardware",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": 0
   },
   "test": {
     "username": "root",

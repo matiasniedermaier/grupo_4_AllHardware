@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const {check, validationResult, body} =  require('express-validator');
 const generate = require('../models/generate');
 const { read } = require('fs');
+//const db = require('../database/models');
 
 let userController = {
 
@@ -14,24 +15,24 @@ let userController = {
 
     registroPost: (req, res, next) => {
 
-        let id = generateData.lastIDUser();
+        //let id = generateData.lastIDUser();
         let errors = validationResult(req);        
         console.log(errors.mapped())
 
         if (errors.isEmpty()) {
             console.log(req.file)
-            let nuevoUsuario = {
+            /*let nuevoUsuario = {
                 id: id,
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
                 img: '/images/imagenesProductos/'+req.file.filename,
                 promotion: req.body.chk
-            };
+            };*/
 
-            let archivoUsers = generateData.readJsonUser();
+            //let archivoUsers = generateData.readJsonUser();
 
-            if(archivoUsers.length == 0){
+            /*if(archivoUsers.length == 0){
 
                 archivoUsers.push(nuevoUsers);
                 generateData.writeJsonUser(archivoUsers);
@@ -42,7 +43,16 @@ let userController = {
                 archivoUsers.push(nuevoUsuario);
                 generateData.writeJsonUser(archivoUsers);
 
-            }
+            }*/
+
+            /*db.User.create({
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                //img: '/images/imagenesProductos/'+req.file.filename,
+                admin: 0,
+                promocion: req.body.chk ? 'si' : 'no'
+            })*/
 
             return res.redirect('/'); 
 
@@ -75,6 +85,7 @@ let userController = {
                      logueado = users[i];
                 }
             }
+
             if(req.body.recordame) {
 
 //por 15 minutos
