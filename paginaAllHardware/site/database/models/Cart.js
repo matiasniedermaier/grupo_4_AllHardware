@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         id_product: {
             type: DataTypes.INTEGER(11)
         },
-        cantidad_total: {
+        cantidad: {
             type: DataTypes.INTEGER(11)
         },
         total_price: {
@@ -26,5 +26,16 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const Cart = sequelize.define(alias, cols, config);
+
+    Cart.associate = models => {
+        Cart.hasMany(models.User, {
+            as: 'user',
+            foreignKey: 'id_user'
+        });
+        Cart.hasMany(models.Products, {
+            as: 'product',
+            foreignKey: 'id_product'
+        });
+    };
 
 };

@@ -18,4 +18,11 @@ module.exports = (sequelize, DataTypes) => {
 
     const Category = (alias, cols, config);
 
+    Category.associate = models => {
+        Category.belongsTo(models.Products, {
+            as: 'product',
+            foreignKey: 'id_category'
+        });
+    };
+
 };

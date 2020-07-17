@@ -11,13 +11,13 @@
     <form method="POST" action="/users/registro" class="formulario" enctype="multipart/form-data">
 
         <label class="label" for="nombre">Nombre</label>
-        <input class="input" type="text" name="name" value="" id="nombre" placeholder="Nombre">
-        <% if (typeof errors != 'undefined') { %>
+        <input class="input" type="text" name="name" id="nombre" placeholder="Nombre" value="<%= body.name ? body.name : ''%>">
+        <% if (typeof errors != 'undefined') { %>   
             <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
         <% } %> 
         
         <label class="label" for="email">Email</label>
-        <input class="input" type="text" name="email" value="" id="email" placeholder="Email">
+        <input class="input" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
         <% if (typeof errors != 'undefined') { %>
             <div class="errors"><%= errors.email ? errors.email.msg : '' %> </div>
         <% } %>

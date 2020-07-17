@@ -8,7 +8,7 @@ let userController = {
 
     registro: (req, res) => {
 
-        res.render('users/registro')
+        res.render('users/registro', {body : {}})
 
     },
 

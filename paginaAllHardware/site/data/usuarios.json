@@ -101,5 +101,12 @@
   "email": "joseluis.9108@hotmail.com",
   "password": "$2b$10$Ni2z4A8vXYaZrR71heiG1uyzHPPFtBczLXzzQa5isg1i17u2wok1K",
   "img": "/images/imagenesProductos/undefined"
+ },
+ {
+  "id": 17,
+  "name": "Matias Niedermaier",
+  "email": "matinieder@gmail.com",
+  "password": "$2b$10$g2L0jfIPhrHfF8kbmxy7CO88Wdt8F3UH6GzBMvucQo8sp58rncl0y",
+  "img": "/images/imagenesProductos/undefined"
  }
 ]
