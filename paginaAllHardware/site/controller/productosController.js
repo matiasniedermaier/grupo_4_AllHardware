@@ -1,12 +1,15 @@
 const generateData = require('../models/generate');
+const db = require('../database/models');
 
 let productosController = {
     
     productos: (req, res, next) => {
        
-        let archivoProductos= generateData.readJson();
-        res.render('productos', { productos: archivoProductos });
-
+        //let archivoProductos= generateData.readJson();
+        db.Product.findAll()
+            .then( products => {
+                res.render('productos', { productos: products });
+            }); 
     },
 
     create: (req, res, next) => {
@@ -17,13 +20,13 @@ let productosController = {
 
     createPost: (req, res, next)=>{
         
-        let id = generateData.lastID();
+        //let id = generateData.lastID();
 
         if(req.file) {
             let avatar = '/images/imagenesProductos/'+req.file.filename
         }
 
-        let nuevoProducto = {
+        /*let nuevoProducto = {
             id: id,
             name: req.body.name,
             price:req.body.price,
@@ -47,9 +50,20 @@ let productosController = {
             archivoProductos.push(nuevoProducto);
             generateData.writeJson(archivoProductos);
 
-        }
+        }*/
 
-        res.redirect('/productos');
+        db.User.create({
+            id: id,
+            name: req.body.name,
+            price:req.body.price,
+            stock: req.body.stock,
+            especification: req.body.especification,
+            //img: avatar,
+            id_category:'',
+            id_brand:'',
+        });
+
+        res.render('detalle',{productosMostrar:productoAMostrar});
 
     },
 
@@ -60,22 +74,22 @@ let productosController = {
         let productoAMostrar = archivoProductos.filter(function (productos) {
 
             return req.params.id == productos.id;
-
         });
 
         res.render('detalle',{productosMostrar:productoAMostrar});
-
     },
 
     edit: (req, res) => {
 
-        archivoProductos= generateData.readJson();
+        /*archivoProductos= generateData.readJson();
 
         let productoAMostrar = archivoProductos.filter(function (productos) {
 
             return req.params.id == productos.id;
 
-        });
+        });*/
+
+        
 
         res.render('edit', {productosMostrar:productoAMostrar});
 

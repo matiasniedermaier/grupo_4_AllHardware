@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         email: {
-            type: DataTypes.SRTING(200)
+            type: DataTypes.STRING(200)
         },
         password: {
             type: DataTypes.STRING(200)
@@ -24,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = models => {
+    /*User.associate = models => {
         User.belongsTo(models.Cart, {
             as: 'cart',
             foreignKey: 'id_user'
         });
-    };
+    };*/
 
     return User;
 
