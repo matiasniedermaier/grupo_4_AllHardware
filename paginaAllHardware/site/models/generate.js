@@ -110,7 +110,7 @@ let generate = {
         return false;
     },
 
-   findUserPassword: function(value, { req }) {
+   findUserPassword: function(value) {
         let users = this.readJsonUser();
         for( let i = 0; i < users.length; i++) {
             if(bcrypt.compareSync(value, users[i].password) && users[i].email == req.body.email){

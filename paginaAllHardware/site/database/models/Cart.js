@@ -27,16 +27,16 @@ module.exports = (sequelize, DataTypes) => {
 
     const Cart = sequelize.define(alias, cols, config);
 
-    /*Cart.associate = models => {
+    Cart.associate = models => {
         Cart.hasMany(models.User, {
-            as: 'user',
-            foreignKey: 'id_user'
+            foreignKey: 'id_user',
+            as: 'user'
         });
-        Cart.hasMany(models.Products, {
+        /*Cart.hasMany(models.Products, {
             as: 'product',
             foreignKey: 'id_product'
-        });
-    };*/
+        });*/
+    };
 
     return Cart;
 

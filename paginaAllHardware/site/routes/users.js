@@ -46,8 +46,8 @@ router.post('/login', [
     check('email').custom( value => {
         return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
-    check('password').custom( ( value, { req } ) => {
-        return generate.findUserPassword(value, { req } );
+    check('password').custom( (value) => {
+        return generate.findUserPassword(value);
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 

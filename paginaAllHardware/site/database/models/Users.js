@@ -24,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const User = sequelize.define(alias, cols, config);
 
-    /*User.associate = models => {
+    User.associate = models => {
         User.belongsTo(models.Cart, {
-            as: 'cart',
-            foreignKey: 'id_user'
+            foreignKey: 'id_user',
+            as: 'cart'
         });
-    };*/
+    };
 
     return User;
 

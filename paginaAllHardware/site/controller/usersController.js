@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const {check, validationResult, body} =  require('express-validator');
 const generate = require('../models/generate');
 const { read } = require('fs');
-//const db = require('../database/models');
+const db = require('../database/models');
 
 let userController = {
 
@@ -45,14 +45,14 @@ let userController = {
 
             }*/
 
-            /*db.User.create({
+            db.User.create({
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
                 //img: '/images/imagenesProductos/'+req.file.filename,
                 admin: 0,
                 promocion: req.body.chk ? 'si' : 'no'
-            })*/
+            })
 
             return res.redirect('/'); 
 
@@ -82,19 +82,22 @@ let userController = {
             console.log(users);
             for( let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
-                     logueado = users[i];
+                    if(generate.findUserPassword(users[i].password)) {
+                        logueado = users[i].id;
+                    }
                 }
             }
 
             if(req.body.recordame) {
 
 //por 15 minutos
-                res.cookie('timeLogin', logueado.email, { expires: new Date(Date.now() + 900000)});
+                res.cookie('timeLogin', logueado, { expires: new Date(Date.now() + 900000)});
                
                
             }
 
             req.session.logueado = logueado;
+            res.locals.logeado = logueado;
 
             return res.redirect('/');
 
