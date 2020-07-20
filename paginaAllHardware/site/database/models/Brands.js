@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
 
     const Brand = sequelize.define(alias, cols, config);
     
-    /*Brand.associate = models => {
-        Brand.belongsTo(models.Products, {
+    Brand.associate = models => {
+        Brand.hasMany(models.Product, {
             as: 'product',
             foreignKey: 'id_brand'
         });
-    };*/
+    };
 
     return Brand;
 
