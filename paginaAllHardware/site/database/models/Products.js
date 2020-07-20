@@ -23,10 +23,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(200)
         },
         id_category: {
-            type: DataTypes.INTEGER(10)
+            type: DataTypes.INTEGER(10),
+            foreignKey: true
         },
         id_brand: {
-            type: DataTypes.INTEGER(10)
+            type: DataTypes.INTEGER(10),
+            foreignKey: true
         }
     };
     let config = {
@@ -39,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     Product.associate = models => {
         Product.belongsTo(models.Cart, {
             as: 'cart',
-            foreignKey: 'id_product'
+            foreignKey: 'id'
         });
         Product.belongsTo(models.Category, {
             as: 'category',

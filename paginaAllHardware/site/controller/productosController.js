@@ -23,7 +23,7 @@ let productosController = {
         //let id = generateData.lastID();
 
         if(req.file) {
-            let avatar = '/images/imagenesProductos/'+req.file.filename
+            let avatar = '/images/imagenesProductos/'+ req.file.filename;
         }
 
         /*let nuevoProducto = {
@@ -52,18 +52,17 @@ let productosController = {
 
         }*/
 
-        db.User.create({
-            id: id,
+        db.Product.create({
             name: req.body.name,
             price:req.body.price,
             stock: req.body.stock,
             especification: req.body.especification,
-            //img: avatar,
-            id_category:'',
-            id_brand:'',
+            img: '/images/imagenesProductos/' + req.file.filename,
+            id_category:1,
+            id_brand:1
         });
 
-        res.render('detalle',{productosMostrar:productoAMostrar});
+        res.redirect('/productos');
 
     },
 

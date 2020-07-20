@@ -82,7 +82,7 @@ let userController = {
             console.log(users);
             for( let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
-                    if(generate.findUserPassword(users[i].password)) {
+                    if(generate.findUserPassword(users[i].password, users[i].email)) {
                         logueado = users[i].id;
                     }
                 }

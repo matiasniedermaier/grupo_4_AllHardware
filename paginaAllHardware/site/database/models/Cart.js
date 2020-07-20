@@ -8,10 +8,12 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         id_user: {
-            type: DataTypes.INTEGER(11)
+            type: DataTypes.INTEGER(11),
+            foreignKey: true
         },
         id_product: {
-            type: DataTypes.INTEGER(11)
+            type: DataTypes.INTEGER(11),
+            foreignKey: true
         },
         cantidad: {
             type: DataTypes.INTEGER(11)
@@ -34,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         });
         Cart.hasMany(models.Product, {
             as: 'product',
-            foreignKey: 'id_product'
+            foreignKey: 'id'
         });
     };
 
