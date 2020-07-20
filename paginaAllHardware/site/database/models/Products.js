@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(70)
         },
         price: {
-            type: DataTypes.DOUBLE
+            type: DataTypes.DOUBLE(7.2)
         },
         stock: {
             type: DataTypes.INTEGER(11)
@@ -23,10 +23,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(200)
         },
         id_category: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER(10)
         },
         id_brand: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER(10)
         }
     };
     let config = {
@@ -41,15 +41,15 @@ module.exports = (sequelize, DataTypes) => {
             as: 'cart',
             foreignKey: 'id_product'
         });
-        /*Product.hasMany(models.Category, {
+        Product.belongsTo(models.Category, {
             as: 'category',
             foreignKey: 'id_category'
         });
-        Product.hasMany(models.Brands, {
+        Product.belongsTo(models.Brand, {
             as: 'brand',
             foreignKey: 'id_brand'
-        });*/
-    };
+        });
+    }
 
     return Product;
 

@@ -43,7 +43,7 @@ var upload = multer({ storage: storage,
 
 router.get('/', productos.productos);
 
-router.get ('/carrito',userMiddleware, carrito.carrito);
+//router.get ('/carrito',userMiddleware, carrito.carrito);
 
 router.get('/create',userMiddleware, productos.create);
 

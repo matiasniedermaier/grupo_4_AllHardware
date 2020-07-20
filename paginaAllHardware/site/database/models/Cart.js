@@ -28,14 +28,14 @@ module.exports = (sequelize, DataTypes) => {
     const Cart = sequelize.define(alias, cols, config);
 
     Cart.associate = models => {
-        Cart.hasMany(models.User, {
-            foreignKey: 'id_user',
-            as: 'user'
+        Cart.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: 'id_user'
         });
-        /*Cart.hasMany(models.Products, {
+        Cart.hasMany(models.Product, {
             as: 'product',
             foreignKey: 'id_product'
-        });*/
+        });
     };
 
     return Cart;
