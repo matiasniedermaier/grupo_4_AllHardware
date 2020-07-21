@@ -14,12 +14,12 @@ var storage = multer.diskStorage({
     destination: function (req, file, cb) {
 
         cb(null, __dirname + '/../../public/images/imagenesProductos');
-       // console.log(destination);
+        //console.log(destination);
     },
    
 //usamos el metodo .extreme para obtener la extencion del archivo
     filename: function (req, file, cb) {
-        //console.log(file);
+        console.log(file);
 
        return cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 
@@ -28,7 +28,7 @@ var storage = multer.diskStorage({
 });
   
 var upload = multer({ storage: storage,
-    fileFilter: (req, file, cb) => {
+    /*fileFilter: (req, file, cb) => {
         const fileTypes = ['jepg', 'jpg', 'png'];
         const extname = path.extname(file.originalname);
         if(fileTypes.includes(extname)) {
@@ -37,7 +37,7 @@ var upload = multer({ storage: storage,
             req.file = file;
             cb(null, false);
         }
-    } 
+    } */
 });
 
 

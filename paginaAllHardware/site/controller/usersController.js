@@ -51,7 +51,7 @@ let userController = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 //img: '/images/imagenesProductos/'+req.file.filename,
                 admin: 0,
-                promocion: req.body.chk ? 'si' : 'no'
+                promocion: req.body.chk ? '1' : '0'
             })
 
             return res.redirect('/'); 
