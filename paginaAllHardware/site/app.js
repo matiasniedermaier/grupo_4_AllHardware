@@ -9,7 +9,7 @@ const session = require('express-session');
 const homeRouter = require('./routes/home');
 const productosRouter = require('./routes/productos');
 const usersRouter = require('./routes/users');
-const carritosRouter = require('./routes/carrito');
+const carritoRouter = require('./routes/carrito');
 
 const cookiesRecordame = require('./middlewares/cookiesRecordar');
 const sessiones= require('./middlewares/sessionMiddlewares')
@@ -42,7 +42,7 @@ app.use(methodOverride('_method'));
 app.use('/', homeRouter);
 app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
-app.use('/carrito', carritosRouter);
+app.use('/carrito', carritoRouter);
 
 
 // catch 404 and forward to error handler
