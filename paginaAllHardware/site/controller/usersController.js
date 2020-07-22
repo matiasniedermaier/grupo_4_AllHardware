@@ -49,7 +49,7 @@ let userController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                //img: '/images/imagenesProductos/'+req.file.filename,
+                img: '/images/imagenesProductos/'+req.file.filename,
                 admin: 0,
                 promocion: req.body.chk ? '1' : '0'
             })

@@ -28,7 +28,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({ 
     storage: storage,
-    fileFilter: (req, file, cb) => {
+    /*fileFilter: (req, file, cb) => {
         const fileTypes = ['jepg', 'jpg', 'png'];
         const extname = path.extname(file.originalname);
         if(fileTypes.includes(extname)) {
@@ -37,7 +37,7 @@ var upload = multer({
             req.file = file;
             cb(null, false);
         }
-    }
+    }*/
 });
 
 router.get('/login', guestMiddleware, formulario.login);
