@@ -16,7 +16,7 @@
 
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
 
-        <%= productosMostrar[0].name %>
+        <%= productosMostrar.name %>
 
     </section>
 
@@ -28,7 +28,7 @@
 
         <div class="cont-img">
 
-            <img class="img" src="<%= productosMostrar[0].img %>"alt="">
+            <img class="img" src="<%= productosMostrar.img %>"alt="">
 
         </div>
 
@@ -36,11 +36,11 @@
 
     <section>
 
-        <article class="titulo"><%= productosMostrar[0].name %></article>
+        <article class="titulo"><%= productosMostrar.name %></article>
 
         <ul type="none" class="subtitulo">
 
-            <li class="costo">$<%= productosMostrar[0].price %></li>
+            <li class="costo">$<%= productosMostrar.price %></li>
 
             <li><mark> Envio con normalidad</mark></li>
 
@@ -75,7 +75,7 @@
 
         <h3 class="tituloDes">Detalles del producto</h3>
 
-        <p><%= productosMostrar[0].especification%></p>
+        <p><%= productosMostrar.especification%></p>
 
     </div>
 
