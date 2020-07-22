@@ -16,13 +16,13 @@
 
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
 
-        <%= productosMostrar[0].name %>
+        <%= productosMostrar.name %>
 
     </section>
 
 </div>
 
-<form method="POST" action="/productos/<%= productosMostrar[0].id%>?_method=PUT" enctype="multipart/form-data">
+<form method="POST" action="/productos/<%= productosMostrar.id%>?_method=PUT" enctype="multipart/form-data">
 
     <div id="main" class="container contenedor" style="background-color: #fff;">
 
@@ -30,7 +30,7 @@
 
             <div class="cont-img">
 
-                <img class="img" src="<%= productosMostrar[0].img %>" alt="">
+                <img class="img" src="<%= productosMostrar.img %>" alt="">
 
             </div>
 
@@ -45,26 +45,26 @@
 
         <section>
 
-            <article class="titulo"><%= productosMostrar[0].name %></article>
+            <article class="titulo"><%= productosMostrar.name %></article>
 
             <div class="form-name">
 
-                <input class="form" type="text" id="name" placeholder="Nombre" name="name" value="<%= productosMostrar[0].name %>">
+                <input class="form" type="text" id="name" placeholder="Nombre" name="name" value="<%= productosMostrar.name %>">
 
             </div>
 
             <ul type="none" class="subtitulo">
 
-                <li class="costo">$<%= productosMostrar[0].price %></li>
+                <li class="costo">$<%= productosMostrar.price %></li>
 
                 <li>
                     <label for="">Precio</label>
-                    <input class="form-price form" type="number" id="price" placeholder="Precio" name="price" value="<%= productosMostrar[0].price %>">
+                    <input class="form-price form" type="number" id="price" placeholder="Precio" name="price" value="<%= productosMostrar.price %>">
                 </li>
 
                 <li>
                     <label for="">Stock</label>
-                    <input class="form-price form" type="number" id="stock" placeholder="Stock" name="stock" value="<%= productosMostrar[0].stock %>">
+                    <input class="form-price form" type="number" id="stock" placeholder="Stock" name="stock" value="<%= productosMostrar.stock %>">
                 </li>
 
                 <li><mark> Envio con normalidad</mark></li>
@@ -100,11 +100,11 @@
 
             <h3 class="tituloDes">Detalles del producto</h3>
 
-            <p><%= productosMostrar[0].especification%></p>
+            <p><%= productosMostrar.especification%></p>
 
             <div style="display: flex;">
 
-                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"><%= productosMostrar[0].especification %></textarea>
+                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"><%= productosMostrar.especification %></textarea>
 
             </div>
 

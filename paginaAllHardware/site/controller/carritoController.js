@@ -15,7 +15,7 @@ let carritoController = {
     },
     listarCarrito: (req, res) =>{
 
-        res.render('listarCarrito')*/
+        res.render('listarCarrito')
 
     }
 

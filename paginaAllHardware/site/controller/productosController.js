@@ -70,14 +70,20 @@ let productosController = {
 
     id: (req, res) => {
 
-        archivoProductos= generateData.readJson();
+        /*archivoProductos= generateData.readJson();
 
         let productoAMostrar = archivoProductos.filter(function (productos) {
 
             return req.params.id == productos.id;
-        });
+        });*/
 
-        res.render('detalle',{productosMostrar:productoAMostrar});
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then( product => {
+            res.render('detalle',{productosMostrar:product});
+        });
     },
 
     edit: (req, res) => {
@@ -89,16 +95,20 @@ let productosController = {
             return req.params.id == productos.id;
 
         });*/
-
         
-
-        res.render('edit', {productosMostrar:productoAMostrar});
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then( product => {
+            res.render('edit',{productosMostrar:product});
+        });
 
     },
 
     editPut: (req, res) => {
         
-        archivoProductos= generateData.readJson();
+        /*archivoProductos= generateData.readJson();
 
         let productosAMostrar = archivoProductos.find(function (productos) {
 
@@ -110,12 +120,34 @@ let productosController = {
         productosAMostrar.stock = req.body.stock;
         productosAMostrar.price = req.body.price;
         productosAMostrar.stock = req.body.stock;
-        productosAMostrar.especification = req.body.especification;
+        productosAMostrar.especification = req.body.especification;*/
 
-        if (req.files[0] != 'undefined')
-            productosAMostrar.img = '/images/imagenesProductos/'+req.files[0].filename;
+        if (req.files != 'undefined'){
+            db.Product.update({
+                name: req.body.name,
+                stock: req.body.stock,
+                price: req.body.price,
+                especification: req.body.especification,
+                img: '/images/imagenesProductos/'+ req.file.filename
+            },{
+                where: {
+                    id: req.params.id
+                }
+            });
+        } else {
+            db.Product.update({
+                name: req.body.name,
+                stock: req.body.stock,
+                price: req.body.price,
+                especification: req.body.especification
+            },{
+                where: {
+                    id: req.params.id
+                }
+            });
+        }
             
-        let productosASubir = archivoProductos.filter(function (productos) {
+        /*let productosASubir = archivoProductos.filter(function (productos) {
                 
             return req.params.id != productos.id;
                 
@@ -123,17 +155,23 @@ let productosController = {
             
         productosASubir.push(productosAMostrar);
             
-        generateData.writeJson(productosASubir);    
-
+        generateData.writeJson(productosASubir);*/ 
+        
         res.redirect('/productos');
 
     },
 
     borrar: (req,res) => {
 
-        archivoProductos = generateData.readJson();
+        /*archivoProductos = generateData.readJson();
 
-        generateData.writeJson(generateData.deleteID(req,archivoProductos));
+        generateData.writeJson(generateData.deleteID(req,archivoProductos));*/
+
+        db.Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
 
         res.redirect('/productos');
         
