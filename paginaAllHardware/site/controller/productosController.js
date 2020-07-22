@@ -22,6 +22,8 @@ let productosController = {
         
         //let id = generateData.lastID();
 
+        console.log(req.file)
+
         if(req.file) {
             let avatar = '/images/imagenesProductos/'+ req.file.filename;
         }

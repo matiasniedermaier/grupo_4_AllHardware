@@ -3,12 +3,13 @@ const db = require("../database/models");
 
 let carritoController = {
 
-    crear: (req,res) => {
-       /* db.Cart.create({
+   carrito: (req,res) => {
+        db.Cart.create({
             id_user: req.session.id,
             id_product: req.params.id_product,
-            cantidad: req.body.cantidad,
-            price_total: req.body.price_total
+            cantidad: 1,
+            price_total: 0
+
         })
         res.render('carrito')
     },
