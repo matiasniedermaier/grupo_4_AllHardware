@@ -1,0 +1,15 @@
+<%- include("partials/head") %>
+
+<%- include("partials/header") %>
+    <h1>Agregar al Carrito</h1>
+
+    <form method="POST" action="/productos/agregarCarrito" class="formulario" enctype="multipart/form-data">
+        <label for="">Codigo</label>
+        <input type="text"  placeholder="<%= productosMostrar[0].id%>">
+
+    
+
+            
+        </form>
+
+<%- include("partials/footer") %>

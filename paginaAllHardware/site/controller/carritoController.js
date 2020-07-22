@@ -3,7 +3,7 @@ const db = require("../database/models");
 
 let carritoController = {
 
-   carrito: (req,res) => {
+   agregarCarrito: (req,res) => {
         db.Cart.create({
             id_user: req.session.id,
             id_product: req.params.id_product,
@@ -15,7 +15,7 @@ let carritoController = {
     },
     listarCarrito: (req, res) =>{
 
-        res.render('listarCarrito')*/
+        res.render('listarCarrito')
 
     }
 
