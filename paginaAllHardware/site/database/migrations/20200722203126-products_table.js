@@ -2,39 +2,53 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('brand', {
+    return queryInterface.createTable('products', {
       id: {
         type: Sequelize.INTEGER(11),
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    name: {
+           },
+      name: {
         type: Sequelize.STRING(70)
-    },
-    price: {
+            },
+       price: {
         type: Sequelize.DOUBLE(7.2)
-    },
-    stock: {
+              },
+      stock: {
         type: Sequelize.INTEGER(11)
-    },
-    especification: {
+             },
+      especification: {
         type: Sequelize.STRING(200)
-    },
-    img: {
+             },
+      img: {
         type: Sequelize.STRING(200)
-    },
-    id_category: {
+           },
+      id_category: {
         type: Sequelize.INTEGER(10),
-        foreignKey: true
-    },
-    id_brand: {
+        allowNull: false,
+        references:{
+          model: {
+            tableName: 'category',
+            schema: 'schema'
+                 },
+          primaryKey: 'id'
+                   }
+                   },
+      id_brand: {
         type: Sequelize.INTEGER(10),
-        foreignKey: true
-    }
-      })
-    },
+        allowNull: false,
+        references:{
+          model: {
+            tableName: 'brands',
+            schema: 'schema'
+                 },
+          primaryKey: 'id'
+                 }
+                 }
+    })
+  },
   down: async (queryInterface, Sequelize) => {
-    queryInterface.dropTable('product')
+    queryInterface.dropTable('products')
   }
 };
