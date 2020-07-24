@@ -8,13 +8,19 @@ let productosController = {
         //let archivoProductos= generateData.readJson();
         db.Product.findAll()
             .then( products => {
-                res.render('productos', { productos: products });
+                return res.render('productos', { productos: products });
             }); 
     },
 
-    create: (req, res, next) => {
+    create: async (req, res, next) => {
 
-        res.render('create');
+        let promiseCategory = await db.Category.findAll();
+        let promiseBrand = await db.Brand.findAll();
+
+        Promise.all( [promiseCategory, promiseBrand] )
+            .then( ( [Category, Brand] ) => {
+                res.render('create', {Category, Brand});
+            }); 
 
     },
 
@@ -60,8 +66,8 @@ let productosController = {
             stock: req.body.stock,
             especification: req.body.especification,
             img: '/images/imagenesProductos/' + req.file.filename,
-            id_category:1,
-            id_brand:1
+            id_category: req.body.category,
+            id_brand: req.body.brand
         });
 
         res.redirect('/productos');
@@ -77,13 +83,10 @@ let productosController = {
             return req.params.id == productos.id;
         });*/
 
-        db.Product.findOne({
-            where: {
-                id: req.params.id
-            }
-        }).then( product => {
-            res.render('detalle',{productosMostrar:product});
-        });
+        db.Product.findByPk(req.params.id)
+            .then( product => {
+                res.render('detalle',{productosMostrar:product});
+            });
     },
 
     edit: (req, res) => {
