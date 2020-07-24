@@ -45,7 +45,7 @@ router.get('/', productos.productos);
 
 //router.get ('/carrito',userMiddleware, carrito.carrito);
 
-router.get('/create',userMiddleware, productos.create);
+router.get('/create',/*userMiddleware,*/ productos.create);
 
 //implementamos upload.single()(middleware)
 router.post('/', upload.single('img'), productos.createPost);

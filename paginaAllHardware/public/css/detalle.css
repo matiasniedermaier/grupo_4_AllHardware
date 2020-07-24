@@ -194,7 +194,14 @@ ul li {
 .form {
     border: 2px solid #007bff;
     border-radius: 9px;
+    margin-bottom: 5px;
 }
+
+.form-category-brand {
+    text-align: center;
+}
+
+
 
 
 @media(max-width: 425px){

@@ -29,6 +29,28 @@
 
       </div>
 
+      <div class="form-category-brand">
+
+        <select class="form" name="category">
+
+          <option value="">--Seleccione Categoría--</option>
+          <% for(let category of Category) {%> 
+            <option value="<%= category.id %>"><%= category.name %> </option>
+          <% } %> 
+
+        </select>
+
+        <select class="form" name="brand">
+
+          <option value="">--Seleccione Marca--</option>
+          <% for(let brand of Brand) {%> 
+            <option value="<%= brand.id %>"><%= brand.name %> </option>
+          <% } %> 
+
+        </select>
+
+      </div>
+
       <ul type=" none" class="subtitulo">
 
         <li><input class="form-price form" type="number" id="price" placeholder="Precio" name="price"></li>
