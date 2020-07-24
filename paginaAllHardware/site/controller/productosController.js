@@ -89,7 +89,7 @@ let productosController = {
             });
     },
 
-    edit: (req, res) => {
+    edit: async (req, res) => {
 
         /*archivoProductos= generateData.readJson();
 
@@ -98,14 +98,23 @@ let productosController = {
             return req.params.id == productos.id;
 
         });*/
+        let promiseProduct = await db.Product.findOne({where: { id: req.params.id }});
+        let promiseCategory = await db.Category.findAll();
+        let promiseBrand = await db.Brand.findAll();
+
+        Promise.all( [promiseCategory, promiseProduct, promiseBrand] )
+            .then( ( [Category, Product, Brand] ) => {
+                res.render('edit', {Category, Product, Brand});
+            });
         
-        db.Product.findOne({
+        /*db.Product.findOne({
             where: {
                 id: req.params.id
             }
         }).then( product => {
             res.render('edit',{productosMostrar:product});
-        });
+        });*/
+        
 
     },
 

@@ -16,13 +16,13 @@
 
         <i class="fas fa-angle-right" style="padding-right: 5px;"></i>
 
-        <%= productosMostrar.name %>
+        <%= Product.name %>
 
     </section>
 
 </div>
 
-<form method="POST" action="/productos/<%= productosMostrar.id%>?_method=PUT" enctype="multipart/form-data">
+<form method="POST" action="/productos/<%= Product.id%>?_method=PUT" enctype="multipart/form-data">
 
     <div id="main" class="container contenedor" style="background-color: #fff;">
 
@@ -30,7 +30,7 @@
 
             <div class="cont-img">
 
-                <img class="img" src="<%= productosMostrar.img %>" alt="">
+                <img class="img" src="<%= Product.img %>" alt="">
 
             </div>
 
@@ -45,26 +45,51 @@
 
         <section>
 
-            <article class="titulo"><%= productosMostrar.name %></article>
+            <article class="titulo"><%= Product.name %></article>
 
             <div class="form-name">
 
-                <input class="form" type="text" id="name" placeholder="Nombre" name="name" value="<%= productosMostrar.name %>">
+                <input class="form" type="text" id="name" placeholder="Nombre" name="name" value="<%= Product.name %>">
 
             </div>
 
+            <div>
+                <label class="" for="brand">Marca</label>
+                <select name="brand" >
+                  <option value="">--Seleccione--</option>
+                  <% for(let brand of Brand ) { %>
+                    <option value="<%= brand.id %>" 
+                      <% if (Product.id_brand == brand.id) {%> selected <% } %>><%= brand.name %></option>
+                  <% } %>
+                </select>
+              </div>
+
+              <div>
+                <label class="" for="category">Categoria</label>
+                <select name="category" >
+                  <option value="">--Seleccione--</option>
+                  <% for(let category of Category ) { %>
+                    <option value="<%= category.id %>" 
+                      <% if (Product.id_category == category.id) {%> selected <% } %>><%= category.name %></option>
+                  <% } %>
+                </select>
+              </div>
+
+
+
+
             <ul type="none" class="subtitulo">
 
-                <li class="costo">$<%= productosMostrar.price %></li>
+                <li class="costo">$<%= Product.price %></li>
 
                 <li>
                     <label for="">Precio</label>
-                    <input class="form-price form" type="number" id="price" placeholder="Precio" name="price" value="<%= productosMostrar.price %>">
+                    <input class="form-price form" type="number" id="price" placeholder="Precio" name="price" value="<%= Product.price %>">
                 </li>
 
                 <li>
                     <label for="">Stock</label>
-                    <input class="form-price form" type="number" id="stock" placeholder="Stock" name="stock" value="<%= productosMostrar.stock %>">
+                    <input class="form-price form" type="number" id="stock" placeholder="Stock" name="stock" value="<%= Product.stock %>">
                 </li>
 
                 <li><mark> Envio con normalidad</mark></li>
@@ -100,11 +125,11 @@
 
             <h3 class="tituloDes">Detalles del producto</h3>
 
-            <p><%= productosMostrar.especification%></p>
+            <p><%= Product.especification%></p>
 
             <div style="display: flex;">
 
-                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"><%= productosMostrar.especification %></textarea>
+                <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"><%= Product.especification %></textarea>
 
             </div>
 
