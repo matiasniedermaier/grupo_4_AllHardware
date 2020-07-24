@@ -78,7 +78,7 @@ let userController = {
         if(errors.isEmpty() ){
 
             let logueado = null;
-            let users = generate.readJsonUser();
+            /*let users = generate.readJsonUser();
             console.log(users);
             for( let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
@@ -86,20 +86,26 @@ let userController = {
                         logueado = users[i].id;
                     }
                 }
-            }
+            }*/
 
-            if(req.body.recordame) {
-
-//por 15 minutos
-                res.cookie('timeLogin', logueado, { expires: new Date(Date.now() + 900000)});
-               
-               
-            }
-
-            req.session.logueado = logueado;
-            res.locals.logeado = logueado;
-
-            return res.redirect('/');
+            db.User.findOne({
+                where: {
+                    email: req.body.email
+                }
+            }).then( user => {
+                if(bcrypt.compareSync(user.password, req.body.password) && user.email == req.body.email){
+                    if(req.body.recordame) {
+                        //por 15 minutos
+                        res.cookie('timeLogin', logueado, { expires: new Date(Date.now() + 900000)});                     
+                    }       
+                    req.session.logueado = user.id;
+                    res.locals.logeado = user.id;
+                    return res.redirect('/');
+                }
+            }).catch((error) => {
+                console.error(error);
+                return res.redirect('users/login');
+            })
 
         } else {
             

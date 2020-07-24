@@ -50,7 +50,6 @@ router.get('/create',/*userMiddleware,*/ productos.create);
 //implementamos upload.single()(middleware)
 router.post('/', upload.single('img'), productos.createPost);
 
-
 router.get('/:id', productos.id);
 
 router.get('/:id/edit', userMiddleware, productos.edit);

@@ -5,7 +5,9 @@ const formulario = require('../controller/usersController');
 const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
+const bcrypt = require('bcrypt');
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const db = require('../database/models');
 
 
 var storage = multer.diskStorage({
@@ -44,10 +46,31 @@ router.get('/login', guestMiddleware, formulario.login);
 
 router.post('/login', [
     check('email').custom( value => {
-        return generate.findUserEmail(value);
+        return db.User.findOne( {where: {email: value}} ).then( user => {
+            if (user == null){
+                return false;
+            } else {
+                return true;
+            }
+        })
+        //return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
-    check('password').custom( (value) => {
-        return generate.findUserPassword(value, {req});
+    check('password').custom( (value, {req}) => {
+        //return generate.findUserPassword(value, {req});
+        return db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then( user => {
+            if(bcrypt.compareSync(value, user.password) && user.email == req.body.email){
+                return true;
+            } else {
+                return false;
+            }
+        }).catch((error) => {
+            console.error(error);
+            return res.redirect('login');
+        })
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
 
@@ -72,7 +95,5 @@ router.post('/registro', upload.single('img'), [
         return false;
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     formulario.registroPost);
-
-   /*  router.get('/profile', userMiddleware, formulario.profile); */
 
 module.exports = router;
