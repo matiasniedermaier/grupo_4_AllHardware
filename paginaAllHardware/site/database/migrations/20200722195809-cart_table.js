@@ -20,7 +20,7 @@ module.exports = {
       }
      
               },
-    id_product: {
+    id_products: {
       type: Sequelize.INTEGER(10),
       references:{
         model: {

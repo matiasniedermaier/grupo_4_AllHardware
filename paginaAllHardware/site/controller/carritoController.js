@@ -5,20 +5,27 @@ let carritoController = {
 
    agregarCarrito: (req,res) => {
         db.Cart.create({
-            id_user: req.session.id,
-            id_product: req.params.id_product,
+            id_user: 1,
+            id_products: 1,
             cantidad: 1,
             price_total: 0
 
         })
-        res.render('carrito')
-    },
-    listarCarrito: (req, res) =>{
+        res.redirect('/carrito')
 
-        res.render('listarCarrito')
-
+    }, 
+    verCarrito: (req, res) =>{
+       db.Cart.findAll({
+        where: {
+           id_user: req.session.id,
+        }
+    }).then( cart => {
+        console.log (cart)
+       return  res.render('/carrito')
+        
+    });
+     
     }
-
     
 };
 

@@ -4,7 +4,11 @@ const router = express.Router();
 const carritoController = require ('../controller/carritoController');
 const userMiddleware = require('../middlewares/userMiddleware');
 
-//router.get('/carrito', userMiddleware, carritoController.carrito);
-router.get('/listarCarrito', userMiddleware, carritoController.listarCarrito);
+//router.get('(/', carritoController.agregarCarrito);
+router.post('/', carritoController.agregarCarrito);
+
+router.get('/', carritoController.verCarrito);
+router.post('/', carritoController.verCarrito);
+
 
 module.exports = router;

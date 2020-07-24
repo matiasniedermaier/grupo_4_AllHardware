@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const carrito = require ('../controller/carritoController');
+//const carrito = require ('../controller/carritoController');
 const productos = require('../controller/productosController');
 const userMiddleware = require('../middlewares/userMiddleware');
 //librerias que necesito para trabajar con multer.

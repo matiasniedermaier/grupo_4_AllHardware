@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER(11),
             foreignKey: true
         },
-        id_product: {
+        id_products: {
             type: DataTypes.INTEGER(11),
             foreignKey: true
         },
         cantidad: {
             type: DataTypes.INTEGER(11)
         },
-        total_price: {
+        price_total: {
             type: DataTypes.DOUBLE(7,2)
         }
     };
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         });
         Cart.belongsTo(models.Product, {
             as: 'product',
-            foreignKey: 'id'
+            foreignKey: 'id_products'
         });
     };
 

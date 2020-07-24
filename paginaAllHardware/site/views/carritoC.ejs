@@ -1,0 +1,12 @@
+<%- include("partials/head") %>
+
+<%- include("partials/header") %>
+              <h1>Carrito</h1>
+
+              <form method="POST" action="/carrito"  enctype="multipart/form-data">
+                  <input type="number" name= "id_user">
+                  <input type="number" name= "id_products">
+                  <input type="number" name= "cantidad">
+                  <input type="number" name= "total_price">
+              </form>
+<%- include("partials/footer") %>
