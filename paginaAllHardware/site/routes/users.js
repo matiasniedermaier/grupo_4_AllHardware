@@ -65,11 +65,8 @@ router.post('/login', [
             if(bcrypt.compareSync(value, user.password) && user.email == req.body.email){
                 return true;
             } else {
-                return false;
+                return Promise.reject('Contraseña Invalida');
             }
-        }).catch((error) => {
-            console.error(error);
-            return res.redirect('login');
         })
     }).withMessage('Contraseña Invalida') ], 
     formulario.loginPost);
