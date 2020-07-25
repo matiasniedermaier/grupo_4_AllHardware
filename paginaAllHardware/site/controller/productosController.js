@@ -1,5 +1,6 @@
 const generateData = require('../models/generate');
 const db = require('../database/models');
+const { op } =require('sequelize')
 
 let productosController = {
     
@@ -178,8 +179,19 @@ let productosController = {
 
         res.redirect('/productos');
         
-    }
+    },
 
+    buscar: (req,res)=>{
+      db.Product.findAll({
+        where: { 
+            name: {
+           [op.like]: '%' + req.query.search + '%'
+        }
+    }
+    }).then(function(productos){
+        res.render('productos', {productos})
+    });
+    }
 }
 
 module.exports = productosController;

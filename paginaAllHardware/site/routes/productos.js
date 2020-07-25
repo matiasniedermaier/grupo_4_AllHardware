@@ -6,6 +6,7 @@ const userMiddleware = require('../middlewares/userMiddleware');
 //librerias que necesito para trabajar con multer.
 const multer=require('multer');
 const path = require('path');
+const productosController = require('../controller/productosController');
 
 
 //definimos donde vamos a guardar las imagenes que se suban.
@@ -42,7 +43,6 @@ var upload = multer({ storage: storage,
 
 
 router.get('/', productos.productos);
-
 //router.get ('/carrito',userMiddleware, carrito.carrito);
 
 router.get('/create',/*userMiddleware,*/ productos.create);
@@ -60,4 +60,5 @@ router.put('/:id', upload.single('img'), productos.editPut);
 //trabajando con la parte de delite......
 router.delete('/:id',userMiddleware, productos.borrar);
 
+router.get('/buscar', userMiddleware, productos.buscar);
 module.exports = router;
