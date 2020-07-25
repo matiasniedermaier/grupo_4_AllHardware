@@ -60,4 +60,5 @@ router.put('/:id', upload.single('img'), productos.editPut);
 router.delete('/:id',userMiddleware, productos.borrar);
 
 router.get('/buscar', userMiddleware, productos.buscar);
+
 module.exports = router;
