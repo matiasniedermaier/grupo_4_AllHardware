@@ -9,22 +9,20 @@ let carritoController = {
             id_products: 1,
             cantidad: 1,
             price_total: 0
-
         })
-        res.redirect('/carrito')
+        res.redirect('carrito')
 
     }, 
     verCarrito: (req, res) =>{
-       db.Cart.findAll({
+        db.Cart.findAll({
         where: {
            id_user: req.session.id,
         }
-    }).then( cart => {
-        console.log (cart)
-       return  res.render('/carrito')
-        
-    });
-     
+        }).then( cart => {
+            console.log (cart)
+            return  res.render('carrito')
+        });
+
     }
     
 };

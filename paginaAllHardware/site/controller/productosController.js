@@ -188,7 +188,7 @@ let productosController = {
            [op.like]: '%' + req.query.search + '%'
         }
     }
-    }).then(function(productos){
+    }).then( productos => {
         res.render('productos', {productos})
     });
     }
