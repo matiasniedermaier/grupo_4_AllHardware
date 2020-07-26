@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const userMiddleware = require('../middlewares/userMiddleware');
 const db = require('../database/models');
+const { saveProfile } = require('../controller/usersController');
 
 
 var storage = multer.diskStorage({
@@ -92,7 +93,22 @@ router.post('/registro', upload.single('img'), [
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     users.registroPost);
 
-router.get('/profile', /*userMiddleware,*/ users.profile);
+router.get('/profile', userMiddleware, users.profile);
+
+router.get('/profile/edit', users.editProfile);
+
+router.put('/profile', userMiddleware, upload.single('img'), [
+    check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
+    check('email').isEmail().withMessage('El email debe ser un email valido'),
+    check('img').custom(( value, { req }) => {
+        if( req.file != undefined) {
+            const fileTypes = ['.jepg', '.jpg', '.png'];
+            const extname = path.extname(req.file.originalname);
+            return fileTypes.includes(extname);
+        }
+        return false;
+    }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
+    users.saveProfile);
 
 router.get('/logout', users.logout);
 
