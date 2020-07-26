@@ -5,11 +5,31 @@ const { Op } =require('sequelize')
 let productosController = {
     
     productos: (req, res, next) => {
-       
-        db.Product.findAll()
+    
+        if(req.query.search) {
+
+            db.Product.findAll({
+                where : {
+                    name : {
+                        [Op.like] : '%' + req.query.search + '%'
+                    }
+                },
+                order : [
+                    ['name', 'ASC']
+                ]
+            })
+                .then( products => {
+                    return res.render('productos', { productos: products });
+                })                
+
+        } else {
+
+           db.Product.findAll()
             .then( products => {
                 return res.render('productos', { productos: products });
-            }); 
+            });  
+
+        }
     },
 
     create: async (req, res, next) => {
