@@ -15,35 +15,11 @@ let userController = {
 
     registroPost: (req, res, next) => {
 
-        //let id = generateData.lastIDUser();
         let errors = validationResult(req);        
         console.log(errors.mapped())
 
         if (errors.isEmpty()) {
             console.log(req.file)
-            /*let nuevoUsuario = {
-                id: id,
-                name: req.body.name,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                img: '/images/imagenesProductos/'+req.file.filename,
-                promotion: req.body.chk
-            };*/
-
-            //let archivoUsers = generateData.readJsonUser();
-
-            /*if(archivoUsers.length == 0){
-
-                archivoUsers.push(nuevoUsers);
-                generateData.writeJsonUser(archivoUsers);
-            
-            }
-            else{
-
-                archivoUsers.push(nuevoUsuario);
-                generateData.writeJsonUser(archivoUsers);
-
-            }*/
 
             db.User.create({
                 name: req.body.name,
@@ -87,10 +63,12 @@ let userController = {
                 if(bcrypt.compareSync(req.body.password, user.password)){
                     if(req.body.recordame) {
                         //por 15 minutos
-                        res.cookie('timeLogin', logueado, { expires: new Date(Date.now() + 900000)});                     
+                        res.cookie('timeLogin', true, { expires: new Date(Date.now() + 900000)});                     
                     }       
-                    req.session.logueado = user.id;
-                    res.locals.logeado = user.id;
+                    req.session.logueado = true;
+                    req.session.user = user.id;
+                    res.locals.logeado = true;
+                    res.locals.user = user.id;
                     return res.redirect('/');
                 }
                 res.send('paso por aqui')
@@ -108,9 +86,18 @@ let userController = {
 
     },
 
-/*     profile: (req, res) => {
+    profile: (req, res) => {
         res.render('users/profile');
-    } */
+    },
+
+    logout: (req, res) => {
+        req.session.logeado = false;
+        res.locals.logeado = false;
+        req.session.user = false;
+        res.locals.user = false;
+        console.log('paso por aqui')
+        return res.redirect('/productos');
+    }
     
 }
 

@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const {check, validationResult, body} =  require('express-validator');
-const formulario = require('../controller/usersController');
+const users = require('../controller/usersController');
 const generate = require('../models/generate');
 const multer = require('multer');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const userMiddleware = require('../middlewares/userMiddleware');
 const db = require('../database/models');
 
 
@@ -42,7 +43,7 @@ var upload = multer({
     }*/
 });
 
-router.get('/login', guestMiddleware, formulario.login);
+router.get('/login', guestMiddleware, users.login);
 
 router.post('/login', [
     check('email').custom( value => {
@@ -53,10 +54,8 @@ router.post('/login', [
                 return true;
             }
         })
-        //return generate.findUserEmail(value);
     }).withMessage('Este email no esta registrado'),
     check('password').custom( (value, {req}) => {
-        //return generate.findUserPassword(value, {req});
         return db.User.findOne({
             where: {
                 email: req.body.email
@@ -69,9 +68,9 @@ router.post('/login', [
             }
         })
     }).withMessage('Contraseña Invalida') ], 
-    formulario.loginPost);
+    users.loginPost);
 
-router.get('/registro',guestMiddleware,formulario.registro);
+router.get('/registro',guestMiddleware,users.registro);
 
 router.post('/registro', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
@@ -91,6 +90,10 @@ router.post('/registro', upload.single('img'), [
         }
         return false;
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
-    formulario.registroPost);
+    users.registroPost);
+
+router.get('/profile', userMiddleware, users.profile);
+
+router.get('/logout', users.logout);
 
 module.exports = router;

@@ -2,7 +2,7 @@ const users = require('../models/generate');
 
 function recordar (req, res, next){
 
- if(req.cookies.timeLogin != undefined && req.session.logueado == undefined) {
+ if(req.cookies.timeLogin && req.session.logueado) {
 
   let usuarios = users.readJsonUser();
 
