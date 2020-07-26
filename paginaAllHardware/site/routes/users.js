@@ -92,7 +92,7 @@ router.post('/registro', upload.single('img'), [
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     users.registroPost);
 
-router.get('/profile', userMiddleware, users.profile);
+router.get('/profile', /*userMiddleware,*/ users.profile);
 
 router.get('/logout', users.logout);
 

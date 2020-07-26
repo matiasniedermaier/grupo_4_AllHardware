@@ -25,7 +25,7 @@ let userController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                img: '/images/imagenesProductos/'+req.file.filename,
+                img: '/images/users/'+req.file.filename,
                 admin: 0,
                 promocion: req.body.chk ? '1' : '0'
             })
@@ -87,7 +87,13 @@ let userController = {
     },
 
     profile: (req, res) => {
-        res.render('users/profile');
+
+        db.User.findByPk(req.session.user)
+            .then( user => {
+                console.log(user)
+                res.render('users/profile', {user});
+            })
+
     },
 
     logout: (req, res) => {

@@ -58,6 +58,4 @@ router.put('/:id', upload.single('img'), productos.editPut);
 //trabajando con la parte de delite......
 router.delete('/:id',userMiddleware, productos.borrar);
 
-router.get('/buscar', userMiddleware, productos.buscar);
-
 module.exports = router;
