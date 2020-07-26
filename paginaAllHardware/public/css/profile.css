@@ -1,0 +1,14 @@
+.portada {
+    height: 200px;
+    background-color: rgba(0, 174, 255, 0.5);
+    margin: 50px;
+}
+
+#img-profile {
+    border: black 2px solid;
+    background-color: #fff;
+}
+
+img {
+    width: 50px;
+}

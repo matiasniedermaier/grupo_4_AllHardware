@@ -4,7 +4,7 @@ let guestMiddleware = (req, res, next) => {
 
     if (req.session.logueado) {
         
-        res.redirect('/');
+        res.redirect('/profile');
         
     }
 
