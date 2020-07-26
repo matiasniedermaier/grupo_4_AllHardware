@@ -126,7 +126,7 @@ let userController = {
             });
         }
             
-        res.redirect('users/profile');
+        res.redirect('/users/profile');
 
     },
 

@@ -35,29 +35,32 @@
                 </a>
 
                 <div class="botonesEdicion">
+
                     <% if(locals.logueado) { %>
-                    <div>
-                        <a href="/productos/<%=productos[i].id%>/edit"><button class="edit"><i class="fas fa-file-signature"></i></button></a>
 
-                        <p class="edit-p">Editar</p>
+                        <div>
+                            <a href="/productos/<%=productos[i].id%>/edit"><button class="edit"><i class="fas fa-file-signature"></i></button></a>
 
-                    </div>
-                    
-                    <div>
-                       
-                        <form  method="POST" action="/productos/<%=productos[i].id%>?_method=DELETE">
+                            <p class="edit-p">Editar</p>
 
-                            <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete">
+                        </div>
+                        
+                        <div>
+                        
+                            <form  method="POST" action="/productos/<%=productos[i].id%>?_method=DELETE">
 
-                                <button class="delete"><i class="fas fa-file-excel"></i></button>
+                                <a href="/productos/<%=productos[i].id%>?_method=DELETE" class="delete">
 
-                            </a>
+                                    <button class="delete"><i class="fas fa-file-excel"></i></button>
 
-                            <p class="edit-p">Eliminar</p>
+                                </a>
 
-                        </form>
+                                <p class="edit-p">Eliminar</p>
 
-                    </div>
+                            </form>
+
+                        </div>
+                        
                     <% } %> 
                         
                 </div>
