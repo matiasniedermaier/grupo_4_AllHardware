@@ -49,6 +49,12 @@ h1 {
     display: none;
 }
 
+.lupa {
+    border: none;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
 .iconos-header {
     font-size: x-large;
     padding-right: 10px;
