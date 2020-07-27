@@ -126,17 +126,8 @@ let productosController = {
         });
 
         res.redirect('/productos');
-        
-<<<<<<< HEAD
-    
- 
-   
-
-}
-=======
     }
-
->>>>>>> e3a3ff1f8bcca539ce5568da6dae72c3e6cca76b
+    
 }
 
 module.exports = productosController;
