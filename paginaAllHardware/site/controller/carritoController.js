@@ -5,8 +5,8 @@ let carritoController = {
 
    agregarCarrito: (req,res) => {
         db.Cart.create({
-            id_user: 1,
-            id_products: 1,
+            id_user: req.session.id_user,
+            id_products: req.params.id_products,
             cantidad: 1,
             price_total: 0
         })
