@@ -25,7 +25,7 @@ let userController = {
                 name: req.body.name,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                img: '/images/imagenesProductos/'+req.file.filename,
+                img: '/images/users/'+req.file.filename,
                 admin: 0,
                 promocion: req.body.chk ? '1' : '0'
             })
@@ -82,21 +82,61 @@ let userController = {
             return res.render('users/login', {errors : errors.mapped()});
 
         }
-        
 
     },
 
     profile: (req, res) => {
-        res.render('users/profile');
+
+        db.User.findByPk(req.session.user)
+            .then( user => {
+                res.render('users/profile', {user});
+            })
+
+    },
+
+    editProfile: (req, res) => {
+
+        db.User.findByPk(req.session.user)
+            .then( user => {
+                res.render('users/editProfile', {user, body : {}});
+            })
+
+    },
+
+    saveProfile: (req, res) => {
+
+        if (req.files != 'undefined'){
+            db.User.update({
+                name: req.body.name,
+                email: req.body.email,
+                img: '/images/users/'+ req.file.filename
+            },{
+                where: {
+                    id: req.session.user
+                }
+            });
+        } else {
+            db.User.update({
+                name: req.body.name,
+                email: req.body.email
+            },{
+                where: {
+                    id: req.session.user
+                }
+            });
+        }
+            
+        res.redirect('/users/profile');
+
     },
 
     logout: (req, res) => {
-        req.session.logeado = false;
-        res.locals.logeado = false;
-        req.session.user = false;
-        res.locals.user = false;
-        console.log('paso por aqui')
-        return res.redirect('/productos');
+
+        let date = new Date(Date.now() - 100);
+        req.session.cookie.expires = date;
+        req.session.cookie.maxAge = -100;
+        return res.redirect('/');
+
     }
     
 }

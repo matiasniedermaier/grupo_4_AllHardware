@@ -27,7 +27,7 @@ module.exports = {
           tableName: 'products',
           schema: 'schema'
                },
-        primaryKey: 'id'
+            Key: 'id'
                   }
       
               },

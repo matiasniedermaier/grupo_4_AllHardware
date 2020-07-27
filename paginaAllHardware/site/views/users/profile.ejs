@@ -4,25 +4,36 @@
 
 <link rel="stylesheet" href="/css/profile.css">
 
-<h1>Profile</h1>
-
 <div class="container-fluid">
+
+    <h1 class="title-profile">Perfil de <%= user.name %></h1>
 
     <div class="portada">
 
         <div class="img-profile">
 
-            <img id="img-profile" src="/images/imagenesProductos/img-1595454836030.png" alt="">
+            <img id="img-profile" src="<%= user.img %> " alt="">
 
+        </div>
+
+        <div class="logo-profile">
+    
+            <img src="/images/logo.webp" alt="">
+    
         </div>
 
     </div>
 
-    <div class="logo">
+    <ul type="none" class="datos-usuario">
 
-        <img src="/images/logo.webp" alt="">
+        <li>Nombre: <%= user.name %></li>
+        <li>Email: <%= user.email %></li>
+        <li>Contraseña: ********</li>
 
-    </div>
+    </ul>
+
+    <a href="profile/edit"><button style="margin-left: 50px;"   class="btn btn-primary">Editar</button></a>
+
 
 </div>
 
