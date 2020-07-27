@@ -127,24 +127,10 @@ let productosController = {
 
         res.redirect('/productos');
         
-    },
+    
  
-    buscar: (req, res)=>{
-        console.log(req.query.search)
-        if (req.query.search) {
-            
-        
-      db.Product.findAll({
-        where: { 
-            name: {
-           [Op.like]: "%" + req.query.search + "%"
-        }
-    } 
-    }).then( productos => {
-        
-        res.render('productos')
-    });
-}
+   
+
 }
 }
 

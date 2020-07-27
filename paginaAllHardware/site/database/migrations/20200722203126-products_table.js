@@ -32,7 +32,7 @@ module.exports = {
             tableName: 'category',
             schema: 'schema'
                  },
-          primaryKey: 'id'
+              Key: 'id'
                    }
                    },
       id_brand: {
@@ -43,7 +43,7 @@ module.exports = {
             tableName: 'brands',
             schema: 'schema'
                  },
-          primaryKey: 'id'
+              Key: 'id'
                  }
                  }
     })
