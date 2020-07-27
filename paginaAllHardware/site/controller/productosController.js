@@ -127,8 +127,16 @@ let productosController = {
 
         res.redirect('/productos');
         
+<<<<<<< HEAD
     }
 
+=======
+    
+ 
+   
+
+}
+>>>>>>> 555788754b49320fcae38c265817ee29df7931f3
 }
 
 module.exports = productosController;
