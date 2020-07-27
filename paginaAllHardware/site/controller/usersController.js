@@ -63,11 +63,11 @@ let userController = {
                 if(bcrypt.compareSync(req.body.password, user.password)){
                     if(req.body.recordame) {
                         //por 15 minutos
-                        res.cookie('timeLogin', true, { expires: new Date(Date.now() + 900000)});                     
+                        res.cookie('timeLogin', user.email, { expires: new Date(Date.now() + 900000)});                     
                     }       
                     req.session.logueado = true;
                     req.session.user = user.id;
-                    res.locals.logeado = true;
+                    res.locals.logueado = true;
                     res.locals.user = user.id;
                     return res.redirect('/');
                 }
