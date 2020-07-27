@@ -105,7 +105,7 @@ let userController = {
 
     saveProfile: (req, res) => {
 
-        if (req.files != 'undefined'){
+        if (req.files){
             db.User.update({
                 name: req.body.name,
                 email: req.body.email,
