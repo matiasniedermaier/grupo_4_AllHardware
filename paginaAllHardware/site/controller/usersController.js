@@ -86,30 +86,34 @@ let userController = {
 
     },
 
-    profile: (req, res) => {
+    profile: async (req, res) => {
 
-        db.User.findByPk(req.session.user)
+        let user = await db.User.findByPk(req.session.user)
+                return res.render('users/profile', {user});
+
+    },
+
+    editProfile: async (req, res) => {
+
+        await db.User.findByPk(req.session.user)
             .then( user => {
-                res.render('users/profile', {user});
+                return res.render('users/editProfile', {user, body : {}});
             })
 
     },
 
-    editProfile: (req, res) => {
+    saveProfile: async (req, res) => {
 
-        db.User.findByPk(req.session.user)
-            .then( user => {
-                res.render('users/editProfile', {user, body : {}});
-            })
-
-    },
-
-    saveProfile: (req, res) => {
-
+        let errors = validationResult(req);
+        console.log('hola', req.file, 'holaaa', req.files)
         if(errors.isEmpty() ) {
 
-            if (req.files){
-                db.User.update({
+            //console.log('hola', req.file, 'holaaa', req.files)
+            //console.log(req.file)
+
+
+            if (req.file){
+                await db.User.update({
                     name: req.body.name,
                     email: req.body.email,
                     img: '/images/users/'+ req.file.filename
@@ -119,7 +123,7 @@ let userController = {
                     }
                 });
             } else {
-                db.User.update({
+                await db.User.update({
                     name: req.body.name,
                     email: req.body.email
                 },{
@@ -129,11 +133,14 @@ let userController = {
                 });
             }
                 
-            res.redirect('/users/profile');
+            return res.redirect('/users/profile');
  
         } else {
 
-            return res.render('users/editProfile', {errors : errors.mapped(), body : req.body});
+            db.User.findByPk(req.session.user)
+            .then( user => {
+                return res.render('users/editProfile', {user, errors : errors.mapped(),body : {}});
+            })
 
         }
 

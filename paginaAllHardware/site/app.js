@@ -32,8 +32,8 @@ app.use(session({
   saveUninitialized : true 
 }));
 
-app.use(cookiesRecordame);
 app.use(sessiones);
+app.use(cookiesRecordame);
 
 
 //use los method put y delete en las rutas y el formulario

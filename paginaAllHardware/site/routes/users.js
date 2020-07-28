@@ -100,13 +100,14 @@ router.get('/profile/edit', userMiddleware, users.editProfile);
 router.post('/profile', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
-    check('img').custom(( value, { req }) => {
+    body('img').custom(( value, { req }) => {
+        console.log(req.file, 'holaa', req.files)
         if( req.file != undefined) {
             const fileTypes = ['.jepg', '.jpg', '.png'];
             const extname = path.extname(req.file.originalname);
             return fileTypes.includes(extname);
         }
-        return false;
+        return true;
     }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
     users.saveProfile);
 
