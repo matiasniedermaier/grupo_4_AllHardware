@@ -18,6 +18,11 @@
     right: 10px;
 }
 
+.errors {
+    color: red;
+    font-size: unset;
+}
+
 .logo-profile img {
     width: 125px;
 }

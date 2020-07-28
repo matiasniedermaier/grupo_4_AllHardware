@@ -44,7 +44,7 @@ var upload = multer({ storage: storage,
 
 router.get('/', productos.productos);
 
-router.get('/create',/*userMiddleware,*/ productos.create);
+router.get('/create',userMiddleware, productos.create);
 
 //implementamos upload.single()(middleware)
 router.post('/', upload.single('img'), productos.createPost);
@@ -57,4 +57,5 @@ router.put('/:id', upload.single('img'), productos.editPut);
 
 //trabajando con la parte de delite......
 router.delete('/:id',userMiddleware, productos.borrar);
+
 module.exports = router;

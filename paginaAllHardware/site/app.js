@@ -36,7 +36,6 @@ app.use(cookiesRecordame);
 app.use(sessiones);
 
 
-
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));
 

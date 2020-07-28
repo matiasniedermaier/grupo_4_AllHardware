@@ -95,9 +95,9 @@ router.post('/registro', upload.single('img'), [
 
 router.get('/profile', userMiddleware, users.profile);
 
-router.get('/profile/edit', users.editProfile);
+router.get('/profile/edit', userMiddleware, users.editProfile);
 
-router.put('/profile', userMiddleware, upload.single('img'), [
+router.post('/profile', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
     check('img').custom(( value, { req }) => {

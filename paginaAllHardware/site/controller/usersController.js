@@ -61,9 +61,10 @@ let userController = {
                 console.log(user.password);
                 console.log(req.body.password)
                 if(bcrypt.compareSync(req.body.password, user.password)){
+                    let userId = user.id;
                     if(req.body.recordame) {
                         //por 15 minutos
-                        res.cookie('timeLogin', user.email, { expires: new Date(Date.now() + 900000)});                     
+                        res.cookie('user', userId, { expires: new Date(Date.now() + 900000)});                     
                     }       
                     req.session.logueado = true;
                     req.session.user = user.id;
@@ -105,28 +106,36 @@ let userController = {
 
     saveProfile: (req, res) => {
 
-        if (req.files){
-            db.User.update({
-                name: req.body.name,
-                email: req.body.email,
-                img: '/images/users/'+ req.file.filename
-            },{
-                where: {
-                    id: req.session.user
-                }
-            });
+        if(errors.isEmpty() ) {
+
+            if (req.files){
+                db.User.update({
+                    name: req.body.name,
+                    email: req.body.email,
+                    img: '/images/users/'+ req.file.filename
+                },{
+                    where: {
+                        id: req.session.user
+                    }
+                });
+            } else {
+                db.User.update({
+                    name: req.body.name,
+                    email: req.body.email
+                },{
+                    where: {
+                        id: req.session.user
+                    }
+                });
+            }
+                
+            res.redirect('/users/profile');
+ 
         } else {
-            db.User.update({
-                name: req.body.name,
-                email: req.body.email
-            },{
-                where: {
-                    id: req.session.user
-                }
-            });
+
+            return res.render('users/editProfile', {errors : errors.mapped(), body : req.body});
+
         }
-            
-        res.redirect('/users/profile');
 
     },
 

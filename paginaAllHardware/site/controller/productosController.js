@@ -88,7 +88,7 @@ let productosController = {
 
     editPut: (req, res) => {
       
-        if (req.files != 'undefined'){
+        if (req.files){
             db.Product.update({
                 name: req.body.name,
                 stock: req.body.stock,
@@ -127,16 +127,8 @@ let productosController = {
 
         res.redirect('/productos');
         
-<<<<<<< HEAD
     }
 
-=======
-    
- 
-   
-
-}
->>>>>>> 555788754b49320fcae38c265817ee29df7931f3
 }
 
 module.exports = productosController;
