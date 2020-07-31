@@ -47,29 +47,25 @@ var upload = multer({
 router.get('/login', guestMiddleware, users.login);
 
 router.post('/login', [
-    check('email').custom( value => {
-        return db.User.findOne( {where: {email: value}} ).then( user => {
-            if (user == null){
-                return false;
-            } else {
-                return true;
-            }
-        })
-    }).withMessage('Este email no esta registrado'),
-    check('password').custom( (value, {req}) => {
-        return db.User.findOne({
-            where: {
-                email: req.body.email
-            }
-        }).then( user => {
-            if(bcrypt.compareSync(value, user.password) && user.email == req.body.email){
-                return true;
-            } else {
-                return Promise.reject('Contraseña Invalida');
-            }
-        })
-    }).withMessage('Contraseña Invalida') ], 
-    users.loginPost);
+
+    check('password').isLength({min:8}).withMessage('contraseña invalidad'),
+
+    check('email').custom(async(value,{req}) => {
+      
+        let user= await db.User.findOne({ where:{email:value}}) 
+
+        if (user == null) {
+
+            return Promise.reject('Email invalido');
+
+        } else if (user && !bcrypt.compareSync(req.body.password , user.password)) {
+
+            return Promise.reject('Email invalido');
+        }
+
+     })
+    
+  ],users.loginPost);
 
 router.get('/registro',guestMiddleware,users.registro);
 

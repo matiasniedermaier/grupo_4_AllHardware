@@ -46,11 +46,10 @@ let userController = {
 
     },
 
-    loginPost: (req, res) => {
+    loginPost:(req, res) => {
 
-        errors = validationResult(req);
-        
-
+        errors = validationResult(req); 
+     console.log(errors)
         if(errors.isEmpty() ){
 
             db.User.findOne({
@@ -148,9 +147,14 @@ let userController = {
 
     logout: (req, res) => {
 
-        let date = new Date(Date.now() - 100);
+        /*let date = new Date(Date.now() - 100);
         req.session.cookie.expires = date;
-        req.session.cookie.maxAge = -100;
+        req.session.cookie.maxAge = -100;*/
+        res.clearCookie('user')
+        req.session.logueado = false;
+        req.session.user = null;
+        res.locals.logueado = false;
+        res.locals.user = null;
         return res.redirect('/');
 
     }
