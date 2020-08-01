@@ -42,7 +42,7 @@ let userController = {
 
     login: (req, res) => {
 
-        res.render('users/login')
+        res.render('users/login', {body : {}})
 
     },
 
@@ -79,7 +79,7 @@ let userController = {
 
         } else {
             
-            return res.render('users/login', {errors : errors.mapped()});
+            return res.render('users/login', {errors : errors.mapped(), body : req.body});
 
         }
 

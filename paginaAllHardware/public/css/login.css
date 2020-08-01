@@ -18,6 +18,8 @@ body{
     font-size: unset;
 }
 
+
+
 .login {
     position: relative;
     display: flex;
@@ -64,6 +66,12 @@ a{
     padding: 5px;
     background-color: #fff;
 }
+
+.campo-invalido{
+    border: 2px solid red;
+     
+}
+
 
 
 @media (max-width:1023px){

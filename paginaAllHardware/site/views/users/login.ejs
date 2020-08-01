@@ -4,6 +4,8 @@
 
 <link rel="stylesheet" href="/css/login.css">
 
+<script src="/front-js/loginFront.js"></script>
+
 <div class="contenedor">
 
   <div class="titulo">
@@ -12,16 +14,17 @@
 
   </div>
 
-  <form class="login" method="POST" action="/users/login">
+  <form  class="login form-login" method="POST" action="/users/login">
 
-    <input class="input" type="email" name="email" value placeholder="Tu email" id="email" required />
+    <input class="input" type="text" name="email" value ="<%= body.email ? body.email : "" %>" placeholder="Tu email" id="email"  />
     <% if (typeof errors != 'undefined') { %>
-      <div class="errors"><%= errors.email ? errors.email.msg : '' %> </div>
+      <div id="error-email" class="errors" > <%= errors.email ? errors.email.msg : '' %> </div>
     <% } %> 
+   
 
-    <input class="input" type="password" name="password" value placeholder="Tu Contraseña" id="password" required />
+    <input class="input " type="password" name="password" value placeholder="Tu Contraseña" id="password"  />
     <% if (typeof errors != 'undefined') { %>
-      <div class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
+      <div id="error-password" class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
     <% } %> 
     <div style="display: flex">
     <input type="checkbox" class="recordar" name="recordame"> 
@@ -35,9 +38,8 @@
     <div class="regis">¿Aún no tenés cuenta? <a class="" href="/users/registro"> Registrate </a> </div>
 
   </form>
-
+  
 </div>
-<script src="../../../public/js/loginFront.js"></script>
 
 <%- include("../partials/footer") %>
 
