@@ -4,52 +4,56 @@
 
 <link rel="stylesheet" href="/css/registro.css">
 
-<div class="contenedor  container">
+<script src="/front-js/registroFront.js"></script>
 
-    <div class="titulo">Completá tu datos</div>
+<div class="contenedor container">
+
+    <div class="titulo">Completá tus datos</div>
 
     <form method="POST" action="/users/registro" class="formulario" enctype="multipart/form-data">
+        <div>
 
-        <label class="label" for="nombre">Nombre</label>
-        <input class="input" type="text" name="name" id="nombre" placeholder="Nombre" value="<%= body.name ? body.name : ''%>">
-        <% if (typeof errors != 'undefined') { %>   
-            <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
-        <% } %> 
+            <label class="label" for="nombre">Nombre</label>
+            <input class="input" type="text" name="name" id="nombre" placeholder="Nombre" value="<%= body.name ? body.name : ''%>">
+            <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.name ? errors.name.msg : '' %> </div><% } %> 
         
-        <label class="label" for="email">Email</label>
-        <input class="input" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
-        <% if (typeof errors != 'undefined') { %>
-            <div class="errors"><%= errors.email ? errors.email.msg : '' %> </div>
-        <% } %>
+        </div>
+        <div >
+
+            <label class="label" for="email">Email</label>
+            <input class="input" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
+            <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.email ? errors.email.msg : '' %> </div><% } %>
+
+        </div>
+        <div >
+
+            <label class="lanodemonbel" for="password">Contraseña</label>
+            <input class="input" type="password" name="password" value="" id="password" placeholder="Contraseña">
+            <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.password ? errors.password.msg : '' %> </div><% } %>
         
-        <label class="lanodemonbel" for="password">Contraseña</label>
-        <input class="input" type="password" name="password" value="" id="password" placeholder="Contraseña">
-        <% if (typeof errors != 'undefined') { %>
-            <div class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
-        <% } %>
+        </div>
+        <div >
 
-        <label class="label" for="confirm_password">Confirmar Contraseña</label>
-        <input class="input" type="password" name="confirm_password" value="" id="confirm_password" placeholder="Contraseña">
-        <% if (typeof errors != 'undefined') { %> 
-            <div class="errors"><%= errors.confirm_password ? errors.confirm_password.msg : '' %> </div>
-        <% } %>
-
-        <label class="label">Selecciona una imagen para tu perfil</label>
-        <input class="input" type="file" id="img" name="img">
-        <% if (typeof errors != 'undefined') { %>
-            <div class="errors"><%= errors.img ? errors.img.msg : '' %> </div>
-        <% } %>
+            <label class="label" for="confirm_password">Confirmar Contraseña</label>
+            <input class="input" type="password" name="confirm_password" value="" id="confirm_password" placeholder="Contraseña">
+            <% if (typeof errors != 'undefined') { %> <div class="errors"><%= errors.confirm_password ? errors.confirm_password.msg : '' %> </div><% } %>
         
+        </div>
+        <div >
 
+            <label class="label">Selecciona una imagen para tu perfil</label>
+            <input class="input" type="file" id="img" name="img"><% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.img ? errors.img.msg : '' %> </div><% } %>
+        
+        </div>
         <div class="pa">
             
             <input type="checkbox" name="chk" id="chk">
             <label for="chk"> Desearia recibir nuestras ofertas y promociones? </label>
-
+    
         </div>
-
+       
         <button class="btn" class="submit" name="boton">Registrese</button>
-
+    
     </form>
 
 </div>
