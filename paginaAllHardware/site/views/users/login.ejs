@@ -16,13 +16,13 @@
 
   <form  class="login form-login" method="POST" action="/users/login">
 
-    <input class="input" type="text" name="email" value ="<%= body.email ? body.email : "" %>" placeholder="Tu email" id="email"  />
+    <input class="input" type="email" name="email" placeholder="Tu email" id="email" />
     <% if (typeof errors != 'undefined') { %>
       <div id="error-email" class="errors" > <%= errors.email ? errors.email.msg : '' %> </div>
     <% } %> 
    
 
-    <input class="input " type="password" name="password" value placeholder="Tu Contraseña" id="password"  />
+    <input class="input " type="password" name="password" value placeholder="Tu Contraseña" id="password" />
     <% if (typeof errors != 'undefined') { %>
       <div id="error-password" class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
     <% } %> 

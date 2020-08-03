@@ -21,7 +21,7 @@
         <div >
 
             <label class="label" for="email">Email</label>
-            <input class="input" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
+            <input class="input" type="email" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
             <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.email ? errors.email.msg : '' %> </div><% } %>
 
         </div>
