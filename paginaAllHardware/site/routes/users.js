@@ -97,7 +97,6 @@ router.post('/profile', upload.single('img'), [
     check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
     check('email').isEmail().withMessage('El email debe ser un email valido'),
     body('img').custom(( value, { req }) => {
-        console.log(req.file, 'holaa', req.files)
         if( req.file != undefined) {
             const fileTypes = ['.jepg', '.jpg', '.png'];
             const extname = path.extname(req.file.originalname);
