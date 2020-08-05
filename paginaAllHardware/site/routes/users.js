@@ -48,30 +48,40 @@ router.get('/login', guestMiddleware, users.login);
 
 router.post('/login', [
 
-    check('password').isLength({min:8}).withMessage('contraseña invalidad'),
-
-    check('email').custom(async(value,{req}) => {
-      
-        let user= await db.User.findOne({ where:{email:value}}) 
-
-        if (user == null) {
-
-            return Promise.reject('Email invalido');
-
-        } else if (user && !bcrypt.compareSync(req.body.password , user.password)) {
-
-            return Promise.reject('Email invalido');
-        }
-
-     })
     
-  ],users.loginPost);
+    check('email').isEmail().withMessage('El email debe ser un email valido').custom(async(value,{req}) => {
+        
+        let user= await db.User.findOne({ where:{email:value}}) 
+        
+        if (user == null) {
+            
+            return Promise.reject('Email invalido');
+            
+        }
+        
+    }),
+
+    check('password').custom(async(value,{req}) => {
+        
+        let user= await db.User.findOne({ where:{email:req.body.email}});
+        
+        if (user && !bcrypt.compareSync(value , user.password)) {
+            
+            return Promise.reject('Contraseña invalida');
+        }
+    
+    })], users.loginPost);
 
 router.get('/registro',guestMiddleware,users.registro);
 
 router.post('/registro', upload.single('img'), [
-    check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
-    check('email').isEmail().withMessage('El email debe ser un email valido'),
+    check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
+    check('email').isEmail().withMessage('El email debe ser un email valido').custom( async value => {
+        let user= await db.User.findOne({ where:{email:value}})    
+        if (user != null) {
+            return Promise.reject('Este email ya esta registrado');
+        }
+    }),
     check('password').isLength({min: 8}).withMessage('La contraseña debe tener un minimo de 8 caracteres'),
     check('confirm_password').custom( (value, { req }) => {
         if (value != req.body.password) {
@@ -81,12 +91,12 @@ router.post('/registro', upload.single('img'), [
     }).withMessage('No coinciden las contraseñas'),
     check('img').custom(( value, { req }) => {
         if( req.file != undefined) {
-            const fileTypes = ['.jepg', '.jpg', '.png'];
+            const fileTypes = ['.jepg', '.jpg', '.png', '.gif'];
             const extname = path.extname(req.file.originalname);
             return fileTypes.includes(extname);
         }
         return false;
-    }).withMessage('La imagen debe ser un formato JPG, JEPG o PNG') ],
+    }).withMessage('La imagen debe ser un formato JPG, GIF, JEPG o PNG') ],
     users.registroPost);
 
 router.get('/profile', userMiddleware, users.profile);

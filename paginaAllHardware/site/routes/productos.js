@@ -5,6 +5,7 @@ const productos = require('../controller/productosController');
 const userMiddleware = require('../middlewares/userMiddleware');
 //librerias que necesito para trabajar con multer.
 const multer=require('multer');
+const {check, validationResult, body} =  require('express-validator');
 const path = require('path');
 const productosController = require('../controller/productosController');
 
@@ -44,14 +45,36 @@ var upload = multer({ storage: storage,
 
 router.get('/', productos.productos);
 
-router.get('/create',userMiddleware, productos.create);
+router.get('/create',[
+    check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
+    check('especification').isLength({min:20}).withMessage('Debe tener un mínimo de 20 caracteres'),
+    check('img').custom(( value, { req }) => {
+        if( req.file != undefined) {
+            const fileTypes = ['.jepg', '.jpg', '.png', '.gif'];
+            const extname = path.extname(req.file.originalname);
+            return fileTypes.includes(extname);
+        }
+        return false;
+    }).withMessage('La imagen debe ser un formato JPG, JEPG, GIF o PNG')
+], userMiddleware, productos.create);
 
 //implementamos upload.single()(middleware)
 router.post('/', upload.single('img'), productos.createPost);
 
 router.get('/:id', productos.id);
 
-router.get('/:id/edit', userMiddleware, productos.edit);
+router.get('/:id/edit', [
+    check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
+    check('especification').isLength({min:20}).withMessage('Debe tener un mínimo de 20 caracteres'),
+    check('img').custom(( value, { req }) => {
+        if( req.file != undefined) {
+            const fileTypes = ['.jepg', '.jpg', '.png', '.gif'];
+            const extname = path.extname(req.file.originalname);
+            return fileTypes.includes(extname);
+        }
+        return false;
+    }).withMessage('La imagen debe ser un formato JPG, JEPG, GIF o PNG')
+], userMiddleware, productos.edit);
 
 router.put('/:id', upload.single('img'), productos.editPut);
 

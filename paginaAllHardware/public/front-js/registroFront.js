@@ -4,21 +4,21 @@ window.addEventListener( 'load', function (){
 
     formRegistro.addEventListener( 'submit', function(e){
 
-        //e.preventDefault();
+        e.preventDefault();
 
         let campoNombre = formRegistro.querySelector('#nombre');
 
         let nombreError = campoNombre.parentElement.querySelector('.errors');
-
+        console.log(nombreError)
         if(campoNombre.value == ""){
 
-            //e.preventDefault();
+            e.preventDefault();
     
             nombreError.innerText = '* Este campo es obligatorio';
 
         }else if(campoNombre.value.length <= 2){
 
-            //e.preventDefault();
+            e.preventDefault();
 
             nombreError.innerText = '* Debe tener mas de dos caracteres';
 
@@ -38,43 +38,48 @@ window.addEventListener( 'load', function (){
 
         let emailError = campoEmail.parentElement.querySelector('.errors');
 
-        if(!regexEmail.test(campoEmail.value)){
+        if(campoEmail.value == ''){
 
-            //e.preventDefault();
+            e.preventDefault();
 
             emailError.innerText = '* Este campo es obligatorio';
 
-        }else{
+        } else if (!regexEmail.test(campoEmail.value)){
+
+            e.preventDefault();
+
+            emailError.innerText = '* Escriba un email valido';
+        
+        } else {
 
             //e.preventDefault();
 
             emailError.innerText = '';
         }
         
-        
         let campoPsw = formRegistro.querySelector('#password');
 
         let campoConfirmPsw = formRegistro.querySelector('#confirm_password'); 
 
-        let confPswError = campoConfirmPsw.parentElement.querySelector('.errors');
+        let confPswError = campoPsw.parentElement.querySelector('.errors');
 
-        if(campoConfirmPsw.value == ""){
+        if(campoPsw.value == ""){
 
-            //e.preventDefault();
+            e.preventDefault();
 
             confPswError.innerText = '* Este campo es obligatorio';
 
         }else if(campoPsw.value.length < 8){
 
-            //e.preventDefault();
+            e.preventDefault();
 
-            confPswError.innerText = 'Debe tener al menos 8 caracteres';
+            confPswError.innerText = '* Debe tener al menos 8 caracteres';
 
         }else if(campoPsw.value != campoConfirmPsw.value){
 
-            //e.preventDefault();
+            e.preventDefault();
 
-            confPswError.innerText = 'Las contraseñas no coinciden';
+            confPswError.innerText = '* Las contraseñas no coinciden';
         }else{
 
             //e.preventDefault();
@@ -88,7 +93,7 @@ window.addEventListener( 'load', function (){
 
         if(campoImg.value == ""){
 
-            //e.preventDefault();
+            e.preventDefault();
 
             imgError.innerText = '* Este campo es obligatorio';
 

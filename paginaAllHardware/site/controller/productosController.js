@@ -1,6 +1,7 @@
 const generateData = require('../models/generate');
 const db = require('../database/models');
-const { Op } =require('sequelize')
+const { Op } =require('sequelize');
+const {check, validationResult, body} =  require('express-validator');
 
 let productosController = {
     
@@ -44,25 +45,39 @@ let productosController = {
 
     },
 
-    createPost: (req, res, next)=>{
+    createPost: async (req, res, next)=>{
         
-        console.log(req.file)
+        let errors = validationResult(req);
 
-        if(req.file) {
-            let avatar = '/images/imagenesProductos/'+ req.file.filename;
+        if(errors.isEmpty() ) {
+
+            if(req.file) {
+                let avatar = '/images/imagenesProductos/'+ req.file.filename;
+            }
+
+            db.Product.create({
+                name: req.body.name,
+                price:req.body.price,
+                stock: req.body.stock,
+                especification: req.body.especification,
+                img: '/images/imagenesProductos/' + req.file.filename,
+                id_category: req.body.category,
+                id_brand: req.body.brand
+            });
+
+            res.redirect('/productos');
+
+        } else {
+
+            let promiseCategory = await db.Category.findAll();
+            let promiseBrand = await db.Brand.findAll();
+    
+            Promise.all( [promiseCategory, promiseBrand] )
+                .then( ( [Category, Brand] ) => {
+                    res.render('create', {Category, Brand, errors : errors.mapped(),body : {}});
+                }); 
+
         }
-
-        db.Product.create({
-            name: req.body.name,
-            price:req.body.price,
-            stock: req.body.stock,
-            especification: req.body.especification,
-            img: '/images/imagenesProductos/' + req.file.filename,
-            id_category: req.body.category,
-            id_brand: req.body.brand
-        });
-
-        res.redirect('/productos');
 
     },
 
@@ -74,47 +89,66 @@ let productosController = {
             });
     },
 
-    edit: (req, res) => {
+    edit: async (req, res) => {
 
-        db.Product.findOne({
-            where: {
-                id: req.params.id
-            }
-        }).then( product => {
-            res.render('edit',{productosMostrar:product});
-        });
+        let promiseCategory = await db.Category.findAll();
+        let promiseBrand = await db.Brand.findAll();
+        let promiseProduct = await db.Product.findByPk(req.params.id);
+
+        Promise.all( [promiseCategory, promiseBrand, promiseProduct] )
+            .then( ( [Category, Brand, Product] ) => {
+                res.render('create', {Category, Brand, Product});
+            });
 
     },
 
-    editPut: (req, res) => {
-      
-        if (req.files){
-            db.Product.update({
-                name: req.body.name,
-                stock: req.body.stock,
-                price: req.body.price,
-                especification: req.body.especification,
-                img: '/images/imagenesProductos/'+ req.file.filename
-            },{
-                where: {
-                    id: req.params.id
-                }
-            });
-        } else {
-            db.Product.update({
-                name: req.body.name,
-                stock: req.body.stock,
-                price: req.body.price,
-                especification: req.body.especification
-            },{
-                where: {
-                    id: req.params.id
-                }
-            });
-        }
-            
-        res.redirect('/productos');
+    editPut: async (req, res) => {
 
+        let errors = validationResult(req);
+
+        console.log('hollaaaaa' ,req.file.filename)
+
+        if(errors.isEmpty() ) {
+            
+            if (req.file){
+                db.Product.update({
+                    name: req.body.name,
+                    stock: req.body.stock,
+                    price: req.body.price,
+                    especification: req.body.especification,
+                    img: '/images/imagenesProductos/'+ req.file.filename
+                },{
+                    where: {
+                        id: req.params.id
+                    }
+                });
+            } else {
+                db.Product.update({
+                    name: req.body.name,
+                    stock: req.body.stock,
+                    price: req.body.price,
+                    especification: req.body.especification
+                },{
+                    where: {
+                        id: req.params.id
+                    }
+                });
+            }
+                
+            res.redirect('/productos');
+
+        } else {
+
+            let promiseCategory = await db.Category.findAll();
+            let promiseBrand = await db.Brand.findAll();
+            let promiseProduct = await db.Product.findByPk(req.params.id);
+
+            Promise.all( [promiseCategory, promiseBrand, promiseProduct] )
+            .then( ( [Category, Brand, Product] ) => {
+                res.render('create', {Category, Brand, Product, errors : errors.mapped(),body : {}});
+            });
+
+        }
     },
 
     borrar: (req,res) => {
