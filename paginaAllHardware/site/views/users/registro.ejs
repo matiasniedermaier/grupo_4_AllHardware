@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="/css/registro.css">
 
-<script src="/front-js/registroFront.js"></script>
+<!--<script src="/front-js/registroFront.js"></script>-->
 
 <div class="contenedor container">
 
@@ -15,13 +15,15 @@
 
             <label class="label" for="nombre">Nombre</label>
             <input class="input" type="text" name="name" id="nombre" placeholder="Nombre" value="<%= body.name ? body.name : ''%>">
-            <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.name ? errors.name.msg : '' %> </div><% } %> 
+            <% if (typeof errors != 'undefined') { %>
+                <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
+            <% } %> 
         
         </div>
         <div >
 
             <label class="label" for="email">Email</label>
-            <input class="input" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
+            <input class="input" type="email" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : ''%>">
             <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.email ? errors.email.msg : '' %> </div><% } %>
 
         </div>
@@ -42,7 +44,8 @@
         <div >
 
             <label class="label">Selecciona una imagen para tu perfil</label>
-            <input class="input" type="file" id="img" name="img"><% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.img ? errors.img.msg : '' %> </div><% } %>
+            <input class="input" type="file" id="img" name="img">
+            <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.img ? errors.img.msg : '' %> </div><% } %>
         
         </div>
         <div class="pa">

@@ -4,70 +4,105 @@ window.addEventListener( 'load', function (){
 
     formRegistro.addEventListener( 'submit', function(e){
 
+        e.preventDefault();
+
         let campoNombre = formRegistro.querySelector('#nombre');
 
+        let nombreError = campoNombre.parentElement.querySelector('.errors');
+        console.log(nombreError)
         if(campoNombre.value == ""){
-            
+
             e.preventDefault();
+    
+            nombreError.innerText = '* Este campo es obligatorio';
+
+        }else if(campoNombre.value.length <= 2){
+
+            e.preventDefault();
+
+            nombreError.innerText = '* Debe tener mas de dos caracteres';
+
+        }else {
+
+            //e.preventDefault();
 
             let nombreError = campoNombre.parentElement.querySelector('.errors');
 
-            nombreError.innerText = 'Ingrese nombre';
+            nombreError.innerText = '';
+
         }
 
         let regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
         let campoEmail = formRegistro.querySelector('#email');
 
-        if(!regexEmail.test(campoEmail.value)){
+        let emailError = campoEmail.parentElement.querySelector('.errors');
+
+        if(campoEmail.value == ''){
 
             e.preventDefault();
 
-            let emailError = campoEmail.parentElement.querySelector('.errors');
+            emailError.innerText = '* Este campo es obligatorio';
 
-            emailError.innerText = 'Ingrese email';
+        } else if (!regexEmail.test(campoEmail.value)){
+
+            e.preventDefault();
+
+            emailError.innerText = '* Escriba un email valido';
+        
+        } else {
+
+            //e.preventDefault();
+
+            emailError.innerText = '';
         }
         
-        
-        let campoPsw = formRegistro.querySelector('#password'); 
+        let campoPsw = formRegistro.querySelector('#password');
+
+        let campoConfirmPsw = formRegistro.querySelector('#confirm_password'); 
+
+        let confPswError = campoPsw.parentElement.querySelector('.errors');
 
         if(campoPsw.value == ""){
 
             e.preventDefault();
 
-            let pswError = campoPsw.parentElement.querySelector('.errors');
+            confPswError.innerText = '* Este campo es obligatorio';
 
-            pswError.innerText = 'Ingrese contraseña';
-        }  
-
-
-        let campoConfirmPsw = formRegistro.querySelector('#confirm_password'); 
-
-        let confPswError = campoConfirmPsw.parentElement.querySelector('.errors');
-
-        if(campoConfirmPsw.value == ""){
+        }else if(campoPsw.value.length < 8){
 
             e.preventDefault();
 
-            confPswError.innerText = 'Ingrese contraseña';
+            confPswError.innerText = '* Debe tener al menos 8 caracteres';
 
         }else if(campoPsw.value != campoConfirmPsw.value){
 
             e.preventDefault();
 
-            confPswError.innerText = 'Las contraseñas no coinciden';
+            confPswError.innerText = '* Las contraseñas no coinciden';
+        }else{
+
+            //e.preventDefault();
+
+            confPswError.innerText = '';
         }
         
         let campoImg = formRegistro.querySelector('#img');
+
+        let imgError = campoImg.parentElement.querySelector('.errors');
 
         if(campoImg.value == ""){
 
             e.preventDefault();
 
-            let imgError = campoImg.parentElement.querySelector('.errors');
+            imgError.innerText = '* Este campo es obligatorio';
 
-            imgError.innerText = 'Ingrese imagen';
-        }  
+        } else{
+
+            //e.preventDefault();
+
+            imgError.innerText = '';
+        } 
 
     })
     
