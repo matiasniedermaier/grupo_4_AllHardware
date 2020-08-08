@@ -45,7 +45,10 @@ var upload = multer({ storage: storage,
 
 router.get('/', productos.productos);
 
-router.get('/create',[
+router.get('/create', userMiddleware, productos.create);
+
+//implementamos upload.single()(middleware)
+router.post('/', upload.single('img'),[
     check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
     check('especification').isLength({min:20}).withMessage('Debe tener un mínimo de 20 caracteres'),
     check('img').custom(( value, { req }) => {
@@ -56,14 +59,13 @@ router.get('/create',[
         }
         return false;
     }).withMessage('La imagen debe ser un formato JPG, JEPG, GIF o PNG')
-], userMiddleware, productos.create);
-
-//implementamos upload.single()(middleware)
-router.post('/', upload.single('img'), productos.createPost);
+], productos.createPost);
 
 router.get('/:id', productos.id);
 
-router.get('/:id/edit', [
+router.get('/:id/edit',  userMiddleware, productos.edit);
+
+router.put('/:id', upload.single('img'), [
     check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
     check('especification').isLength({min:20}).withMessage('Debe tener un mínimo de 20 caracteres'),
     check('img').custom(( value, { req }) => {
@@ -74,9 +76,7 @@ router.get('/:id/edit', [
         }
         return false;
     }).withMessage('La imagen debe ser un formato JPG, JEPG, GIF o PNG')
-], userMiddleware, productos.edit);
-
-router.put('/:id', upload.single('img'), productos.editPut);
+], productos.editPut);
 
 //trabajando con la parte de delite......
 router.delete('/:id',userMiddleware, productos.borrar);
