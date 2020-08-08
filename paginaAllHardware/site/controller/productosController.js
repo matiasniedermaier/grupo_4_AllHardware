@@ -97,7 +97,7 @@ let productosController = {
 
         Promise.all( [promiseCategory, promiseBrand, promiseProduct] )
             .then( ( [Category, Brand, Product] ) => {
-                res.render('create', {Category, Brand, Product});
+                res.render('edit', {Category, Brand, Product});
             });
 
     },
@@ -106,7 +106,7 @@ let productosController = {
 
         let errors = validationResult(req);
 
-        console.log('hollaaaaa' ,req.file.filename)
+        //console.log('hollaaaaa' ,req.file.filename)
 
         if(errors.isEmpty() ) {
             
@@ -145,7 +145,7 @@ let productosController = {
 
             Promise.all( [promiseCategory, promiseBrand, promiseProduct] )
             .then( ( [Category, Brand, Product] ) => {
-                res.render('create', {Category, Brand, Product, errors : errors.mapped(),body : {}});
+                res.render('edit', {Category, Brand, Product, errors : errors.mapped(),body : {}});
             });
 
         }
