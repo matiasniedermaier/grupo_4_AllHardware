@@ -4,7 +4,6 @@ const apiCarritoController = require('../../controller/api/carritoControler');
 const userMiddleware = require('../../middlewares/userMiddleware');
 
 
-router.get('/', userMiddleware, apiCarritoController.add);
-
+router.get('/', userMiddleware, apiCarritoController.view);
 
 module.exports = router;

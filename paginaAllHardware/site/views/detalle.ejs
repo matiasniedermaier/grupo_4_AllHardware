@@ -63,7 +63,13 @@
 
             <li id="buton">
 
-                <a href="/carrito"><button class="butontwo">Agregar al carrito</button></a>
+                <form action="/carrito/<%=productosMostrar.id%> " method="POST">
+                    
+                    <input type="number" name="numero" value="1" id="">
+
+                    <button type="submit" class="butontwo">Agregar al carrito</button>
+
+                </form>
 
             </li>
 

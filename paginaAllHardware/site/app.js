@@ -43,8 +43,8 @@ app.use(methodOverride('_method'));
 app.use('/', homeRouter);
 app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
-//app.use('/carrito', carritoRouter);
-app.use('/carrito', apiCarritoRouter);
+app.use('/carrito', carritoRouter);
+app.use('/api/carrito', apiCarritoRouter);
 
 
 // catch 404 and forward to error handler
