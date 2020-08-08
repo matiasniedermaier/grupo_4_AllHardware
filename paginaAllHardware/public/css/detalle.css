@@ -73,6 +73,11 @@ li img {
     padding-top: 25px;
     }
 
+.form-button {
+    display: grid;
+    justify-content: center;
+}
+
 #nuevo{
     padding-top: 25px;
    
@@ -96,6 +101,13 @@ li img {
     height: 41px;   
     font-family: "Open Sans",sans-serif;
     font-size: 18px;
+}
+
+.number {
+    text-align: center;
+    width: 50px;
+    margin-bottom: 15px;
+    justify-self: center;
 }
 
 .tituloDes{
