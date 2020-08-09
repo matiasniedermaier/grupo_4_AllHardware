@@ -175,7 +175,7 @@ p{
 
 .form-name {
     padding-top: 10px;
-    text-align: center;
+    padding-left: 10px;
 }
 
 .form-price {
@@ -201,7 +201,10 @@ ul li {
     text-align: center;
 }
 
-
+.errors {
+    color: red;
+    font-size: unset;
+}
 
 
 @media(max-width: 425px){
