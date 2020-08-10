@@ -1,6 +1,7 @@
 window.onload = () => {
 
     let formLogin = document.querySelector('form.form-login');
+<<<<<<< HEAD
     console.log("paso por aqui", formLogin);
 
     
@@ -35,21 +36,49 @@ window.onload = () => {
         //campoPsw.classList.remove('campo-invalido'); 
         mostrarError.classList.remove('campo-invalido')
 
+=======
+    
+    let campoEmail = formLogin.getElementById('email');
+   
+    let mostrar = campoEmail.parentElement.getElementById('error-email');
+
+    formLogin.addEventListener( 'submit', function(e) { 
+
+        let regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    
+        if(!regexEmail.test(campoEmail.value)){  
+
+            e.preventDefault();
+            
+            mostrar.innerHTML = 'El formato del email es incorrecto';           
+            
+        }
+
+        let campoPsw = document.getElementById('password');
+        
+>>>>>>> f8a842d04926b232cd7df024790407f8950f78be
         if(campoPsw.value == ""){
 
             e.preventDefault();
             
+<<<<<<< HEAD
+=======
+            let mostrarError = campoPsw.parentElement.getElementById('error-password');
+>>>>>>> f8a842d04926b232cd7df024790407f8950f78be
             
 
             //campoPsw.classList.add('campo-invalido');
             //mostrarError.classList.add('campo-invalido');
             mostrarError.innerText = 'Ingrese contraseña';
             
+<<<<<<< HEAD
           
     
 };
+=======
+        }
+>>>>>>> f8a842d04926b232cd7df024790407f8950f78be
       
     })
 
-        
 }
