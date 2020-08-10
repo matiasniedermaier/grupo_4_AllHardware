@@ -67,8 +67,12 @@
                     
                     <input type="number" name="numero" value="1" class="number">
 
-                    <button type="submit" class="butontwo">Agregar al carrito</button>
+                  <% if(locals.logueado){%>
 
+                    <button type="submit" class="butontwo">Agregar al carrito</button>
+                  <%}  else { %>
+                    <a href="/users/login"><button class="butontwo">Agregar al carrito</button></a>
+                 <% } %> 
                 </form>
 
             </li>

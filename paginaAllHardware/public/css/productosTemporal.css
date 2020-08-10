@@ -78,7 +78,7 @@ a:hover {
 @media (min-width: 1024px) {
 
     .lista-prod {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     
 }
