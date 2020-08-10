@@ -15,7 +15,7 @@ let carritoController = {
 
         await db.Cart.create({
             id_user: req.session.user,
-            id_products: req.params.id - 1,
+            id_products: req.params.id,
             cantidad: req.body.numero,
             price_total: product.price,
         })
@@ -25,14 +25,6 @@ let carritoController = {
     }, 
     verCarrito: async (req, res) =>{
 
-        /*db.Cart.findAll({
-        where: {
-           id_user: req.session.id,
-        }
-        }).then( cart => {
-            return  res.render('carrito', { cart })
-        });*/
-
         let promiseCart = await db.Cart.findAll({ where: {id_user: req.session.user} });
         let promiseProduct = await db.Product.findAll();
         let promiseUser = await db.User.findByPk(req.session.user);
@@ -40,8 +32,8 @@ let carritoController = {
         Promise.all( [promiseCart, promiseProduct, promiseUser] )
             .then(( [cart, product, user] ) => {
                 return res.render('carrito', { cart, product, user })
-            });
-
+            })
+            /*.catch(res.redirect('/'))*/
     }
     
 };

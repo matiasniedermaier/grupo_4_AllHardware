@@ -8,53 +8,64 @@
 
     <h2 id="titulo">Resumen de tu pedido <%= user.name %> </h2>
 
-    <% for ( let i = 0; i <= cart.length; i++ ) { %>
+    <% let total = 0 %> 
 
-        <div class="producto">
+    <% for ( let i = 0; i < cart.length; i++) { %> 
 
-            <div class="img">
-    
-                <img id="img"
-                    src="<%= product[1].img %>" alt="">
-            </div>
-    
-            <div>
-    
-                <div class="contenedor-title">
-    
-                    <h4 class="title"><%= product[1].name %> </h4>
-    
-                </div>
-    
-                <div class="cantidad">
-    
-                    <div><i class="fas fa-minus"></i></div>
-    
-                    <div>
-                        <p><%= cart.cantidad %> </p>
+        <% for ( let j = 0; j < product.length; j++ ) { %> 
+
+            <% if ( cart[i].id_products == product[j].id ) { %> 
+
+                <div class="producto">
+
+                    <div class="img">
+            
+                        <img id="img"
+                            src="<%= product[j].img %> " alt="">
                     </div>
-    
-                    <div><i class="fas fa-plus"></i></div>
-    
+            
+                    <div>
+            
+                        <div class="contenedor-title">
+            
+                            <h4 class="title"><%= product[j].name %> </h4>
+            
+                        </div>
+            
+                        <div class="cantidad">
+            
+                            <div><i class="fas fa-minus"></i></div>
+            
+                            <div>
+                                <p><%= cart[i].cantidad %> </p>
+                            </div>
+            
+                            <div><i class="fas fa-plus"></i></div>
+            
+                        </div>
+            
+                        <div>
+            
+                            <p class="eliminar">Eliminar</p>
+            
+                        </div>
+            
+                        <div>
+            
+                            <p class="precio">$<%= product[j].price %> </p>
+                            <% total += product[j].price %> 
+            
+                        </div>
+            
+                    </div>
+            
                 </div>
-    
-                <div>
-    
-                    <p class="eliminar">Eliminar</p>
-    
-                </div>
-    
-                <div>
-    
-                    <p class="precio">$<%= product[1].price %></p>
-    
-                </div>
-    
-            </div>
-    
-        </div> 
 
-    <% } %> 
+            <% } %> 
+
+        <% } %>  
+
+    <% } %>  
 
     <!--<div class="producto">
 
@@ -139,9 +150,9 @@
 
     <div class="total">
 
-        <p id="total">Total: $20 </p>
+        <p id="total">Total: $<%= total %>  </p>
 
-        <button class="boton">Comprar</button>
+        <a href="/" class="boton" style="text-align: center;"><button class="boton">Comprar</button></a>
         
     </div>
 
