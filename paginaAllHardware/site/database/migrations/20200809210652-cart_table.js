@@ -3,39 +3,37 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('cart', {
     id: {
-      type: Sequelize.INTEGER(11),
+      type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
         },
  
     id_user: {
-      type: Sequelize.INTEGER(10),
+      type: Sequelize.INTEGER,
       references:{
         model: {
-          tableName: 'users',
-          schema: 'schema'
+          tableName: 'users'
         },
-        primaryKey: 'id'
+            Key: 'id'
       }
      
               },
     id_products: {
-      type: Sequelize.INTEGER(10),
+      type: Sequelize.INTEGER,
       references:{
         model: {
-          tableName: 'products',
-          schema: 'schema'
+          tableName: 'products'
                },
             Key: 'id'
                   }
       
               },
     cantidad: {
-      type: Sequelize.INTEGER(11)
+      type: Sequelize.INTEGER
               },
     price_total: {
-      type: Sequelize.DOUBLE(7.2)
+      type: Sequelize.DOUBLE
                  }
     })
   },

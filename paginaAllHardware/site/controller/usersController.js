@@ -63,7 +63,7 @@ let userController = {
                     let userId = user.id;
                     if(req.body.recordame) {
                         //por 15 minutos
-                        res.cookie('user', userId, { expires: new Date(Date.now() + 900000)});                     
+                        res.cookie('user', userId, { expires: new Date(Date.now() + 90000000)});                     
                     }       
                     req.session.logueado = true;
                     req.session.user = user.id;

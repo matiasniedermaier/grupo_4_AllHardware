@@ -18,11 +18,11 @@ module.exports = {
         allowNull: false
          },
       password: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(200),
         allowNull: false
                 },
       img: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(200),
         allowNull: false
            },
       admin: {

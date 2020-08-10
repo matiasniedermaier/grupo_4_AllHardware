@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING(70)
             },
        price: {
-        type: Sequelize.DOUBLE(7.2)
+        type: Sequelize.DOUBLE()
               },
       stock: {
         type: Sequelize.INTEGER(11)
@@ -25,23 +25,21 @@ module.exports = {
         type: Sequelize.STRING(200)
            },
       id_category: {
-        type: Sequelize.INTEGER(10),
+        type: Sequelize.INTEGER,
         allowNull: false,
         references:{
           model: {
-            tableName: 'category',
-            schema: 'schema'
+            tableName: 'category'
                  },
               Key: 'id'
                    }
                    },
       id_brand: {
-        type: Sequelize.INTEGER(10),
-        allowNull: false,
+        type: Sequelize.INTEGER,
+        allowNull: false, 
         references:{
           model: {
             tableName: 'brands',
-            schema: 'schema'
                  },
               Key: 'id'
                  }

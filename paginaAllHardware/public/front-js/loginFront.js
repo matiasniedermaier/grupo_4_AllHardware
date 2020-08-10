@@ -5,10 +5,13 @@ window.onload = () => {
     
     let campoEmail = formLogin.querySelector('#email');
    
-    let mostrar = document.querySelector('#error-email');
-    
+    let mostrar = campoEmail.parentElement.querySelector('div.error-email');
+    let campoPsw = formLogin.querySelector('#password');
+    let mostrarError =campoPsw.parentElement.querySelector('div.error-password');
 
     formLogin.addEventListener( 'submit', function(e) { 
+        campoPsw.classList.remove('campo-invalido');   
+        campoEmail.classList.add('campo-invalido');
 
         
 
@@ -20,29 +23,26 @@ window.onload = () => {
             e.preventDefault();
 
             campoEmail.classList.add('campo-invalido');
-            
-            mostrar.innerHTML = 'El formato del email es incorrecto';           
+            mostrar.classList.add('campo-invalido');
+            mostrar.innerText = 'El formato del email es incorrecto';  
+                 
             
         }
 
-        let campoPsw = document.querySelector('#password');
-        
-        campoPsw.classList.remove('campo-invalido');
 
 
         if(campoPsw.value == ""){
 
             e.preventDefault();
             
-            let mostrarError = document.querySelector('#error-password');
+            
 
             campoPsw.classList.add('campo-invalido');
-            
+            mostrarError.classList.add('campo-invalido');
             mostrarError.innerText = 'Ingrese contraseña';
             
-        }
-
         
+};
       
     })
 

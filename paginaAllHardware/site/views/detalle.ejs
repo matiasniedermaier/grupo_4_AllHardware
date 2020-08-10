@@ -57,13 +57,19 @@
 
             </li>
 
-            <li class="envio"> Envío gratis a todo el país</li>
+            <li class="envio"> Envío gratis a todo el país</li>lo
 
             <li><i class="fas fa-truck"></i></li>
 
             <li id="buton">
 
-                <a href="/carrito"><button class="butontwo">Agregar al carrito</button></a>
+                <form action="/carrito/<%=productosMostrar.id%>" class="form-button" method="POST">
+                    
+                    <input type="number" name="numero" value="1" class="number">
+
+                    <button type="submit" class="butontwo">Agregar al carrito</button>
+
+                </form>
 
             </li>
 

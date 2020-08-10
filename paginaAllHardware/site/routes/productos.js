@@ -48,11 +48,7 @@ router.get('/', productos.productos);
 router.get('/create', userMiddleware, productos.create);
 
 //implementamos upload.single()(middleware)
-<<<<<<< HEAD
-router.post('/', upload.single('img'),[
-=======
 router.post('/', upload.single('img'), [
->>>>>>> 9e14932f8774ef10f761a5dabfd89793e4eda5ca
     check('name').isLength({min:2}).withMessage('Debes escribir un nombre'),
     check('especification').isLength({min:20}).withMessage('Debe tener un mínimo de 20 caracteres'),
     check('img').custom(( value, { req }) => {
