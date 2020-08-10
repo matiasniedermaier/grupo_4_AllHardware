@@ -10,7 +10,7 @@ const homeRouter = require('./routes/home');
 const productosRouter = require('./routes/productos');
 const usersRouter = require('./routes/users');
 const carritoRouter = require('./routes/carrito');
-const apiCarritoRouter = require('./routes/api/carrito');
+/*const apiCarritoRouter = require('./routes/api/carrito');*/
 
 const cookiesRecordame = require('./middlewares/cookiesRecordar');
 const sessiones= require('./middlewares/sessionMiddlewares')
@@ -44,7 +44,7 @@ app.use('/', homeRouter);
 app.use('/productos', productosRouter);
 app.use('/users', usersRouter);
 app.use('/carrito', carritoRouter);
-app.use('/api/carrito', apiCarritoRouter);
+/*app.use('/api/carrito', apiCarritoRouter);*/
 
 
 // catch 404 and forward to error handler

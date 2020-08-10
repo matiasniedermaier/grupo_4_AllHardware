@@ -57,19 +57,29 @@
 
             </li>
 
-            <li class="envio"> Envío gratis a todo el país</li>lo
+            <li class="envio"> Envío gratis a todo el país</li>
 
             <li><i class="fas fa-truck"></i></li>
 
             <li id="buton">
 
-                <form action="/carrito/<%=productosMostrar.id%>" class="form-button" method="POST">
-                    
-                    <input type="number" name="numero" value="1" class="number">
+                <% if(locals.logueado) { %> 
 
-                    <button type="submit" class="butontwo">Agregar al carrito</button>
+                    <form action="/carrito/<%=productosMostrar.id%>" class="form-button" method="POST">
+                        
+                        <input type="number" name="numero" value="1" class="number">
 
-                </form>
+                        <input type="number" style="display: none;" value="<%= productosMostrar.id %> ">
+                        
+                        <button type="submit" class="butontwo">Agregar al carrito</button>
+
+                    </form>
+
+                <% }else{ %>   
+
+                    <a href="/users/login"><button type="submit" class="butontwo">Agregar al carrito</button></a>
+
+                <% } %>
 
             </li>
 

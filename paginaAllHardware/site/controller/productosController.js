@@ -40,7 +40,7 @@ let productosController = {
 
         Promise.all( [promiseCategory, promiseBrand] )
             .then( ( [Category, Brand] ) => {
-                res.render('create', {Category, Brand});
+                return res.render('create', {Category, Brand});
             }); 
 
     },

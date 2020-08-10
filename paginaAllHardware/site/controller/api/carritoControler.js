@@ -1,4 +1,4 @@
-const db = require('../../database/models');
+/*const db = require('../../database/models');
 const { promises } = require('fs');
 
 let apiCarritoController = {
@@ -26,4 +26,4 @@ let apiCarritoController = {
 
 };
 
-module.exports = apiCarritoController;
+module.exports = apiCarritoController;*/

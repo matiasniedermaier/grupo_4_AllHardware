@@ -37,7 +37,9 @@
             <div>
 
                 <input type="file" id="img" name="img">
-                <% if (typeof errors != 'undefined') { %><div class="errors"><%= errors.img ? errors.img.msg : '' %> </div><% } %>
+                <% if (typeof errors != 'undefined') { %>
+                    <div class="errors"><%= errors.img ? errors.img.msg : '' %> </div>
+                <% } %>
                 <label>Selecciona una imagen</label>
 
             </div>

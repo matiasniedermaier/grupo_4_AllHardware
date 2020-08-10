@@ -11,28 +11,36 @@ let carritoController = {
                 return product.price;
             })*/
 
-        console.log(req.params.id, 'acaaaaa')
+        console.log(req.params.id, 'goooll')
 
-        db.Cart.create({
+        await db.Cart.create({
             id_user: req.session.user,
-            id_products: req.params.id,
+            id_products: req.params.id - 1,
             cantidad: req.body.numero,
             price_total: product.price,
         })
 
-        res.redirect('/carrito');
+        res.redirect('/productos');
 
     }, 
-    verCarrito: (req, res) =>{
+    verCarrito: async (req, res) =>{
 
-        db.Cart.findAll({
+        /*db.Cart.findAll({
         where: {
            id_user: req.session.id,
         }
         }).then( cart => {
-            console.log (cart)
             return  res.render('carrito', { cart })
-        });
+        });*/
+
+        let promiseCart = await db.Cart.findAll({ where: {id_user: req.session.user} });
+        let promiseProduct = await db.Product.findAll();
+        let promiseUser = await db.User.findByPk(req.session.user);
+
+        Promise.all( [promiseCart, promiseProduct, promiseUser] )
+            .then(( [cart, product, user] ) => {
+                return res.render('carrito', { cart, product, user })
+            });
 
     }
     

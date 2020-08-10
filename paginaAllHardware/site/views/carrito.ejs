@@ -6,9 +6,57 @@
 
 <main class="container">
 
-    <h2 id="titulo">Resumen de tu pedido</h2>
+    <h2 id="titulo">Resumen de tu pedido <%= user.name %> </h2>
 
-    <div class="producto">
+    <% for ( let i = 0; i <= cart.length; i++ ) { %>
+
+        <div class="producto">
+
+            <div class="img">
+    
+                <img id="img"
+                    src="<%= product[1].img %>" alt="">
+            </div>
+    
+            <div>
+    
+                <div class="contenedor-title">
+    
+                    <h4 class="title"><%= product[1].name %> </h4>
+    
+                </div>
+    
+                <div class="cantidad">
+    
+                    <div><i class="fas fa-minus"></i></div>
+    
+                    <div>
+                        <p><%= cart.cantidad %> </p>
+                    </div>
+    
+                    <div><i class="fas fa-plus"></i></div>
+    
+                </div>
+    
+                <div>
+    
+                    <p class="eliminar">Eliminar</p>
+    
+                </div>
+    
+                <div>
+    
+                    <p class="precio">$<%= product[1].price %></p>
+    
+                </div>
+    
+            </div>
+    
+        </div> 
+
+    <% } %> 
+
+    <!--<div class="producto">
 
         <div class="img">
 
@@ -87,13 +135,13 @@
 
         </div>
 
-    </div>
+    </div> -->
 
     <div class="total">
 
-        <p id="total">Total: $48.535</p>
+        <p id="total">Total: $20 </p>
 
-        <button class="boton">Continuar compra</button>
+        <button class="boton">Comprar</button>
         
     </div>
 

@@ -4,7 +4,9 @@
 
 <link rel="stylesheet" href="/css/detalle.css">
 
-<form method="POST" action="/productos" enctype="multipart/form-data">
+<!--<script src="/front-js/product.js"></script>-->
+
+<form method="POST" class="form-create" action="/productos" enctype="multipart/form-data">
 
   <h2 class="container" style="padding-top: 10px;">Nuevo Producto</h2>
 
@@ -15,6 +17,9 @@
       <div>
 
         <input type="file" id="img" name="img">
+        <% if (typeof errors != 'undefined') { %>
+          <div class="errors"><%= errors.img ? errors.img.msg : '' %> </div>
+        <% } %>
         <label>Selecciona una imagen</label>
 
       </div>
@@ -26,6 +31,9 @@
       <div class="form-name" style="text-align: center;">
 
         <input class="form" type="text" id="name" placeholder="Nombre" name="name" >
+        <% if (typeof errors != 'undefined') { %>
+          <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
+        <% } %> 
 
       </div>
 
@@ -93,8 +101,10 @@
 
       <div style="display: flex;">
 
-        <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación"
-          name="especification"></textarea>
+        <textarea class="form-especification form" type="text" id="especification" placeholder="Especificación" name="especification"></textarea>
+        <% if (typeof errors != 'undefined') { %>
+          <div class="errors"><%= errors.especification ? errors.especification.msg : '' %></div>
+        <% } %> 
 
       </div>
 

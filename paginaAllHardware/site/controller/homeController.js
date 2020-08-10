@@ -1,11 +1,14 @@
 const generateData = require ('../models/generate');
+const db = require ('../database/models');
 
 let homeController = {
 
     home: (req, res) => {
 
-        let archivoProductos = generateData.readJson();
-        res.render('home', { productos: archivoProductos });
+        db.Product.findAll()
+            .then( products => {
+                res.render('home', { productos: products });
+            })
 
     }
 
