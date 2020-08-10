@@ -25,7 +25,11 @@ let productosController = {
 
         } else {
 
-           db.Product.findAll()
+           db.Product.findAll({
+            order : [
+                ['name', 'ASC']
+            ]
+           })
             .then( products => {
                 return res.render('productos', { productos: products });
             });  

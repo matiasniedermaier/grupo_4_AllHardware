@@ -69,6 +69,12 @@ let userController = {
                     req.session.user = user.id;
                     res.locals.logueado = true;
                     res.locals.user = user.id;
+
+                    if (user.admin) {
+                        req.session.admin = true;
+                        res.locals.admin = true;
+                    }
+
                     return res.redirect('/');
                 }
                 res.send('paso por aqui')

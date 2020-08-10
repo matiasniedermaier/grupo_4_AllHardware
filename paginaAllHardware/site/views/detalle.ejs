@@ -65,15 +65,6 @@
 
                 <% if(locals.logueado) { %> 
 
-<<<<<<< HEAD
-                  <% if(locals.logueado){%>
-
-                    <button type="submit" class="butontwo">Agregar al carrito</button>
-                  <%}  else { %>
-                    <a href="/users/login"><button class="butontwo">Agregar al carrito</button></a>
-                 <% } %> 
-                </form>
-=======
                     <form action="/carrito/<%=productosMostrar.id%>" class="form-button" method="POST">
                         
                         <input type="number" name="numero" value="1" class="number">
@@ -89,7 +80,6 @@
                     <a href="/users/login"><button type="submit" class="butontwo">Agregar al carrito</button></a>
 
                 <% } %>
->>>>>>> f8a842d04926b232cd7df024790407f8950f78be
 
             </li>
 
