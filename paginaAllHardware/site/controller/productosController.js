@@ -115,7 +115,7 @@ let productosController = {
         if(errors.isEmpty() ) {
             
             if (req.file){
-                db.Product.Update({
+                db.Product.update({
                     name: req.body.name,
                     stock: req.body.stock,
                     price: req.body.price,
@@ -127,7 +127,7 @@ let productosController = {
                     }
                 });
             } else {
-                db.Product.Update({
+                db.Product.update({
                     name: req.body.name,
                     stock: req.body.stock,
                     price: req.body.price,
