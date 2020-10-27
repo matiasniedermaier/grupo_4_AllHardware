@@ -49,7 +49,7 @@ let userController = {
     loginPost:(req, res) => {
 
         errors = validationResult(req); 
-     console.log(errors)
+        console.log(errors)
         if(errors.isEmpty() ){
 
             db.User.findOne({
@@ -77,7 +77,6 @@ let userController = {
 
                     return res.redirect('/');
                 }
-                res.send('paso por aqui')
             }).catch((error) => {
                 console.error(error);
                 return res.redirect('users/login');

@@ -65,10 +65,10 @@ router.post('/login', [
         
         let user= await db.User.findOne({ where:{email:req.body.email}});
         
-        if (user && !bcrypt.compareSync(value , user.password)) {
+        /*if (user && !bcrypt.compareSync(value , user.password)) {
             
             return Promise.reject('Contraseña invalida');
-        }
+        }*/
     
     })], users.loginPost);
 
